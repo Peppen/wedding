@@ -112,55 +112,37 @@ updateCountdown();
    APERTURA INVITO PERGAMENA
 ===================================== */
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
+    const seal = document.getElementById("openInvitation");
+    const envelope = document.getElementById("envelope");
+    const invitation = document.getElementById("invitation");
+    const enter = document.getElementById("enterSite");
 
-    const button =
-    document.getElementById("openInvitation");
+    seal.addEventListener("click", () => {
 
+        envelope.classList.add("open");
 
-    const envelope =
-    document.getElementById("envelope");
+        setTimeout(() => {
 
+            enter.classList.remove("hidden");
+            enter.classList.add("show");
 
-    const invitation =
-    document.getElementById("invitation");
+        },1800);
 
+    });
 
+    enter.addEventListener("click", () => {
 
-    if(button){
+        invitation.style.opacity="0";
 
+        setTimeout(()=>{
 
-        button.addEventListener(
-        "click",
-        function(){
+            invitation.style.display="none";
 
+        },700);
 
-            envelope.classList.add(
-                "open"
-            );
-
-
-
-            setTimeout(
-            function(){
-
-
-                invitation.classList.add(
-                    "hide-invitation"
-                );
-
-
-            },
-            3500
-            );
-
-
-        });
-
-
-    }
-
+    });
 
 });
 
