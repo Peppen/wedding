@@ -2,49 +2,27 @@
 <html lang="it">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Wedding Day</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Andrea & Giulia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav id="navbar">
+<header>
 
-    <div class="logo">
-        Andrea <span>&</span> Giulia
-    </div>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">
-        ☰
-    </button>
-
-    <ul id="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#story">La nostra storia</a></li>
-        <li><a href="#day">Il giorno</a></li>
-        <li><a href="#gallery">Galleria</a></li>
-        <li><a href="#rsvp">RSVP</a></li>
-    </ul>
-
-</nav>
+<nav class="navbar">
 
 <div class="logo">
-
-Andrea & Giulia
-
+Wedding Day
 </div>
 
 <ul>
@@ -53,187 +31,297 @@ Andrea & Giulia
 
 <li><a href="#story">La nostra storia</a></li>
 
-<li><a href="#day">Il giorno</a></li>
+<li><a href="#countdown">Countdown</a></li>
+
+<li><a href="#program">Programma</a></li>
 
 <li><a href="#gallery">Galleria</a></li>
 
 <li><a href="#rsvp">RSVP</a></li>
 
+<li><a href="#gift">Lista Nozze</a></li>
+
 </ul>
 
 </nav>
 
-<header id="home" class="hero">
 
-<section id="countdown" class="countdown-section">
-
-    <div class="container">
-
-        <p class="section-subtitle">
-            Save the Date
-        </p>
-
-        <h2>
-            Mancano...
-        </h2>
-
-        <div class="countdown-grid">
-
-            <div class="count-card">
-                <span id="days">0</span>
-                <small>Giorni</small>
-            </div>
-
-            <div class="count-card">
-                <span id="hours">0</span>
-                <small>Ore</small>
-            </div>
-
-            <div class="count-card">
-                <span id="minutes">0</span>
-                <small>Minuti</small>
-            </div>
-
-            <div class="count-card">
-                <span id="seconds">0</span>
-                <small>Secondi</small>
-            </div>
-
-        </div>
-
-        <p id="eventMessage" class="event-message"></p>
-
-        <div class="calendar-buttons">
-
-            <a id="googleCalendar"
-               class="btn primary"
-               target="_blank"
-               rel="noopener noreferrer">
-                Aggiungi a Google Calendar
-            </a>
-
-            <a id="downloadICS"
-               class="btn secondary">
-                Scarica il calendario (.ics)
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<div class="hero-overlay">
-
-        <div class="hero-content">
-
-            <p class="subtitle">
-                Ci sposiamo
-            </p>
-
-            <h1>
-                Andrea <span>&</span> Giulia
-            </h1>
-
-            <h2>
-                14 Giugno 2027
-            </h2>
-
-            <div class="hero-buttons">
-
-                <a href="#rsvp" class="btn primary">
-                    Conferma presenza
-                </a>
-
-                <a href="#day" class="btn secondary">
-                    Scopri il programma
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-
-    </div>
-
-</header>
+<section class="hero" id="home">
 
 <div class="overlay">
 
-<h1>Andrea & Giulia</h1>
+<h1>I nostri nomi</h1>
 
-<p>14 Giugno 2027</p>
+<p>18 Settembre 2027</p>
 
-<a href="#story" class="btn">
-
-Scopri di più
-
+<a href="#program" class="btn">
+Scopri il programma
 </a>
 
 </div>
 
+</section>
+
 </header>
 
 
-<section id="day" class="day-section">
 
-    <div class="container">
+<section id="story">
 
-        <p class="section-subtitle">
-            Il grande giorno
-        </p>
+<h2>La nostra storia</h2>
 
-        <h2>
-            Il programma della giornata
-        </h2>
-
-        <div class="info-box">
-
-<div class="info-item">
-
-<h4>🚗 Parcheggio</h4>
+<div class="container">
 
 <p>
-Parcheggio gratuito disponibile
-all'interno della struttura.
+
+Qui potrai raccontare la vostra storia:
+come vi siete conosciuti,
+il primo viaggio,
+la proposta di matrimonio
+e tutti i momenti più importanti.
+
 </p>
 
 </div>
-
-<div class="info-item">
-
-<h4>👔 Dress Code</h4>
-
-<p>
-Elegante.
-Colori pastello consigliati.
-</p>
-
-</div>
-
-<div class="info-item">
-
-<h4>🚌 Navetta</h4>
-
-<p>
-Servizio navetta disponibile
-dalle 15:00 alle 02:00.
-</p>
-
-</div>
-
-</div>
-
-    </div>
 
 </section>
 
-<section id="gallery"></section>
 
-<section id="rsvp"></section>
+
+<section id="countdown">
+
+<h2>Manca al grande giorno</h2>
+
+<div class="timer">
+
+<div>
+
+<span id="days">00</span>
+
+<p>Giorni</p>
+
+</div>
+
+<div>
+
+<span id="hours">00</span>
+
+<p>Ore</p>
+
+</div>
+
+<div>
+
+<span id="minutes">00</span>
+
+<p>Minuti</p>
+
+</div>
+
+<div>
+
+<span id="seconds">00</span>
+
+<p>Secondi</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="program">
+
+<h2>Il Programma</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Cerimonia</h3>
+
+<p>
+
+Chiesa di San Michele
+
+</p>
+
+<p>
+
+Ore 16:00
+
+</p>
+
+<p>
+
+Via delle Rose 12
+
+Borgo Antico
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Ricevimento</h3>
+
+<p>
+
+Villa Belvedere
+
+</p>
+
+<p>
+
+Ore 18:00
+
+</p>
+
+<p>
+
+Via dei Cipressi 25
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="gallery">
+
+<h2>I nostri ricordi</h2>
+
+<div class="gallery">
+
+<img src="images/gallery1.jpg">
+
+<img src="images/gallery2.jpg">
+
+<img src="images/gallery3.jpg">
+
+<img src="images/gallery4.jpg">
+
+<img src="images/gallery5.jpg">
+
+<img src="images/gallery6.jpg">
+
+</div>
+
+</section>
+
+
+
+<section id="rsvp">
+
+<h2>Conferma la tua presenza</h2>
+
+<div class="rsvp-card">
+
+<form id="rsvpForm">
+
+<input
+type="text"
+name="nome"
+placeholder="Nome e Cognome"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<select name="presenza">
+
+<option>Sì, parteciperò</option>
+
+<option>Purtroppo no</option>
+
+</select>
+
+<input
+type="number"
+name="ospiti"
+placeholder="Numero partecipanti"
+min="1"
+max="10">
+
+<textarea
+name="allergie"
+placeholder="Allergie o intolleranze"></textarea>
+
+<textarea
+name="messaggio"
+placeholder="Un messaggio per gli sposi"></textarea>
+
+<button>
+
+Invia conferma
+
+</button>
+
+</form>
+
+<p id="success"></p>
+
+</div>
+
+</section>
+
+
+
+<section id="gift">
+
+<h2>Lista Nozze</h2>
+
+<div class="gift-box">
+
+<p>
+
+Il regalo più bello sarà condividere con voi questa giornata.
+
+Se desiderate contribuire al nostro viaggio di nozze,
+qui potrete inserire l'IBAN oppure il link alla lista nozze.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section id="map">
+
+<h2>Dove si svolgerà</h2>
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18..."
+loading="lazy">
+</iframe>
+
+</section>
+
+
+
+<footer>
+
+<p>
+
+Con amore ❤️
+
+Grazie per essere parte del nostro giorno speciale.
+
+</p>
+
+</footer>
 
 <script src="script.js"></script>
 
