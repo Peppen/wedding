@@ -8,9 +8,7 @@
 ===================================== */
 
 
-const weddingDate = new Date(
-    "September 7, 2027 11:00:00"
-).getTime();
+const weddingDate = new Date("2027-09-04T16:00:00");
 
 
 
