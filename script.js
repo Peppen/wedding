@@ -112,27 +112,6 @@ updateCountdown();
    APERTURA INVITO PERGAMENA
 ===================================== */
 
-document.addEventListener("DOMContentLoaded", function(){
-
-    const button = document.getElementById("openInvitation");
-
-    console.log("Pulsante trovato:", button);
-
-
-    if(button){
-
-        button.addEventListener("click", function(){
-
-            console.log("CLICK FUNZIONA");
-
-            alert("Il pulsante funziona!");
-
-        });
-
-    }
-
-});
-
 document.addEventListener(
 "DOMContentLoaded",
 function(){
