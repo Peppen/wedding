@@ -1531,7 +1531,7 @@ footer::before {
     left:50%;
     top:50%;
 
-    translate:-50% -50%;
+    transform:translate(-50%,-50%);
 
     width:80px;
     height:80px;
@@ -1554,23 +1554,24 @@ footer::before {
 
     z-index:5;
 
-    transition:
-        scale .3s ease,
-        opacity .8s ease;
-
+    transition: transform .3s ease, opacity .8s ease;
 }
 
 
 .seal:hover{
 
-    scale:1.08;
+    transform:
+    translate(-50%,-50%)
+    scale(1.08);
 
 }
 
 
 .envelope.open .seal{
 
-    scale:0;
+    transform:
+    translate(-50%,-50%)
+    scale(0);
 
     opacity:0;
 
