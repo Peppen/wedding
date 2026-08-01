@@ -112,35 +112,23 @@ updateCountdown();
    APERTURA INVITO PERGAMENA
 ===================================== */
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
+document.addEventListener("DOMContentLoaded", function(){
 
 
     const button =
-    document.getElementById(
-        "openInvitation"
-    );
+    document.getElementById("openInvitation");
 
 
     const envelope =
-    document.getElementById(
-        "envelope"
-    );
+    document.getElementById("envelope");
 
 
     const invitation =
-    document.getElementById(
-        "invitation"
-    );
+    document.getElementById("invitation");
 
 
 
-    if(
-        button &&
-        envelope &&
-        invitation
-    ){
+    if(button){
 
 
         button.addEventListener(
@@ -153,6 +141,7 @@ function(){
             );
 
 
+
             setTimeout(
             function(){
 
@@ -163,7 +152,7 @@ function(){
 
 
             },
-            2200
+            3500
             );
 
 
@@ -174,7 +163,6 @@ function(){
 
 
 });
-
 
 
 
