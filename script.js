@@ -117,30 +117,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const seal = document.getElementById("openInvitation");
     const envelope = document.getElementById("envelope");
     const invitation = document.getElementById("invitation");
-    const enter = document.getElementById("enterSite");
+    const enterButton = document.getElementById("enterSite");
 
+    if (!seal || !envelope || !invitation || !enterButton) {
+        console.error("Manca uno degli elementi dell'invito.");
+        return;
+    }
+
+    // Apertura della busta
     seal.addEventListener("click", () => {
 
         envelope.classList.add("open");
 
         setTimeout(() => {
-
-            enter.classList.remove("hidden");
-            enter.classList.add("show");
-
-        },1800);
+            enterButton.classList.remove("hidden");
+            enterButton.classList.add("show");
+        }, 1800);
 
     });
 
-    enter.addEventListener("click", () => {
+    // Entrata nel sito
+    enterButton.addEventListener("click", () => {
 
-        invitation.style.opacity="0";
+        invitation.style.transition = "opacity .8s ease";
+        invitation.style.opacity = "0";
 
-        setTimeout(()=>{
-
-            invitation.style.display="none";
-
-        },700);
+        setTimeout(() => {
+            invitation.style.display = "none";
+        }, 800);
 
     });
 
