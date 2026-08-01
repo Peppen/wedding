@@ -1734,45 +1734,6 @@ footer::before {
 
 
 
-
-
-
-
-/* pulsante */
-
-
-#openInvitation {
-
-
-    margin-top:20px;
-
-
-    padding:14px 35px;
-
-
-    border:none;
-
-
-    border-radius:40px;
-
-
-    background:#71856c;
-
-
-    color:white;
-
-
-    cursor:pointer;
-
-
-    font-size:16px;
-
-
-}
-
-
-
-
 /* bordo pergamena */
 
 .letter::before {
@@ -1947,52 +1908,4 @@ footer::before {
     z-index:10;
 
     margin:0;
-}
-
-.seal {
-    margin:0 !important;
-    padding:0 !important;
-    border:none !important;
-}
-
-/* FIX CERLACCA */
-
-.seal#openInvitation {
-
-    position:absolute !important;
-
-    left:50% !important;
-    top:50% !important;
-
-    margin:0 !important;
-    padding:0 !important;
-
-    width:80px !important;
-    height:80px !important;
-
-    transform:translate(-50%, -50%) !important;
-
-    display:flex !important;
-
-    align-items:center !important;
-    justify-content:center !important;
-
-}
-
-
-.seal#openInvitation:hover {
-
-    transform:
-    translate(-50%, -50%)
-    scale(1.08) !important;
-
-}
-
-
-.envelope.open .seal#openInvitation {
-
-    transform:
-    translate(-50%, -50%)
-    scale(0) !important;
-
 }
