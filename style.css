@@ -1524,6 +1524,212 @@ section {
 }
 
 /* =====================================
+   COPERTINA INVITO
+===================================== */
+
+
+.invitation-cover {
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #91a487,
+        #667a60
+    );
+
+}
+
+
+
+.envelope {
+
+    width:430px;
+
+    max-width:90%;
+
+    position:relative;
+
+    perspective:1200px;
+
+
+}
+
+
+
+.letter {
+
+
+    position:relative;
+
+
+    background:
+
+    radial-gradient(
+        ellipse at center,
+        #f7edcf 0%,
+        #e5d0a3 75%
+    );
+
+
+    padding:70px 45px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.35);
+
+
+    border-radius:8px;
+
+
+    z-index:2;
+
+
+
+}
+
+
+
+/* bordo pergamena */
+
+.letter::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    border:18px solid transparent;
+
+
+    background:
+
+    linear-gradient(
+        45deg,
+        rgba(120,80,30,.25),
+        transparent
+    );
+
+
+    opacity:.5;
+
+
+    pointer-events:none;
+
+}
+
+
+
+
+.small-title {
+
+    color:#9b7b42;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    font-size:14px;
+
+
+}
+
+
+
+.letter h1 {
+
+
+    margin:25px 0;
+
+
+    font-family:'Playfair Display',serif;
+
+
+    font-size:38px;
+
+
+    color:#526451;
+
+
+}
+
+
+
+.letter p {
+
+    color:#5c6657;
+
+}
+
+
+
+/* linguetta apertura */
+
+.flap {
+
+
+    position:absolute;
+
+
+    top:0;
+
+    left:0;
+
+
+    width:100%;
+
+    height:120px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #c8ad7a,
+        #a88b55
+    );
+
+
+    clip-path:
+
+    polygon(
+    0 0,
+    100% 0,
+    50% 100%
+    );
+
+
+    transform-origin:top;
+
+
+    transition:1.5s;
+
+
+    z-index:3;
+
+
+}
+
+/* =====================================
    APERTURA INVITO
 ===================================== */
 
@@ -1556,96 +1762,6 @@ section {
 
 }
 
-
-
-.envelope {
-
-
-    width:420px;
-
-    height:280px;
-
-    position:relative;
-
-
-    perspective:1000px;
-
-
-}
-
-
-
-.letter {
-
-
-    position:absolute;
-
-    inset:20px;
-
-
-    background:
-
-    radial-gradient(
-        circle,
-        #f5e8c8,
-        #d8bd89
-    );
-
-
-    padding:45px 30px;
-
-    text-align:center;
-
-
-    box-shadow:
-
-    0 20px 50px rgba(0,0,0,.3);
-
-
-    z-index:2;
-
-
-}
-
-
-
-
-.flap {
-
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-
-    width:100%;
-
-    height:100%;
-
-
-    background:#b7a37a;
-
-
-    clip-path:
-
-    polygon(
-    0 0,
-    100% 0,
-    50% 60%
-    );
-
-
-    transform-origin:top;
-
-    transition:2s;
-
-
-    z-index:3;
-
-
-}
 
 
 
