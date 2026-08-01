@@ -3,6 +3,53 @@
    Tema: Verde Salvia Elegante
 ===================================== */
 
+const openButton =
+document.getElementById(
+"openInvitation"
+);
+
+
+const invitation =
+document.getElementById(
+"invitation"
+);
+
+
+
+if(openButton){
+
+
+openButton.addEventListener(
+"click",
+
+()=>{
+
+
+invitation.classList.add(
+"open"
+);
+
+
+
+setTimeout(()=>{
+
+
+invitation.classList.add(
+"hide-invitation"
+);
+
+
+
+},2000);
+
+
+
+}
+
+);
+
+
+}
 
 /* RESET GENERALE */
 
