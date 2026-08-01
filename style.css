@@ -1722,46 +1722,44 @@ section {
 
 .flap {
 
-
     position:absolute;
 
-
-    top:0;
+    top:-5px;
 
     left:0;
 
 
     width:100%;
 
-    height:120px;
+    height:90px;
 
 
     background:
 
     linear-gradient(
         135deg,
-        #c8ad7a,
-        #a88b55
+        #c7ad7a,
+        #a98c56
     );
 
 
     clip-path:
 
     polygon(
-    0 0,
-    100% 0,
-    50% 100%
+        0 0,
+        100% 0,
+        50% 100%
     );
 
 
     transform-origin:top;
 
 
-    transition:1.5s;
+    transition:
+    transform 1.5s ease;
 
 
-    z-index:3;
-
+    z-index:1;
 
 }
 
@@ -1906,7 +1904,35 @@ section {
 
 .envelope.open .flap {
 
-    transform:rotateX(180deg);
+    transform:
+    rotateX(170deg)
+    translateY(-20px);
+
+}
+
+.envelope::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:85px;
+
+    left:0;
+
+
+    width:100%;
+
+    height:30px;
+
+
+    background:
+
+    rgba(100,70,30,.15);
+
+
+    filter:blur(12px);
+
 
     z-index:1;
 
