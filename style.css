@@ -1604,42 +1604,290 @@ section {
 
 }
 
+/* =================================
+   BUSTA MATRIMONIO
+================================= */
 
 
-.letter {
+.invitation-cover {
 
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #94a78a,
+        #667a60
+    );
+
+}
+
+
+
+.envelope {
+
+    width:450px;
+
+    height:320px;
 
     position:relative;
+
+    perspective:1200px;
+
+}
+
+
+
+/* FOGLIO INTERNO */
+
+
+.paper {
+
+
+    position:absolute;
+
+
+    inset:25px;
 
 
     background:
 
     radial-gradient(
-        ellipse at center,
-        #f7edcf 0%,
-        #e5d0a3 75%
+        ellipse,
+        #f7edcf,
+        #ddc18c
     );
 
 
-    padding:70px 45px;
+    padding:55px 35px;
 
 
     text-align:center;
 
 
+    z-index:1;
+
+
     box-shadow:
 
-    0 30px 70px rgba(0,0,0,.35);
-
-
-    border-radius:8px;
-
-
-    z-index:2;
+    0 25px 50px rgba(0,0,0,.35);
 
 
 
 }
+
+
+
+.paper h1 {
+
+    font-family:
+    'Playfair Display',serif;
+
+
+    color:#526451;
+
+
+    margin:20px 0;
+
+
+    font-size:34px;
+
+}
+
+
+
+
+.small-title {
+
+    color:#a17b42;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* SIGILLO */
+
+
+.seal {
+
+
+    margin:15px auto;
+
+
+    width:60px;
+
+    height:60px;
+
+
+    border-radius:50%;
+
+
+    background:#8c583b;
+
+
+    color:#e8d7aa;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:32px;
+
+
+}
+
+
+
+
+
+/* ANTE SINISTRA */
+
+
+.left-door,
+.right-door {
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    width:50%;
+
+
+    height:100%;
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #bca06b,
+        #927544
+    );
+
+
+    z-index:3;
+
+
+    transition:
+    transform 1.8s ease;
+
+
+}
+
+
+
+/* forma delle ante */
+
+
+.left-door {
+
+
+    left:0;
+
+
+    transform-origin:left;
+
+
+}
+
+
+
+.right-door {
+
+
+    right:0;
+
+
+    transform-origin:right;
+
+
+}
+
+
+
+
+/* apertura */
+
+
+.envelope.open .left-door {
+
+
+    transform:
+    rotateY(-110deg);
+
+
+}
+
+
+
+.envelope.open .right-door {
+
+
+    transform:
+    rotateY(110deg);
+
+
+}
+
+
+
+
+/* pulsante */
+
+
+#openInvitation {
+
+
+    margin-top:20px;
+
+
+    padding:14px 35px;
+
+
+    border:none;
+
+
+    border-radius:40px;
+
+
+    background:#71856c;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    font-size:16px;
+
+
+}
+
 
 
 
@@ -1713,53 +1961,6 @@ section {
 .letter p {
 
     color:#5c6657;
-
-}
-
-
-
-/* linguetta apertura */
-
-.flap {
-
-    position:absolute;
-
-    top:-5px;
-
-    left:0;
-
-
-    width:100%;
-
-    height:90px;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #c7ad7a,
-        #a98c56
-    );
-
-
-    clip-path:
-
-    polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-
-    transform-origin:top;
-
-
-    transition:
-    transform 1.5s ease;
-
-
-    z-index:1;
 
 }
 
@@ -1898,15 +2099,6 @@ section {
     transition:transform 1.5s ease;
 
     z-index:3;
-
-}
-
-
-.envelope.open .flap {
-
-    transform:
-    rotateX(170deg)
-    translateY(-20px);
 
 }
 
