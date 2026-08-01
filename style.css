@@ -227,30 +227,202 @@ a {
 
 .hero {
 
-    height: 100vh;
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:40px;
+
 
     background:
 
     linear-gradient(
-        rgba(80,100,85,.45),
-        rgba(80,100,85,.45)
-    ),
+        135deg,
+        #9aaa8c,
+        #7e9276
+    );
 
-    url("images/hero.jpg");
+}
 
-    background-size: cover;
+.parchment-card {
 
-    background-position: center;
 
-    display: flex;
+    width:650px;
 
-    align-items: center;
+    max-width:95%;
 
-    justify-content: center;
 
-    text-align: center;
+    text-align:center;
 
-    color:white;
+
+    padding:80px 60px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #f4edd8,
+        #e5dac0
+    );
+
+
+    position:relative;
+
+
+    box-shadow:
+
+    0 30px 60px rgba(50,60,40,.35);
+
+
+
+    clip-path:
+
+    polygon(
+
+    0 3%,
+    5% 0,
+    12% 2%,
+    20% 0,
+    30% 2%,
+    40% 0,
+    50% 2%,
+    60% 0,
+    70% 2%,
+    80% 0,
+    90% 2%,
+    100% 0,
+
+    98% 100%,
+    90% 98%,
+    80% 100%,
+    70% 98%,
+    60% 100%,
+    50% 98%,
+    40% 100%,
+    30% 98%,
+    20% 100%,
+    10% 98%,
+    0 100%
+
+    );
+
+
+}
+
+.parchment-card h1 {
+
+
+    font-family:'Playfair Display',serif;
+
+    font-size:55px;
+
+    color:#536650;
+
+    margin:25px 0;
+
+
+}
+
+.save-date {
+
+
+    font-size:18px;
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    color:#9b8350;
+
+
+}
+
+.date {
+
+
+    font-family:'Playfair Display',serif;
+
+    font-size:30px;
+
+    color:#5b6d5a;
+
+    margin:20px;
+
+
+}
+
+.line {
+
+
+    width:120px;
+
+    height:2px;
+
+    background:#b99a5c;
+
+    margin:25px auto;
+
+
+}
+
+.decor {
+
+
+    font-size:45px;
+
+    color:#b99a5c;
+
+}
+
+
+.decor.bottom {
+
+
+    margin-top:35px;
+
+
+}
+
+.parchment-card {
+
+
+animation:
+
+openInvite 1.5s ease;
+
+
+}
+
+
+@keyframes openInvite {
+
+
+from {
+
+opacity:0;
+
+transform:
+scale(.85)
+translateY(40px);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:
+scale(1)
+translateY(0);
+
+}
+
 
 }
 
