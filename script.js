@@ -1226,3 +1226,31 @@ section {
     animation:fade 1s ease;
 
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    const button = document.getElementById("openInvitation");
+
+    const envelope = document.getElementById("envelope");
+
+    const invitation = document.getElementById("invitation");
+
+
+    button.addEventListener("click", function(){
+
+
+        envelope.classList.add("open");
+
+
+        setTimeout(function(){
+
+            invitation.classList.add("hide-invitation");
+
+        },2000);
+
+
+    });
+
+
+});
