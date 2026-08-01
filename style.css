@@ -1554,8 +1554,8 @@ footer::before {
 
     z-index:5;
 
-    transition:.8s;
-
+    transition: transform .3s ease, opacity .8s ease;
+   will-change: transform;
 }
 
 .invitation-cover {
@@ -1603,18 +1603,6 @@ footer::before {
    BUSTA MATRIMONIO
 ================================= */
 
-.envelope {
-
-    width:450px;
-
-    height:320px;
-
-    position:relative;
-
-    perspective:1200px;
-
-}
-
 
 
 /* FOGLIO INTERNO */
@@ -1626,24 +1614,23 @@ footer::before {
 
     left:30px;
     right:30px;
-
     top:290px;
 
     height:300px;
 
-    background:
-    radial-gradient(circle,#f8efd5,#e6d2a5);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    justify-content:center;
+
+    background:radial-gradient(circle,#f8efd5,#e6d2a5);
 
     border-radius:6px;
 
     padding:45px;
 
-    text-align:center;
-
-    transition:
-        top 2s ease;
-
-    z-index:1;
+    transition:top 2s ease;
 
 }
 
@@ -1900,14 +1887,8 @@ footer::before {
 
 }
 
-
-
 #openInvitation:hover {
-
-
-    transform:scale(1.05);
-
-
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* APERTURA ALE */
@@ -1978,4 +1959,19 @@ footer::before {
 
     display:none;
 
+}
+
+#enterSite{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+
+    margin:0;
 }
