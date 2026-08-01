@@ -19,10 +19,49 @@ html {
 
 
 body {
+
     font-family: 'Poppins', sans-serif;
-    background: #f8f7f2;
-    color: #4c5b50;
-    line-height: 1.6;
+
+    color:#425247;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(255,255,255,.35),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(90,110,90,.25),
+        transparent 45%
+    ),
+    #a8b89f;
+
+    background-attachment:fixed;
+
+}
+
+body::before {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.18;
+
+    background-image:
+
+    repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(80,90,70,.15) 4px
+    );
+
 }
 
 
@@ -51,9 +90,11 @@ h1,
 h2,
 h3 {
 
-    font-family: 'Playfair Display', serif;
+    font-family:'Playfair Display', serif;
 
-    font-weight: 700;
+    color:#566b5a;
+
+    letter-spacing:1px;
 
 }
 
@@ -276,7 +317,29 @@ a {
 
 section {
 
-    padding:100px 8%;
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.75),
+        rgba(245,240,225,.85)
+    );
+
+    max-width:1100px;
+
+    margin:80px auto;
+
+    padding:80px 8%;
+
+    border-radius:25px;
+
+    box-shadow:
+
+    0 15px 35px rgba(60,70,60,.15);
+
+    border:
+
+    1px solid rgba(120,130,110,.25);
 
 }
 
@@ -1095,14 +1158,20 @@ section:not(:first-child)::before {
 /* Pulsanti eleganti */
 
 
-button,
-.btn {
+.btn,
+button {
 
+    background:#718675;
 
-    letter-spacing:1px;
+    color:white;
 
-    font-weight:500;
+    border-radius:50px;
 
+    border:1px solid #5e705f;
+
+    box-shadow:
+
+    0 8px 20px rgba(70,90,70,.25);
 
 }
 
