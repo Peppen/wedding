@@ -9,7 +9,7 @@
 
 
 const weddingDate = new Date(
-    "September 18, 2027 16:00:00"
+    "September 7, 2027 11:00:00"
 ).getTime();
 
 
