@@ -1634,19 +1634,20 @@ footer::before {
     right:30px;
     top:290px;
 
-    height:330px; /* aumentato */
+    height:330px;
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
 
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-top:55px;
 
     background:radial-gradient(circle,#f8efd5,#e6d2a5);
 
     border-radius:6px;
-
-    padding:45px;
 
     transition:top 2s ease;
 
@@ -1894,14 +1895,15 @@ footer::before {
 
 }
 
-#enterSite {
+#enterSite{
+
+    margin-top:35px;
 
     position:relative;
 
-    margin-top:25px;
-
-    z-index:20;
-
+   left:auto;
+    bottom:auto;
+    transform:none;
 }
 
 #enterSite.show {
