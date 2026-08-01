@@ -1527,6 +1527,42 @@ section {
    COPERTINA INVITO
 ===================================== */
 
+.seal {
+
+
+    width:65px;
+
+    height:65px;
+
+
+    margin:20px auto;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:#8b5e3c;
+
+
+    color:#e8d7aa;
+
+
+    font-size:35px;
+
+
+    box-shadow:
+
+    0 5px 15px rgba(0,0,0,.25);
+
+
+}
 
 .invitation-cover {
 
@@ -1871,6 +1907,8 @@ section {
 .envelope.open .flap {
 
     transform:rotateX(180deg);
+
+    z-index:1;
 
 }
 
