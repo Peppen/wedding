@@ -34,6 +34,8 @@ body {
 
     color:#4d5d4d;
 
+    overflow-x:hidden;
+
 }
 
 body::before {
@@ -521,6 +523,8 @@ section {
 
     overflow:hidden;
 
+   animation:fade 1s ease;
+
    clip-path: polygon(
 
     1% 3%,
@@ -551,6 +555,23 @@ section {
     2% 95%
 
     );
+
+}
+
+section,
+.card,
+.gallery img{
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s;
+
+}
+
+.visible{
+
+    opacity:1;
+    transform:translateY(0);
 
 }
 
@@ -1499,30 +1520,6 @@ footer::before {
 }
 
 
-
-
-
-/* Nascondere eventuali scrollbar orizzontali */
-
-
-body {
-
-    overflow-x:hidden;
-
-}
-
-
-
-
-
-/* Effetto entrata */
-
-section {
-
-    animation:fade 1s ease;
-
-}
-
 /* =====================================
    COPERTINA INVITO
 ===================================== */
@@ -1606,35 +1603,6 @@ section {
    BUSTA MATRIMONIO
 ================================= */
 
-
-
-.invitation-cover {
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:9999;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #94a78a,
-        #667a60
-    );
-
-}
-
-
-
 .envelope {
 
     width:450px;
@@ -1697,18 +1665,6 @@ section {
 
 }
 
-
-
-
-.small-title {
-
-    color:#a17b42;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-}
 
 .envelope.open .seal{
 
@@ -1856,24 +1812,6 @@ section {
 
 }
 
-
-
-
-.small-title {
-
-    color:#9b7b42;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    font-size:14px;
-
-
-}
-
-
-
 .letter h1 {
 
 
@@ -1902,38 +1840,6 @@ section {
 /* =====================================
    APERTURA INVITO
 ===================================== */
-
-
-.invitation-cover {
-
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:9999;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #879b7d,
-        #64775f
-    );
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-}
-
-
-
 
 .small-title {
 
@@ -2068,36 +1974,6 @@ section {
 .envelope.open .paper{
 
     top:20px;
-
-}
-
-
-.envelope.open {
-
-    animation:openLetter 2s forwards;
-
-}
-
-
-
-@keyframes openLetter {
-
-    0% {
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-
-    100% {
-
-        transform:scale(1.2);
-
-        opacity:0;
-
-    }
 
 }
 
