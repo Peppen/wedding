@@ -1527,16 +1527,23 @@ section {
    COPERTINA INVITO
 ===================================== */
 
-.seal {
+.seal{
 
+    position:absolute;
 
-    width:65px;
+    left:50%;
+    top:50%;
 
-    height:65px;
+    transform:translate(-50%,-50%);
 
+    width:80px;
+    height:80px;
 
-    margin:20px auto;
+    border-radius:50%;
 
+    background:#8b3d30;
+
+    color:#f8efd5;
 
     display:flex;
 
@@ -1544,23 +1551,13 @@ section {
 
     justify-content:center;
 
+    font-size:34px;
 
-    border-radius:50%;
+    cursor:pointer;
 
+    z-index:5;
 
-    background:#8b5e3c;
-
-
-    color:#e8d7aa;
-
-
-    font-size:35px;
-
-
-    box-shadow:
-
-    0 5px 15px rgba(0,0,0,.25);
-
+    transition:.8s;
 
 }
 
@@ -1591,16 +1588,17 @@ section {
 
 
 
-.envelope {
-
-    width:430px;
-
-    max-width:90%;
+.envelope{
 
     position:relative;
 
-    perspective:1200px;
+    width:470px;
 
+    height:320px;
+
+    overflow:hidden;
+
+    perspective:1200px;
 
 }
 
@@ -1653,38 +1651,30 @@ section {
 /* FOGLIO INTERNO */
 
 
-.paper {
-
+.paper{
 
     position:absolute;
 
+    left:30px;
+    right:30px;
 
-    inset:25px;
+    top:290px;
 
+    height:300px;
 
     background:
+    radial-gradient(circle,#f8efd5,#e6d2a5);
 
-    radial-gradient(
-        ellipse,
-        #f7edcf,
-        #ddc18c
-    );
+    border-radius:6px;
 
-
-    padding:55px 35px;
-
+    padding:45px;
 
     text-align:center;
 
+    transition:
+        top 2s ease;
 
     z-index:1;
-
-
-    box-shadow:
-
-    0 25px 50px rgba(0,0,0,.35);
-
-
 
 }
 
@@ -1719,139 +1709,83 @@ section {
 
 }
 
+.envelope.open .seal{
 
+    transform:
+    translate(-50%,-50%)
+    scale(0);
 
-/* SIGILLO */
-
-
-.seal {
-
-
-    margin:15px auto;
-
-
-    width:60px;
-
-    height:60px;
-
-
-    border-radius:50%;
-
-
-    background:#8c583b;
-
-
-    color:#e8d7aa;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    font-size:32px;
-
+    opacity:0;
 
 }
 
+.hidden{
 
+    opacity:0;
 
+    pointer-events:none;
 
+}
 
-/* ANTE SINISTRA */
+.show{
 
+    opacity:1;
+
+    pointer-events:auto;
+
+    transition:opacity 1s ease;
+
+}
 
 .left-door,
-.right-door {
-
+.right-door{
 
     position:absolute;
 
-
     top:0;
-
 
     width:50%;
 
-
     height:100%;
 
+    background:#c5ab78;
 
-    background:
-
-
-    linear-gradient(
-        135deg,
-        #bca06b,
-        #927544
-    );
-
+    transition:transform 1.5s ease;
 
     z-index:3;
 
-
-    transition:
-    transform 1.8s ease;
-
-
 }
 
-
-
-/* forma delle ante */
-
-
-.left-door {
-
+.left-door{
 
     left:0;
 
-
     transform-origin:left;
-
 
 }
 
-
-
-.right-door {
-
+.right-door{
 
     right:0;
 
-
     transform-origin:right;
 
+}
+
+.envelope.open .left-door{
+
+    transform:rotateY(-110deg);
+
+}
+
+.envelope.open .right-door{
+
+    transform:rotateY(110deg);
 
 }
 
 
 
-
-/* apertura */
-
-
-.envelope.open .left-door {
-
-
-    transform:
-    rotateY(-110deg);
-
-
-}
-
-
-
-.envelope.open .right-door {
-
-
-    transform:
-    rotateY(110deg);
-
-
-}
 
 
 
@@ -2130,6 +2064,11 @@ section {
 
 }
 
+.envelope.open .paper{
+
+    top:20px;
+
+}
 
 
 .envelope.open {
