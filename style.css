@@ -137,7 +137,7 @@ position:relative;
 
 width:430px;
 
-height:300px;
+height:360px;
 
 
 perspective:1200px;
@@ -362,9 +362,11 @@ rotateY(115deg);
 
 .envelope.open .letter {
 
-top:-130px;
+top:-230px;
 
 opacity:1;
+
+z-index:30;
 
 }
 
