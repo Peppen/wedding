@@ -13,8 +13,11 @@
 }
 
 
-html {
-    scroll-behavior: smooth;
+html{
+
+    scroll-behavior:smooth;
+    scroll-padding-top:90px;
+
 }
 
 
@@ -246,7 +249,9 @@ a {
 
 .parchment-card {
 
+animation:
 
+openInvite 1.5s ease;
     width:650px;
 
     max-width:95%;
@@ -383,17 +388,6 @@ a {
 
 
 }
-
-.parchment-card {
-
-
-animation:
-
-openInvite 1.5s ease;
-
-
-}
-
 
 @keyframes openInvite {
 
@@ -1486,20 +1480,6 @@ img {
 
 
 
-
-/* Scroll morbido */
-
-
-html {
-
-    scroll-padding-top:90px;
-
-}
-
-
-
-
-
 /* Cuoricino decorativo */
 
 
@@ -1577,31 +1557,6 @@ footer::before {
 
 }
 
-.invitation-cover {
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:9999;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #91a487,
-        #667a60
-    );
-
-}
-
 
 
 .envelope{
@@ -1674,14 +1629,21 @@ footer::before {
 
 .hidden{
 
-    display:none;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
 
 }
 
 .show{
 
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+
     display:inline-block;
-    animation:fade .6s;
+
+    transition:.5s;
 
 }
 
@@ -1733,62 +1695,6 @@ footer::before {
 }
 
 
-
-/* bordo pergamena */
-
-.letter::before {
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-
-    border:18px solid transparent;
-
-
-    background:
-
-    linear-gradient(
-        45deg,
-        rgba(120,80,30,.25),
-        transparent
-    );
-
-
-    opacity:.5;
-
-
-    pointer-events:none;
-
-}
-
-.letter h1 {
-
-
-    margin:25px 0;
-
-
-    font-family:'Playfair Display',serif;
-
-
-    font-size:38px;
-
-
-    color:#526451;
-
-
-}
-
-
-
-.letter p {
-
-    color:#5c6657;
-
-}
-
 /* =====================================
    APERTURA INVITO
 ===================================== */
@@ -1805,23 +1711,6 @@ footer::before {
 
 }
 
-
-
-.letter h1 {
-
-
-    font-family:
-
-    'Playfair Display',serif;
-
-
-    color:#526451;
-
-
-    font-size:35px;
-
-
-}
 
 
 
@@ -1887,11 +1776,22 @@ footer::before {
 
 }
 
+.invitation-cover{
 
+    opacity:1;
+    visibility:visible;
 
-.hide-invitation {
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
 
-    display:none;
+}
+
+.hide-invitation{
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
 
 }
 
