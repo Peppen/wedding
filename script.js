@@ -129,7 +129,7 @@ enterButton.addEventListener("click", function(){
 
 
 const weddingDate = new Date(
-"September 18, 2027 16:00:00"
+"September 4, 2027 12:00:00"
 );
 
 
