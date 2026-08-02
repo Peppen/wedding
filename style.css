@@ -1629,21 +1629,17 @@ footer::before {
 
 .hidden{
 
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(20px);
+    display:none;
 
 }
 
 .show{
 
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
-
     display:inline-block;
 
-    transition:.5s;
+    opacity:1;
+
+    animation:fadeUp .6s ease;
 
 }
 
@@ -1777,6 +1773,21 @@ footer::before {
 }
 
 .invitation-cover{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #91a487,
+        #667a60
+    );
+
+    z-index:9999;
 
     opacity:1;
     visibility:visible;
