@@ -1,104 +1,248 @@
-/* =====================================
-   WEDDING WEBSITE - SCRIPT JS
-===================================== */
-
-
-/* =====================================
-   COUNTDOWN MATRIMONIO
-===================================== */
-
-
-const weddingDate = new Date("2027-09-04T16:00:00");
+/* =====================================================
+   WEDDING WEBSITE SCRIPT
+===================================================== */
 
 
 
-function updateCountdown() {
-
-    const now = new Date().getTime();
-
-    const distance = weddingDate - now;
+document.addEventListener("DOMContentLoaded", function(){
 
 
-    if (distance < 0) {
 
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
-
-        return;
-
-    }
+/* =====================================================
+   APERTURA INVITO
+===================================================== */
 
 
-    const days = Math.floor(
-        distance /
-        (1000 * 60 * 60 * 24)
-    );
+const seal = document.getElementById("seal");
+
+const envelope = document.getElementById("envelope");
+
+const enterButton = document.getElementById("enterSite");
+
+const intro = document.getElementById("intro");
+
+const website = document.getElementById("website");
 
 
-    const hours = Math.floor(
-        (distance %
-        (1000 * 60 * 60 * 24))
-        /
-        (1000 * 60 * 60)
-    );
 
 
-    const minutes = Math.floor(
-        (distance %
-        (1000 * 60 * 60))
-        /
-        (1000 * 60)
-    );
 
+// Nasconde il sito fino all'apertura
 
-    const seconds = Math.floor(
-        (distance %
-        (1000 * 60))
-        /
-        1000
-    );
+if(website){
 
-
-    const daysElement = document.getElementById("days");
-    const hoursElement = document.getElementById("hours");
-    const minutesElement = document.getElementById("minutes");
-    const secondsElement = document.getElementById("seconds");
-
-
-    if(daysElement){
-
-        daysElement.innerHTML = days;
-
-    }
-
-
-    if(hoursElement){
-
-        hoursElement.innerHTML = hours;
-
-    }
-
-
-    if(minutesElement){
-
-        minutesElement.innerHTML = minutes;
-
-    }
-
-
-    if(secondsElement){
-
-        secondsElement.innerHTML = seconds;
-
-    }
+    website.style.display="none";
 
 }
 
 
 
+
+
+if(seal){
+
+
+seal.addEventListener("click", function(){
+
+
+
+    envelope.classList.add("open");
+
+
+
+    setTimeout(function(){
+
+
+        enterButton.classList.remove("hidden");
+
+        enterButton.classList.add("show");
+
+
+    },1800);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+// Entrata nel sito
+
+
+if(enterButton){
+
+
+
+enterButton.addEventListener("click", function(){
+
+
+
+    intro.classList.add("hide");
+
+
+
+    setTimeout(function(){
+
+
+        intro.style.display="none";
+
+
+        website.style.display="block";
+
+
+        window.scrollTo({
+
+            top:0,
+            behavior:"instant"
+
+        });
+
+
+
+    },1000);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+
+
+const weddingDate = new Date(
+"September 18, 2027 16:00:00"
+);
+
+
+
+
+function updateCountdown(){
+
+
+
+const now = new Date();
+
+
+
+const distance =
+weddingDate - now;
+
+
+
+if(distance <=0){
+
+
+
+document.getElementById("days").innerHTML="0";
+
+document.getElementById("hours").innerHTML="0";
+
+document.getElementById("minutes").innerHTML="0";
+
+document.getElementById("seconds").innerHTML="0";
+
+
+return;
+
+
+}
+
+
+
+
+
+const days =
+Math.floor(
+distance /
+(1000*60*60*24)
+);
+
+
+
+const hours =
+Math.floor(
+(distance %
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+
+
+
+
+const minutes =
+Math.floor(
+(distance %
+(1000*60*60))
+/
+(1000*60)
+);
+
+
+
+
+
+const seconds =
+Math.floor(
+(distance %
+(1000*60))
+/
+1000
+);
+
+
+
+
+
+
+document.getElementById("days").innerHTML =
+days;
+
+
+
+document.getElementById("hours").innerHTML =
+hours;
+
+
+
+document.getElementById("minutes").innerHTML =
+minutes;
+
+
+
+document.getElementById("seconds").innerHTML =
+seconds;
+
+
+
+}
+
+
+
+
+
 setInterval(updateCountdown,1000);
+
 
 updateCountdown();
 
@@ -106,106 +250,60 @@ updateCountdown();
 
 
 
-/* =====================================
-   APERTURA INVITO PERGAMENA
-===================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    const seal = document.getElementById("openInvitation");
-    const envelope = document.getElementById("envelope");
-    const invitation = document.getElementById("invitation");
-    const enterButton = document.getElementById("enterSite");
 
-    if (!seal || !envelope || !invitation || !enterButton) {
-        console.error("Manca uno degli elementi dell'invito.");
-        return;
-    }
 
-    // Apertura della busta
-    seal.addEventListener("click", () => {
+/* =====================================================
+   ANIMAZIONI SCROLL
+===================================================== */
 
-        envelope.classList.add("open");
 
-        setTimeout(() => {
-            enterButton.classList.remove("hidden");
-            enterButton.classList.add("show");
-        }, 1800);
+const elements =
+document.querySelectorAll(
+"section,.card"
+);
 
-    });
 
-    // Entrata nel sito
-    enterButton.addEventListener("click", () => {
 
-        invitation.style.transition = "opacity .8s ease";
-        invitation.style.opacity = "0";
 
-        setTimeout(() => {
-            invitation.style.display = "none";
-        }, 800);
+const observer =
+new IntersectionObserver(
+(entries)=>{
 
-    });
+
+
+entries.forEach(entry=>{
+
+
+
+if(entry.isIntersecting){
+
+
+entry.target.classList.add("visible");
+
+
+}
+
 
 });
 
 
 
+},
+{
+threshold:.15
+}
 
-/* =====================================
-   ANIMAZIONI SCORRIMENTO
-===================================== */
-
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-    const elements =
-    document.querySelectorAll(
-        "section, .card, .gallery img"
-    );
+);
 
 
 
-    const observer =
-    new IntersectionObserver(
-    function(entries){
+
+elements.forEach(element=>{
 
 
-        entries.forEach(
-        function(entry){
-
-
-            if(entry.isIntersecting){
-
-
-                entry.target.classList.add(
-                    "visible"
-                );
-
-
-            }
-
-
-        });
-
-
-    },
-    {
-        threshold:0.15
-    });
-
-
-
-    elements.forEach(
-    function(element){
-
-
-        observer.observe(element);
-
-
-    });
+observer.observe(element);
 
 
 });
@@ -214,159 +312,111 @@ function(){
 
 
 
-/* =====================================
+
+
+
+
+/* =====================================================
    RSVP GOOGLE SHEETS
-===================================== */
-
-
-/*
-Inserire qui il link
-generato da Google Apps Script
-*/
-
-
-const scriptURL =
-"INSERISCI_URL_GOOGLE_SCRIPT";
+===================================================== */
 
 
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-    const form =
-    document.getElementById(
-        "rsvpForm"
-    );
-
-
-    const message =
-    document.getElementById(
-        "success"
-    );
+const form =
+document.getElementById("rsvpForm");
 
 
 
-    if(form){
 
 
-        form.addEventListener(
-        "submit",
-        function(event){
-
-
-            event.preventDefault();
+if(form){
 
 
 
-            const button =
-            form.querySelector(
-                "button"
-            );
-
-
-            button.innerHTML =
-            "Invio...";
-
-
-            button.disabled = true;
+form.addEventListener(
+"submit",
+function(e){
 
 
 
-            fetch(
-                scriptURL,
-                {
-                    method:"POST",
-                    body:new FormData(form)
-                }
-            )
-
-            .then(
-            function(){
+e.preventDefault();
 
 
-                if(message){
 
-                    message.innerHTML =
-                    "💚 Grazie! La tua presenza è stata confermata.";
-
-                }
+const button =
+form.querySelector("button");
 
 
-                form.reset();
+
+button.innerHTML =
+"Invio...";
 
 
-                button.innerHTML =
-                "Invia conferma";
+
+button.disabled=true;
 
 
-                button.disabled = false;
 
 
-            })
-
-            .catch(
-            function(){
+// Qui inserire in futuro Google Script URL
 
 
-                if(message){
-
-                    message.innerHTML =
-                    "Si è verificato un errore. Riprova.";
-
-                }
+setTimeout(function(){
 
 
-                button.innerHTML =
-                "Invia conferma";
+
+button.innerHTML =
+"Confermato ❤️";
 
 
-                button.disabled = false;
+
+form.reset();
 
 
-            });
+
+},1500);
 
 
-        });
-
-
-    }
 
 
 });
 
 
 
+}
 
 
-/* =====================================
-   ANNO AUTOMATICO FOOTER
-===================================== */
 
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
 
 
-    const footer =
-    document.querySelector(
-        "footer"
-    );
 
 
-    if(footer){
+/* =====================================================
+   ANNO FOOTER
+===================================================== */
 
 
-        footer.innerHTML +=
-        `
-        <br>
-        © ${new Date().getFullYear()} Wedding Day
-        `;
+const footer =
+document.querySelector("footer");
 
 
-    }
+
+if(footer){
+
+
+
+footer.innerHTML +=
+
+`
+<br><br>
+© ${new Date().getFullYear()} Wedding Day
+`;
+
+
+
+}
+
 
 
 });
