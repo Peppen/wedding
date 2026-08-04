@@ -6,7 +6,36 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
+for(let i=0;i<25;i++){
 
+const p=document.createElement("span");
+
+p.className="particle";
+
+document.body.appendChild(p);
+
+const x=Math.random()*120-60;
+const y=Math.random()*120-60;
+
+p.style.left=seal.getBoundingClientRect().left+"px";
+p.style.top=seal.getBoundingClientRect().top+"px";
+
+p.animate([
+{
+transform:"translate(0,0) scale(1)",
+opacity:1
+},
+{
+transform:`translate(${x}px,${y}px) scale(0)`,
+opacity:0
+}
+],{
+duration:900
+});
+
+setTimeout(()=>p.remove(),900);
+
+}
 
 /* =====================================================
    APERTURA INVITO
