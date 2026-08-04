@@ -1182,45 +1182,45 @@ z-index:5;
 
 section h2{
 
-font-family:'Playfair Display', serif;
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:100%;
+
+margin:0 auto 60px;
+
+font-family:'Playfair Display',serif;
 
 font-size:52px;
 
 font-weight:500;
 
-color:var(--sage-deep);
-
 letter-spacing:3px;
 
-text-align:center;
-
-margin:0 auto 60px;
-
-position:relative;
-
-display:block;
-
-width:100%;
+color:var(--sage-deep);
 
 text-align:center;
 
 }
 
-
-
-
-
 section h2::after{
 
 content:"";
 
-display:block;
+position:absolute;
+
+left:50%;
+
+bottom:-18px;
+
+transform:translateX(-50%);
 
 width:110px;
 
 height:2px;
-
-margin:18px auto 0;
 
 background:
 linear-gradient(
