@@ -1420,7 +1420,49 @@ color:#5f665d;
 
 }
 
+.card-icon{
 
+font-size:48px;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.card p{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:18px;
+
+font-size:16px;
+
+line-height:1.7;
+
+color:#5f665d;
+
+}
+
+.card p:last-child{
+
+flex-direction:column;
+
+gap:8px;
+
+}
+
+.card i{
+
+color:var(--gold);
+
+}
 
 
 
