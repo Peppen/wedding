@@ -1182,17 +1182,21 @@ z-index:5;
 
 section h2{
 
-font-size:48px;
+font-family:'Playfair Display', serif;
 
-letter-spacing:2px;
+font-size:52px;
 
-color:var(--sage-dark);
+font-weight:500;
 
-margin-bottom:60px;
+color:var(--sage-deep);
 
-text-shadow:
+letter-spacing:3px;
 
-1px 1px 0 rgba(255,255,255,.4);
+text-align:center;
+
+margin:0 auto 60px;
+
+position:relative;
 
 }
 
@@ -1200,26 +1204,25 @@ text-shadow:
 
 
 
-section h2::after {
-
+section h2::after{
 
 content:"";
 
-
 display:block;
 
-
-width:80px;
-
+width:110px;
 
 height:2px;
 
+margin:18px auto 0;
 
-background:var(--gold);
-
-
-margin:15px auto;
-
+background:
+linear-gradient(
+90deg,
+transparent,
+var(--gold),
+transparent
+);
 
 }
 
