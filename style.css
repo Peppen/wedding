@@ -362,17 +362,8 @@ rotateY(-115deg);
 
 .envelope.open{
 
-animation:zoomLetter 2s forwards;
-
-}
-
-@keyframes zoomLetter{
-
-to{
-
-transform:scale(1.08);
-
-}
+    transform:scale(1.05);
+    transition:transform .8s;
 
 }
 
