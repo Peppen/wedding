@@ -310,7 +310,7 @@ transition:
 
 transform 1.5s cubic-bezier(.77,0,.18,1);
 
-
+pointer-events:none;
 }
 
 
@@ -357,13 +357,6 @@ transform:
 
 rotateY(-115deg);
 
-
-}
-
-.envelope.open{
-
-    transform:scale(1.05);
-    transition:transform .8s;
 
 }
 
@@ -651,7 +644,7 @@ background:inherit;
 transform-origin:top;
 
 transition:1.2s;
-
+pointer-events:none;
 }
 
 .envelope.open .letter::before{
