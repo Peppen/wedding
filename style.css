@@ -1753,7 +1753,23 @@ transform:translateY(0);
 
 
 
+.particle{
 
+position:fixed;
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:#d7b36a;
+
+pointer-events:none;
+
+z-index:99999;
+
+}
 
 
 
