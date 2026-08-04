@@ -1851,3 +1851,459 @@ transform:translateY(0)!important;
 }
 
 
+/* =====================================================
+   LUXURY SAGE WEDDING THEME
+===================================================== */
+
+:root{
+
+--sage:#8FA58A;
+--sage-dark:#435443;
+--sage-deep:#324132;
+
+--gold:#B89A52;
+--gold-light:#D8C48B;
+
+--paper-light:#F5F7F0;
+--paper:#E5EBDD;
+--paper-dark:#CDD9C5;
+
+--cream:#FBFAF4;
+
+--brown:#625542;
+
+--shadow-soft:
+0 25px 60px rgba(53,70,52,.15);
+
+}
+
+
+
+/* BODY */
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#F7F8F2,
+#E8EEE1
+);
+
+color:var(--sage-dark);
+
+}
+
+
+
+/* NAVBAR LUXURY */
+
+nav{
+
+height:90px;
+
+background:
+
+rgba(245,248,240,.82);
+
+border-bottom:
+
+1px solid rgba(184,154,82,.25);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+
+0 15px 40px rgba(60,80,55,.12);
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+letter-spacing:1px;
+
+color:var(--sage-deep);
+
+}
+
+
+
+nav a{
+
+font-size:15px;
+
+letter-spacing:.5px;
+
+color:var(--sage-dark);
+
+position:relative;
+
+}
+
+
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-8px;
+
+left:0;
+
+width:0;
+
+height:1px;
+
+background:var(--gold);
+
+transition:.4s;
+
+}
+
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+
+
+
+/* HERO */
+
+.hero{
+
+background:
+
+linear-gradient(
+135deg,
+#9EB394,
+#60745C
+);
+
+}
+
+
+
+.hero-card{
+
+background:
+
+linear-gradient(
+145deg,
+#FBFAF3,
+#E6EAD9
+);
+
+
+border:
+
+1px solid rgba(184,154,82,.35);
+
+
+box-shadow:
+
+0 40px 100px rgba(30,45,30,.35);
+
+}
+
+
+
+.hero-card h1{
+
+color:var(--sage-deep);
+
+font-weight:500;
+
+letter-spacing:2px;
+
+}
+
+
+
+.save{
+
+color:var(--gold);
+
+letter-spacing:8px;
+
+}
+
+
+
+
+
+/* PULSANTI */
+
+.button,
+#rsvpForm button,
+#enterSite{
+
+
+background:
+
+linear-gradient(
+135deg,
+#91A887,
+#64795D
+);
+
+
+border:
+
+1px solid rgba(255,255,255,.4);
+
+
+box-shadow:
+
+0 15px 35px rgba(50,70,45,.25);
+
+}
+
+
+
+.button:hover,
+#rsvpForm button:hover,
+#enterSite:hover{
+
+
+background:
+
+linear-gradient(
+135deg,
+#64795D,
+#435443
+);
+
+
+transform:
+
+translateY(-4px);
+
+}
+
+
+
+
+
+/* SEZIONI */
+
+section:not(.hero){
+
+background:
+
+linear-gradient(
+145deg,
+#F4F7EF,
+#DDE7D5
+);
+
+
+border:
+
+1px solid rgba(184,154,82,.25);
+
+
+box-shadow:
+
+0 25px 70px rgba(55,75,50,.18);
+
+}
+
+
+
+section h2{
+
+font-size:52px;
+
+font-weight:500;
+
+color:
+
+var(--sage-deep);
+
+letter-spacing:3px;
+
+}
+
+
+
+
+section h2::after{
+
+height:1px;
+
+width:100px;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+var(--gold),
+transparent
+);
+
+}
+
+
+
+
+
+/* COUNTDOWN */
+
+.timer div{
+
+background:
+
+rgba(255,255,255,.75);
+
+
+border:
+
+1px solid rgba(184,154,82,.25);
+
+
+backdrop-filter:blur(10px);
+
+
+box-shadow:
+
+0 20px 45px rgba(50,70,45,.12);
+
+}
+
+
+
+.timer span{
+
+color:var(--sage-deep);
+
+}
+
+
+
+
+
+/* CARD EVENTI */
+
+.card{
+
+background:
+
+linear-gradient(
+145deg,
+#FFFFFF,
+#F0F4EA
+);
+
+
+border:
+
+1px solid rgba(184,154,82,.25);
+
+
+border-top:
+
+3px solid var(--gold);
+
+
+}
+
+
+
+.card h3{
+
+color:
+
+var(--sage-deep);
+
+letter-spacing:1px;
+
+}
+
+
+
+
+
+/* FORM RSVP */
+
+.rsvp-card{
+
+background:
+
+linear-gradient(
+145deg,
+#FFFFFF,
+#EEF3E8
+);
+
+
+border:
+
+1px solid rgba(184,154,82,.2);
+
+}
+
+
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+
+background:
+
+#F8FAF5;
+
+border:
+
+1px solid #CCD7C4;
+
+}
+
+
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus{
+
+outline:none;
+
+border-color:
+
+var(--gold);
+
+box-shadow:
+
+0 0 15px rgba(184,154,82,.25);
+
+}
+
+
+
+
+/* FOOTER */
+
+footer{
+
+background:
+
+linear-gradient(
+135deg,
+#435443,
+#324132
+);
+
+
+border-top:
+
+3px solid var(--gold);
+
+}
