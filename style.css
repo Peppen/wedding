@@ -1332,30 +1332,42 @@ color:#777;
 
 
 /* =====================================================
-   PROGRAMMA
+   CARD PROGRAMMA
 ===================================================== */
 
-
-.cards {
-
+.cards{
 
 display:flex;
 
-
 justify-content:center;
 
+align-items:stretch;
 
 gap:40px;
 
-
 flex-wrap:wrap;
 
+margin-top:20px;
 
 }
 
-
-
 .card{
+
+flex:1 1 380px;
+
+max-width:420px;
+
+min-height:340px;
+
+padding:45px 35px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-start;
+
+text-align:center;
 
 background:
 linear-gradient(
@@ -1364,65 +1376,49 @@ linear-gradient(
 #F5F8F2
 );
 
-border:1px solid rgba(184,154,82,.18);
+border-radius:20px;
+
+border:1px solid rgba(184,154,82,.2);
 
 border-top:4px solid var(--gold);
 
-border-radius:18px;
-
 box-shadow:
+0 15px 35px rgba(50,60,45,.10),
+0 30px 60px rgba(50,60,45,.12);
 
-0 12px 35px rgba(50,60,45,.10),
-
-0 25px 50px rgba(50,60,45,.12);
-
-transition:.45s;
+transition:.4s;
 
 }
 
 .card:hover{
 
-transform:translateY(-10px);
-
-box-shadow:
-
-0 18px 45px rgba(50,60,45,.18),
-
-0 35px 70px rgba(50,60,45,.18);
+transform:translateY(-8px);
 
 }
 
-
-.card h3 {
-
+.card h3{
 
 font-family:'Playfair Display',serif;
 
+font-size:32px;
 
-font-size:30px;
+margin-bottom:20px;
 
-
-color:var(--sage-dark);
-
-
-}
-
-
-
-
-
-.card p {
-
-
-margin-top:15px;
-
-
-color:#666;
-
+color:var(--sage-deep);
 
 }
 
+.card p{
 
+margin-bottom:14px;
+
+line-height:1.7;
+
+font-size:16px;
+
+color:#5f665d;
+
+}
 
 
 
