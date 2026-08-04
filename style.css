@@ -183,7 +183,7 @@ transform:translateY(0) scale(1) rotate(0);
     top 2.4s ease,
     opacity .8s ease,
     transform 2.4s;
-
+    pointer-events:none;
     transform:scale(.96);
     z-index:5;
 }
@@ -577,7 +577,7 @@ box-shadow:
 0 8px 20px rgba(0,0,0,.25);
 
 opacity:0;
-
+pointer-events:auto;
 transition:.4s;
 
 }
