@@ -104,25 +104,16 @@ pointer-events:none;
     animation: envelopeEntrance 1.8s ease-out forwards;
     transform: translateY(120px) scale(.8);
     opacity:0;
-    .envelope{
-
-background:
-
-linear-gradient(
-145deg,
-#eee1c2,
-#cbb27c
-);
-
-border-radius:12px;
-
-padding:15px;
-
-box-shadow:
-
-0 35px 80px rgba(0,0,0,.4);
-
-}
+    background:
+    linear-gradient(
+    145deg,
+    #eee1c2,
+    #cbb27c
+    );
+    border-radius:12px;
+    padding:15px;
+    box-shadow:
+    0 35px 80px rgba(0,0,0,.4);
 }
 
 @keyframes envelopeEntrance{
@@ -865,25 +856,6 @@ color:var(--sage-deep);
 }
 
 
-nav a {
-text-decoration:none;
-font-size:14px;
-color:#526451;
-transition:.3s;
-}
-
-
-
-nav a:hover {
-color:var(--gold);
-}
-
-
-
-
-
-
-
 /* =====================================================
    HERO
 ===================================================== */
@@ -1068,19 +1040,6 @@ transition:.3s;
 }
 
 
-
-.button:hover {
-
-
-background:var(--sage-dark);
-
-
-transform:translateY(-5px);
-
-
-}
-
-
 .button,
 #rsvpForm button{
 
@@ -1120,26 +1079,16 @@ linear-gradient(
 );
 
 border-radius:8px;
-
 border:1px solid rgba(184,154,82,.28);
-
-box-shadow:
-0 8px 18px rgba(0,0,0,.08),
-0 30px 70px rgba(50,65,45,.18);
 
 overflow:hidden;
 isolation:isolate;
-
 transform:none;
 
 box-shadow:
-
 0 3px 8px rgba(255,255,255,.5) inset,
-
 0 -3px 8px rgba(0,0,0,.05) inset,
-
 0 20px 60px rgba(0,0,0,.15);
-
 }
 
 section:not(.hero)::before{
@@ -1775,8 +1724,6 @@ z-index:99999;
 
 
 @media(max-width:768px){
-
-   @media(max-width:768px){
 
 nav {
 
