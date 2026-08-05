@@ -220,11 +220,10 @@ transform:translateY(0) scale(1) rotate(0);
 
 
 /* Tutto il contenuto della lettera sopra le ante */
-.letter > *{
+.letter > *:not(#enterSite){
     position: relative;
     z-index: 20;
     opacity:0;
-
     transform:translateY(20px);
 }
 
@@ -749,7 +748,7 @@ pointer-events:none;
 
     opacity:1;
     pointer-events:auto;
-
+    animation:none;
     transition:background .3s ease;
 }
 
@@ -757,11 +756,8 @@ pointer-events:none;
    DECORAZIONE CARTA
 ===================================================== */
 
-
-.envelope.open .letter>*{
-
-animation:textReveal .7s forwards;
-
+.envelope.open .letter > *:not(#enterSite){
+    animation:textReveal .7s forwards;
 }
 
 .letter::before {
