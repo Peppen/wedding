@@ -426,6 +426,39 @@ footer.innerHTML +=
 
 }
 
+   const navbar = document.querySelector("nav");
+
+let lastScroll = 0;
+
+
+if(navbar){
+
+    window.addEventListener("scroll", function(){
+
+        let currentScroll = window.pageYOffset;
+
+
+        if(currentScroll > lastScroll && currentScroll > 100){
+
+            // scroll verso il basso
+            navbar.classList.add("hide-nav");
+
+
+        } else {
+
+            // scroll verso l'alto
+            navbar.classList.remove("hide-nav");
+
+        }
+
+
+        lastScroll = currentScroll;
+
+
+    });
+
+}
+
 
 
 });
