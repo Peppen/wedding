@@ -2315,3 +2315,100 @@ border-top:
 3px solid var(--gold);
 
 }
+
+/* =====================================================
+   NAVBAR MENU FIX
+===================================================== */
+
+nav ul {
+
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:20px !important;
+    flex-wrap:nowrap !important;
+
+}
+
+
+nav li {
+
+    display:block !important;
+
+}
+
+
+nav a {
+
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 22px !important;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,.9),
+    rgba(238,243,232,.9)
+    );
+
+    border:
+    1px solid rgba(184,154,82,.35);
+
+    color:#435443 !important;
+
+    font-size:14px;
+
+    box-shadow:
+    0 8px 20px rgba(50,70,45,.12);
+
+    transition:.35s ease;
+
+}
+
+
+nav a:hover {
+
+    background:
+    linear-gradient(
+    135deg,
+    #91A887,
+    #64795D
+    );
+
+    color:white !important;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav ul {
+
+        flex-direction:row !important;
+
+        flex-wrap:wrap !important;
+
+        gap:10px !important;
+
+    }
+
+
+    nav a {
+
+        padding:9px 16px !important;
+
+        font-size:12px;
+
+    }
+
+}
