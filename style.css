@@ -176,7 +176,7 @@ transform:translateY(0) scale(1) rotate(0);
 .letter{
     position:absolute;
     left:30px;
-    top:90px;
+    top:120px;
 
     width:370px;
     min-height:430px;
@@ -509,8 +509,13 @@ rotateY(125deg);
     opacity:0;
 }
 
+70%{
+    transform:translateY(-95px) scale(1.02);
+    opacity:1;
+}
+
 100%{
-    transform:translateY(-45px) scale(1);
+    transform:translateY(-75px) scale(1);
     opacity:1;
 }
 
@@ -521,7 +526,7 @@ rotateY(125deg);
     opacity:1;
 
     transform:
-        translateY(-45px)
+        translateY(-75px)
         scale(1)
         rotate(0deg);
 
