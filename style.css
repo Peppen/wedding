@@ -2200,29 +2200,28 @@ box-shadow:
 
 }
 
-#enterSite:hover{
-    background: linear-gradient(135deg,#64795D,#435443);
-    transform: translateX(-50%);
+.button:hover,
+#rsvpForm button:hover{
+
+    background:linear-gradient(
+        135deg,
+        #64795D,
+        #435443
+    );
+
+    transform:translateY(-4px);
+
 }
 
-
-.button:hover,
-#rsvpForm button:hover,
 #enterSite:hover{
 
+    background:linear-gradient(
+        135deg,
+        #64795D,
+        #435443
+    );
 
-background:
-
-linear-gradient(
-135deg,
-#64795D,
-#435443
-);
-
-
-transform:
-
-translateY(-4px);
+    transform:translateX(-50%);
 
 }
 
