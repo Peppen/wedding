@@ -1061,34 +1061,24 @@ border:1px solid rgba(255,255,255,.25);
 /* =====================================================
    SEZIONI
 ===================================================== */
-
 section:not(.hero){
-
-position:relative;
-
-max-width:1100px;
-margin:120px auto;
-padding:90px 70px;
 
 background:
 linear-gradient(
-180deg,
-#FAFBF7 0%,
-#EEF3E8 45%,
-#DDE6D8 100%
+145deg,
+#F4F7EF,
+#DDE7D5
 );
 
-border-radius:8px;
-border:1px solid rgba(184,154,82,.28);
-
-overflow:hidden;
-isolation:isolate;
-transform:none;
+border:
+1px solid rgba(184,154,82,.25);
 
 box-shadow:
+
 0 3px 8px rgba(255,255,255,.5) inset,
 0 -3px 8px rgba(0,0,0,.05) inset,
-0 20px 60px rgba(0,0,0,.15);
+0 25px 70px rgba(55,75,50,.18);
+
 }
 
 section:not(.hero)::before{
@@ -1772,31 +1762,19 @@ nav li{
 
 
 nav a{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
     padding:10px 18px;
-
     border-radius:30px;
-
     background:
-
     rgba(255,255,255,.55);
 
     border:
-
     1px solid rgba(184,154,82,.35);
-
     font-size:13px;
-
     letter-spacing:.5px;
-
     box-shadow:
-
     0 8px 20px rgba(50,70,45,.12);
 
     transition:.3s ease;
@@ -2050,62 +2028,30 @@ box-shadow:
 
 /* SEZIONI */
 
-section:not(.hero){
-
-background:
-
-linear-gradient(
-145deg,
-#F4F7EF,
-#DDE7D5
-);
-
-
-border:
-
-1px solid rgba(184,154,82,.25);
-
-
-box-shadow:
-
-0 25px 70px rgba(55,75,50,.18);
-
-}
-
 
 
 section h2{
 
 font-size:52px;
-
 font-weight:500;
-
 color:
-
 var(--sage-deep);
-
 letter-spacing:3px;
-
 }
 
 
 
 
 section h2::after{
-
 height:1px;
-
 width:100px;
-
 background:
-
 linear-gradient(
 90deg,
 transparent,
 var(--gold),
 transparent
 );
-
 }
 
 
@@ -2115,32 +2061,19 @@ transparent
 /* COUNTDOWN */
 
 .timer div{
-
 background:
-
 rgba(255,255,255,.75);
-
-
 border:
-
 1px solid rgba(184,154,82,.25);
-
-
 backdrop-filter:blur(10px);
-
-
 box-shadow:
-
 0 20px 45px rgba(50,70,45,.12);
-
 }
 
 
 
 .timer span{
-
 color:var(--sage-deep);
-
 }
 
 
@@ -2150,38 +2083,26 @@ color:var(--sage-deep);
 /* CARD EVENTI */
 
 .card{
-
 background:
-
 linear-gradient(
 145deg,
 #FFFFFF,
 #F0F4EA
 );
 
-
 border:
-
 1px solid rgba(184,154,82,.25);
 
-
 border-top:
-
 3px solid var(--gold);
-
-
 }
 
 
 
 .card h3{
-
 color:
-
 var(--sage-deep);
-
 letter-spacing:1px;
-
 }
 
 
@@ -2191,7 +2112,6 @@ letter-spacing:1px;
 /* FORM RSVP */
 
 .rsvp-card{
-
 background:
 
 linear-gradient(
@@ -2200,11 +2120,8 @@ linear-gradient(
 #EEF3E8
 );
 
-
 border:
-
 1px solid rgba(184,154,82,.2);
-
 }
 
 
@@ -2287,7 +2204,7 @@ nav li {
 
 
 nav a {
-
+    position:relative;
     display:flex !important;
     align-items:center;
     justify-content:center;
