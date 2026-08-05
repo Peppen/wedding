@@ -176,7 +176,7 @@ transform:translateY(0) scale(1) rotate(0);
 .letter{
     position:absolute;
     left:30px;
-    top:120px;
+    top:90px;
 
     width:370px;
     min-height:430px;
@@ -502,41 +502,33 @@ rotateY(125deg);
 
 }
 
-@keyframes letterSettle{
+@keyframes letterDrop{
 
-    0%{
-        transform:
-            translateY(-130px)
-            rotate(0deg);
-    }
-
-    70%{
-        transform:
-            translateY(-138px)
-            rotate(.6deg);
-    }
-
-    100%{
-        transform:
-            translateY(-130px)
-            rotate(0deg);
-    }
-
+0%{
+    transform:translateY(80px) scale(.95);
+    opacity:0;
 }
 
+100%{
+    transform:translateY(-45px) scale(1);
+    opacity:1;
+}
+
+}
 
 .envelope.open .letter{
 
     opacity:1;
 
     transform:
-        translateY(-130px)
+        translateY(-45px)
         scale(1)
         rotate(0deg);
 
     transition-delay:.55s;
+
     animation:
-        letterSettle .8s ease-out 2.9s forwards;
+    letterDrop 1.2s cubic-bezier(.34,1.56,.64,1) .8s forwards;
 
 }
 
