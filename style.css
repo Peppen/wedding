@@ -21,43 +21,12 @@ scroll-behavior:smooth;
 
 }
 
-
-body {
-
-font-family:'Poppins',sans-serif;
-
-background:#f5eddc;
-
-color:#4d5d4d;
-
-overflow-x:hidden;
-
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:linear-gradient(...);
+    color:var(--sage-dark);
 }
-
-
-/* =====================================================
-   COLORI
-===================================================== */
-
-
-:root{
-
---sage:#7E937B;
---sage-dark:#556851;
-
---gold:#C4A15B;
-
---paper-light:#EDF3EA;
---paper:#DDE6D8;
---paper-dark:#C4D0BE;
-
---cream:#F6F7F2;
-
---brown:#665542;
-
-}
-
-
 
 /* =====================================================
    INTRO - COPERTINA
@@ -862,117 +831,46 @@ nav {
 
 
 position:fixed;
-
-
 top:0;
-
-
 left:0;
-
-
 width:100%;
-
-
 height:80px;
-
-
 display:flex;
-
-
 align-items:center;
-
-
 justify-content:space-between;
-
-
 padding:0 8%;
-
-
-
 background:
 
 rgba(255,255,255,.85);
-
-
-
 backdrop-filter:blur(10px);
-
-
-
 z-index:1000;
-
-
-
 box-shadow:
 
 0 10px 30px rgba(0,0,0,.08);
-
-
-
 }
 
 
 
 
 .logo {
-
-
 font-family:'Playfair Display',serif;
-
-
-font-size:28px;
-
-
-color:var(--sage-dark);
-
-
+font-size:32px;
+letter-spacing:1px;
+color:var(--sage-deep);
 }
-
-
-
-
-nav ul {
-
-
-display:flex;
-
-
-gap:25px;
-
-
-list-style:none;
-
-
-}
-
-
 
 
 nav a {
-
-
 text-decoration:none;
-
-
 font-size:14px;
-
-
 color:#526451;
-
-
 transition:.3s;
-
-
 }
 
 
 
 nav a:hover {
-
-
 color:var(--gold);
-
-
 }
 
 
@@ -2010,74 +1908,7 @@ transform:translateY(0)!important;
 
 }
 
-
-
-/* BODY */
-
-body{
-
-background:
-linear-gradient(
-135deg,
-#F7F8F2,
-#E8EEE1
-);
-
-color:var(--sage-dark);
-
-}
-
-
-
 /* NAVBAR LUXURY */
-
-nav{
-
-height:90px;
-
-background:
-
-rgba(245,248,240,.82);
-
-border-bottom:
-
-1px solid rgba(184,154,82,.25);
-
-backdrop-filter:blur(18px);
-
-box-shadow:
-
-0 15px 40px rgba(60,80,55,.12);
-
-}
-
-
-
-.logo{
-
-font-size:32px;
-
-letter-spacing:1px;
-
-color:var(--sage-deep);
-
-}
-
-
-
-nav a{
-
-font-size:15px;
-
-letter-spacing:.5px;
-
-color:var(--sage-dark);
-
-position:relative;
-
-}
-
-
 
 nav a::after{
 
