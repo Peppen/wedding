@@ -1149,17 +1149,6 @@ opacity:.65;
 
 }
 
-section:nth-of-type(even){
-
-transform:rotate(.35deg);
-
-}
-
-section:nth-of-type(odd){
-
-transform:rotate(-.35deg);
-
-}
 
 section:not(.hero) > *{
 
