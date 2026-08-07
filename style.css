@@ -1061,25 +1061,6 @@ border:1px solid rgba(255,255,255,.25);
 /* =====================================================
    SEZIONI
 ===================================================== */
-section:not(.hero){
-
-background:
-linear-gradient(
-145deg,
-#F4F7EF,
-#DDE7D5
-);
-
-border:
-1px solid rgba(184,154,82,.25);
-
-box-shadow:
-
-0 3px 8px rgba(255,255,255,.5) inset,
-0 -3px 8px rgba(0,0,0,.05) inset,
-0 25px 70px rgba(55,75,50,.18);
-
-}
 
 section:not(.hero){
     position: relative;
@@ -1099,36 +1080,6 @@ section:not(.hero){
         0 25px 70px rgba(55,75,50,.18);
 }
 
-section:not(.hero)::after{
-
-content:"";
-
-position:absolute;
-inset:0;
-
-pointer-events:none;
-
-background:
-
-radial-gradient(circle at 25% 20%,
-rgba(255,255,255,.45),
-transparent 35%),
-
-radial-gradient(circle at 80% 70%,
-rgba(255,255,255,.22),
-transparent 40%),
-
-linear-gradient(
-180deg,
-rgba(255,255,255,.12),
-rgba(0,0,0,.02)
-);
-
-mix-blend-mode:soft-light;
-
-opacity:.65;
-
-}
 
 
 section:not(.hero) > *{
