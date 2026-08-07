@@ -1080,20 +1080,22 @@ box-shadow:
 
 }
 
-section:not(.hero)::before{
+section:not(.hero){
+    position: relative;
+    overflow: hidden;
 
-content:"";
+    background:linear-gradient(
+        145deg,
+        #F4F7EF,
+        #DDE7D5
+    );
 
-position:absolute;
-top:14px;
-left:14px;
-right:14px;
-bottom:14px;
+    border:1px solid rgba(184,154,82,.25);
 
-border:1px solid rgba(184,154,82,.45);
-
-pointer-events:none;
-
+    box-shadow:
+        0 3px 8px rgba(255,255,255,.5) inset,
+        0 -3px 8px rgba(0,0,0,.05) inset,
+        0 25px 70px rgba(55,75,50,.18);
 }
 
 section:not(.hero)::after{
