@@ -1264,22 +1264,19 @@ nav a:hover{
 
 section:not(.hero){
 
+    width:90%;
+    max-width:1200px;
 
     position:relative;
 
-
     overflow:hidden;
 
+    margin:80px auto;
 
-    margin:60px auto;
-
-
-    padding:70px 40px;
-
+    padding:70px 50px;
 
 
     background:
-
     linear-gradient(
         145deg,
         #F4F7EF,
@@ -1287,17 +1284,12 @@ section:not(.hero){
     );
 
 
-
     border:
-
     1px solid rgba(184,154,82,.25);
 
 
-
     box-shadow:
-
     0 25px 70px rgba(55,75,50,.18);
-
 
 }
 
