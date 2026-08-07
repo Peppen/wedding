@@ -172,7 +172,7 @@ transform:translateY(0) scale(1) rotate(0);
 .letter{
     position:absolute;
     left:30px;
-    top:120px;
+    top:35px;
 
     width:370px;
     min-height:430px;
@@ -192,7 +192,7 @@ transform:translateY(0) scale(1) rotate(0);
     opacity:0;
 
     transform:
-        translateY(180px)
+        translateY(140px)
         scale(.92)
         rotate(-2deg);
 
@@ -497,36 +497,30 @@ rotateY(125deg);
 @keyframes letterDrop{
 
 0%{
-    transform:translateY(80px) scale(.95);
+    transform:translateY(120px) scale(.92);
     opacity:0;
 }
 
 70%{
-    transform:translateY(-95px) scale(1.02);
+    transform:translateY(-20px) scale(1.02);
     opacity:1;
 }
 
 100%{
-    transform:translateY(-75px) scale(1);
+    transform:translateY(0) scale(1);
     opacity:1;
 }
-
 }
 
 .envelope.open .letter{
-
     opacity:1;
-
     transform:
-        translateY(-75px)
+        translateY(0)
         scale(1)
-        rotate(0deg);
-
-    transition-delay:.55s;
+        rotate(0);
 
     animation:
-    letterDrop 1.2s cubic-bezier(.34,1.56,.64,1) .8s forwards;
-
+        letterDrop 1.2s cubic-bezier(.34,1.56,.64,1) .8s forwards;
 }
 
 .letter::after{
