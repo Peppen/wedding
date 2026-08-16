@@ -123,15 +123,20 @@ body{
 
     position: relative;
 
-    width: 430px;
-    height: 300px;
+    width: min(430px, 92vw);
 
-    perspective: 1600px;
-    transform-style: preserve-3d;
+    /*
+       Occupa tutta l'altezza disponibile
+       anche su smartphone
+    */
+    height: 100dvh;
+    min-height: 100vh;
 
-    background: transparent;
+    perspective: 1400px;
 
     overflow: visible;
+
+    background: transparent;
 
     opacity: 0;
 
@@ -141,7 +146,6 @@ body{
 
     animation:
         envelopeEntrance 1.8s ease-out forwards;
-
 }
 
 
@@ -201,22 +205,19 @@ body{
     top: 50%;
 
     /*
-       Più piccolo rispetto alla busta
+       LARGHEZZA
     */
-    width: 330px;
+    width: min(370px, 90vw);
 
     /*
-       Altezza ridotta
+       TUTTA L'ALTEZZA
     */
-    height: 390px;
-
-    min-height: 0;
+    height: 100dvh;
+    min-height: 100vh;
 
     /*
-       NIENTE angoli arrotondati:
-       deve combaciare visivamente con la busta
+       Niente altezza fissa in px
     */
-    border-radius: 0;
 
     background:
         linear-gradient(
@@ -229,39 +230,38 @@ body{
         1px solid
         rgba(184,154,82,.35);
 
+    border-radius: 0;
+
+    /*
+       Spaziatura interna
+    */
     padding:
-        45px 25px 85px;
+        70px 30px 120px;
 
     text-align: center;
 
     box-shadow:
-        0 18px 40px
-        rgba(45,60,45,.22);
+        0 25px 60px
+        rgba(45,60,45,.28);
 
     opacity: 0;
 
     /*
-       Parte inizialmente nascosta
-       dentro la busta
+       Parte dentro la busta
     */
     transform:
-        translate(-50%, 30px)
+        translate(-50%, 70px)
         scale(.88);
 
-    /*
-       La lettera sta sopra il corpo
-       ma sotto la ceralacca
-    */
-    z-index: 100;
+    z-index: 50;
 
     transition:
-
         transform 1.4s
-        cubic-bezier(.34,1.35,.64,1),
-
+        cubic-bezier(.34,1.56,.64,1),
         opacity .7s ease;
 
 }
+
 
 
 .envelope.open .letter {
@@ -270,39 +270,28 @@ body{
 
     transform:
         translate(-50%, -50%)
-        scale(.92);
+        scale(1);
 
-    transition:
-        transform 1.6s
-        cubic-bezier(.34,1.35,.64,1),
-        opacity .8s ease;
+    transition-delay: .25s;
 
-    transition-delay: .2s;
-
-}}
+}
 
 
 
 
-.letter::before{
+.letter::before {
 
+    content: "";
 
-    content:"";
+    position: absolute;
 
-
-    position:absolute;
-
-
-    inset:9px;
-
+    inset: 10px;
 
     border:
+        1px solid
+        rgba(184,154,82,.35);
 
-    1px solid rgba(184,154,82,.30);
-
-
-    pointer-events:none;
-
+    pointer-events: none;
 
 }
 
@@ -315,10 +304,6 @@ body{
     position:relative;
 
     z-index:20;
-
-    opacity:0;
-
-    transform:translateY(20px);
 
 }
 
@@ -499,8 +484,6 @@ to{
     width: 100%;
     height: 100%;
 
-    border-radius: 0;
-
     background:
         linear-gradient(
             145deg,
@@ -515,6 +498,7 @@ to{
     z-index: 1;
 
 }
+
 
 
 /* =====================================================
@@ -1220,12 +1204,16 @@ box-shadow:
     position: absolute;
 
     left: 50%;
-    bottom: 30px;
+
+    /*
+       Sempre vicino al fondo
+    */
+    bottom: 45px;
 
     transform:
         translateX(-50%);
 
-    width: 220px;
+    width: min(220px, 75%);
 
     padding: 15px 25px;
 
@@ -1252,19 +1240,6 @@ box-shadow:
     cursor: pointer;
 
     z-index: 500;
-
-    /*
-       IMPORTANTISSIMO
-    */
-    pointer-events: auto;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity .6s ease,
-        transform .3s ease;
 
 }
 
@@ -2770,13 +2745,17 @@ to{
 
 @media(max-width:768px){
 
-.envelope {
+   .envelope {
 
-        width: 360px;
-        height: 250px;
+        /*
+           Tutto lo schermo
+        */
+        width: 100vw;
 
-        transform:
-            scale(.85);
+        height: 100dvh;
+        min-height: 100vh;
+
+        transform: scale(.85);
 
     }
 
@@ -2784,43 +2763,30 @@ to{
 
         transform:
             translate(-50%, -50%)
-            scale(.86);
+            scale(.96);
 
     }
 
 
     .letter {
 
-        width: 285pc;
+        /*
+           Quasi tutta la larghezza
+        */
+        width: 92vw;
 
-        height: 340px;
+        /*
+           TUTTA L'ALTEZZA
+        */
+        height: 100dvh;
+        min-height: 100vh;
 
         padding:
-            38px 20px 75px;
+            55px 20px 110px;
 
     }
 
 
-    .seal {
-
-        width: 72px;
-        height: 72px;
-
-    }
-
-
-    .seal-inner {
-
-        width: 51px;
-        height: 51px;
-
-    }
-
-   .seal-inner span {
-
-        font-size: 15px;
-
-    }
 
     nav{
 
@@ -2972,37 +2938,6 @@ to{
 
     }
 
-
-
-
-    .letter{
-       
-        width:330px;
-        min-height:400px;
-
-    }
-
-
-
-
-    .envelope{
-
-        width:360px;
-
-        height:250px;
-        transform:scale(.85);
-
-
-    }
-
-   .envelope.open .letter{
-
-    transform:
-        translate(-50%,-50%)
-        scale(.88);
-
-    }
-
    .map-container iframe {
 
         height: 250px;
@@ -3016,6 +2951,66 @@ to{
 
     }
 
+   .letter h1 {
+
+        font-size: 36px;
+
+    }
+
+
+    .small {
+
+        font-size: 13px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .date {
+
+        font-size: 21px;
+
+    }
+
+
+    .place {
+
+        font-size: 16px;
+
+    }
+
+
+    .seal {
+
+        width: 72px;
+        height: 72px;
+
+    }
+
+
+    .seal-inner {
+
+        width: 51px;
+        height: 51px;
+
+    }
+
+
+    .seal-inner span {
+
+        font-size: 15px;
+
+    }
+
+
+    #enterSite {
+
+        bottom: 35px;
+
+        width: 75%;
+
+    }
 
 }
 
