@@ -380,23 +380,24 @@ to{
 
 
 /* =====================================================
-   BUSTA PARTECIPAZIONE - STILE ELEGANTE
+   BUSTA DESKTOP - TUTTA L'ALTEZZA DELLO SCHERMO
 ===================================================== */
 
-.envelope{
+.envelope {
 
-    position:relative;
+    position: relative;
 
-    width:430px;
-    height:300px;
+    width: 430px;
+    height: 100vh;
+    min-height: 100vh;
 
-    perspective:1400px;
+    perspective: 1400px;
 
-    overflow:visible;
+    overflow: visible;
 
-    background:transparent;
+    background: transparent;
 
-    opacity:0;
+    opacity: 0;
 
     transform:
         translateY(120px)
@@ -434,7 +435,7 @@ to{
 }
 
 /* =====================================================
-   LETTERA DESKTOP - TUTTO LO SCHERMO
+   LETTERA DESKTOP
 ===================================================== */
 
 .letter {
@@ -445,6 +446,7 @@ to{
     top: 50%;
 
     width: min(520px, 85vw);
+
     height: 100vh;
     min-height: 100vh;
 
@@ -488,6 +490,8 @@ to{
 
     opacity: 1;
 
+    z-index: 200;
+
     transform:
         translate(-50%, -50%)
         scale(1);
@@ -516,6 +520,10 @@ to{
 
 }
 
+/* =====================================================
+   ANTE BUSTA
+===================================================== */
+
 .envelope-side {
 
     position: absolute;
@@ -532,15 +540,32 @@ to{
             #aebaab
         );
 
+    border: 2px solid rgba(67, 84, 67, .75);
+
+    box-shadow:
+        inset 0 0 12px rgba(50,65,50,.15);
+
     z-index: 60;
 
     transform-style: preserve-3d;
 
-    transition:
-        transform 1.5s
-        cubic-bezier(.65,0,.35,1);
+    backface-visibility: hidden;
 
-    overflow: visible;
+    transition:
+        transform 1.5s cubic-bezier(.65,0,.35,1),
+        opacity .8s ease,
+        z-index 0s linear 1.2s;
+
+}
+
+/* =====================================================
+   DOPO L'APERTURA LE ANTE VANNO DIETRO LA LETTERA
+===================================================== */
+
+.envelope.open .envelope-side {
+
+    z-index: 10;
+
 }
 
 
