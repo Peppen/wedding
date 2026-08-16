@@ -451,166 +451,616 @@ to{
 }
 
 
-
 /* =====================================================
-   ANTE FINESTRA
+   BUSTA PARTECIPAZIONE - STILE ELEGANTE
 ===================================================== */
 
+.envelope{
 
-.door{
+    position:relative;
 
+    width:430px;
+    height:300px;
+
+    perspective:1400px;
+
+    overflow:visible;
+
+    background:transparent;
+
+    border-radius:8px;
+
+    opacity:0;
+
+    transform:
+        translateY(120px)
+        scale(.8);
+
+    animation:
+        envelopeEntrance 1.8s ease-out forwards;
+
+}
+
+
+/* =====================================================
+   CORPO DELLA BUSTA
+===================================================== */
+
+.envelope-body{
 
     position:absolute;
 
-
-    top:15px;
-
-
-    width:50%;
-
-
-    height:calc(100% - 30px);
-
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #5d3d20,
-        #a87942,
-        #684522
-    );
-
+    inset:0;
 
     z-index:20;
 
-
     overflow:hidden;
 
-
-    transition:
-
-    transform 2.2s cubic-bezier(.65,0,.15,1);
-
-}
-
-
-
-.door.left{
-
-    left:0;
-
-    transform-origin:left center;
-
-}
-
-
-
-.door.right{
-
-    right:0;
-
-    transform-origin:right center;
-
-}
-
-
-
-.window-panel{
-
-
-    position:absolute;
-
-
-    inset:22px;
-
-
-    border:
-
-    6px solid #d8b56c;
-
+    border-radius:8px;
 
     background:
 
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,.25),
-        rgba(210,225,220,.08)
-    );
+        linear-gradient(
+            145deg,
+            #c4d0bb,
+            #aebaac
+        );
 
+    box-shadow:
+
+        0 30px 70px rgba(40,55,40,.28);
 
 }
 
 
+/* texture molto leggera */
 
-.window-panel::before{
-
+.envelope-body::after{
 
     content:"";
 
-
     position:absolute;
 
+    inset:0;
 
-    left:50%;
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.12),
+            transparent 40%,
+            rgba(60,80,60,.06)
+        );
+
+    pointer-events:none;
+
+}
 
 
-    top:0;
+/* =====================================================
+   PIEGHE DELLA BUSTA
+===================================================== */
+
+.envelope-fold{
+
+    position:absolute;
 
     bottom:0;
 
+    width:70%;
 
-    width:5px;
+    height:75%;
 
+    background:
 
-    background:#d8b56c;
+        linear-gradient(
+            145deg,
+            #aebbab,
+            #b9c6b1
+        );
 
+    z-index:2;
 
 }
 
 
+.left-fold{
 
-.window-panel::after{
+    left:-12%;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 100%,
+            0 100%
+        );
+
+}
 
 
-    content:"";
+.right-fold{
 
+    right:-12%;
+
+    clip-path:
+
+        polygon(
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+}
+
+
+/* =====================================================
+   PARTE INFERIORE CENTRALE
+===================================================== */
+
+.envelope-bottom{
 
     position:absolute;
 
+    left:0;
 
-    top:50%;
+    bottom:0;
 
+    width:100%;
+
+    height:70%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #b5c2ad,
+            #aab9a4
+        );
+
+    clip-path:
+
+        polygon(
+            0 100%,
+            50% 18%,
+            100% 100%
+        );
+
+    z-index:5;
+
+    opacity:.95;
+
+}
+
+
+/* =====================================================
+   LEMBO SUPERIORE
+===================================================== */
+
+.envelope-flap{
+
+    position:absolute;
 
     left:0;
 
-    right:0;
+    top:0;
 
+    width:100%;
 
-    height:5px;
+    height:100%;
 
+    background:
 
-    background:#d8b56c;
+        linear-gradient(
+            145deg,
+            #cbd5c4,
+            #b5c2ae
+        );
 
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            50% 72%
+        );
+
+    transform-origin:50% 0%;
+
+    z-index:40;
+
+    transition:
+
+        transform 1.4s
+        cubic-bezier(.65,0,.35,1);
+
+    filter:
+        drop-shadow(
+            0 8px 12px
+            rgba(50,65,50,.12)
+        );
 
 }
 
 
+/* =====================================================
+   APERTURA DELLA BUSTA
+===================================================== */
+
+.envelope.open .envelope-flap{
+
+    transform:
+
+        rotateX(180deg);
+
+}
 
 
-.envelope.open .door.left{
+/* =====================================================
+   PARTECIPAZIONE INTERNA
+===================================================== */
 
-    transform:rotateY(-125deg);
+.letter{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:370px;
+
+    min-height:430px;
+
+    transform:
+
+        translate(-50%,80px)
+        scale(.88);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fbfaf3,
+            #f0f1e8
+        );
+
+    border-radius:4px;
+
+    padding:
+        55px 35px 40px;
+
+    text-align:center;
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(45,60,45,.25);
+
+    opacity:0;
+
+    z-index:10;
+
+    transition:
+
+        transform 1.5s
+        cubic-bezier(.34,1.56,.64,1),
+
+        opacity .7s ease;
 
 }
 
 
-.envelope.open .door.right{
+/* quando la busta si apre */
 
-    transform:rotateY(125deg);
+.envelope.open .letter{
+
+    opacity:1;
+
+    transform:
+
+        translate(-50%,-50%)
+        scale(1);
+
+    transition-delay:.35s;
 
 }
 
+
+/* bordo interno della partecipazione */
+
+.letter::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:
+
+        1px solid
+        rgba(184,154,82,.35);
+
+    pointer-events:none;
+
+}
+
+
+/* =====================================================
+   TESTO PARTECIPAZIONE
+===================================================== */
+
+.letter > *:not(#enterSite){
+
+    position:relative;
+
+    z-index:20;
+
+    opacity:0;
+
+    transform:
+        translateY(20px);
+
+}
+
+
+.envelope.open
+.letter > *:not(#enterSite){
+
+    animation:
+        textReveal .7s forwards;
+
+}
+
+
+.envelope.open
+.letter .small{
+
+    animation-delay:.5s;
+
+}
+
+
+.envelope.open
+.letter h1{
+
+    animation-delay:.65s;
+
+}
+
+
+.envelope.open
+.letter .date{
+
+    animation-delay:.8s;
+
+}
+
+
+.envelope.open
+.letter .place{
+
+    animation-delay:.95s;
+
+}
+
+
+@keyframes textReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   CERALACCA DORATA
+===================================================== */
+
+.seal{
+
+    position:absolute;
+
+    top:72%;
+
+    left:50%;
+
+    width:82px;
+
+    height:82px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    z-index:100;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #f0d77c 0%,
+            #c89e32 35%,
+            #9d741d 70%,
+            #73500e 100%
+        );
+
+    box-shadow:
+
+        0 8px 18px
+        rgba(80,55,10,.35),
+
+        inset 3px 3px 6px
+        rgba(255,255,255,.35),
+
+        inset -4px -5px 8px
+        rgba(80,45,0,.3);
+
+    transition:
+
+        transform .7s ease,
+        opacity .5s ease;
+
+    animation:
+
+        sealPulse 2.5s infinite;
+
+}
+
+
+/* bordo della ceralacca */
+
+.seal::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:7px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,235,160,.65);
+
+}
+
+
+/* piccolo effetto irregolare */
+
+.seal::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-3px;
+
+    border-radius:50%;
+
+    border:
+        2px solid
+        rgba(170,125,30,.25);
+
+}
+
+
+/* iniziali */
+
+.seal-inner{
+
+    position:relative;
+
+    z-index:2;
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,240,180,.55);
+
+}
+
+
+.seal-inner span{
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    color:#fff4c7;
+
+}
+
+
+/* =====================================================
+   CLIC SULLA CERALACCA
+===================================================== */
+
+.envelope.open .seal{
+
+    opacity:0;
+
+    transform:
+
+        translate(-50%,-50%)
+        scale(1.5)
+        rotate(15deg);
+
+    pointer-events:none;
+
+}
+
+
+@keyframes sealPulse{
+
+    0%,
+    100%{
+
+        box-shadow:
+
+            0 8px 18px
+            rgba(80,55,10,.35),
+
+            0 0 0 rgba(216,196,139,0);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+            0 8px 22px
+            rgba(80,55,10,.4),
+
+            0 0 25px
+            rgba(216,196,139,.45);
+
+    }
+
+}
 
 
 /* =====================================================
@@ -2390,10 +2840,9 @@ to{
 
 
     .letter{
-
-
+       
         width:330px;
-
+        min-height:400px;
 
     }
 
@@ -2402,9 +2851,19 @@ to{
 
     .envelope{
 
+        width:360px;
 
+        height:250px;
         transform:scale(.85);
 
+
+    }
+
+   .envelope.open .letter{
+
+    transform:
+        translate(-50%,-50%)
+        scale(.88);
 
     }
 
