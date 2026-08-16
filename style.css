@@ -317,55 +317,65 @@ body{
     */
     background:
 
-        /* piega dall'alto verso il centro */
+        /* piega diagonale superiore */
         linear-gradient(
             145deg,
             transparent 0%,
-            transparent 43%,
-            rgba(90,90,70,.10) 48%,
-            rgba(255,255,255,.35) 50%,
-            rgba(90,90,70,.08) 52%,
-            transparent 57%,
+            transparent 40%,
+            rgba(65, 60, 45, .20) 46%,
+            rgba(75, 68, 48, .32) 49%,
+            rgba(255, 255, 255, .20) 50%,
+            rgba(65, 60, 45, .25) 52%,
+            transparent 59%,
             transparent 100%
         ),
 
-        /* piega dal basso verso il centro */
+        /* piega diagonale inferiore */
         linear-gradient(
             35deg,
             transparent 0%,
-            transparent 43%,
-            rgba(90,90,70,.09) 48%,
-            rgba(255,255,255,.30) 50%,
-            rgba(90,90,70,.07) 52%,
-            transparent 57%,
+            transparent 40%,
+            rgba(65, 60, 45, .18) 46%,
+            rgba(75, 68, 48, .30) 49%,
+            rgba(255, 255, 255, .18) 50%,
+            rgba(65, 60, 45, .23) 52%,
+            transparent 59%,
             transparent 100%
         );
 
-    opacity: .65;
+    opacity: .9;
 
     mix-blend-mode: multiply;
 
 }
+
+/* =====================================================
+   OMBRE DELLA CARTA
+===================================================== */
 
 .envelope:not(.open) .letter {
 
     box-shadow:
 
         /* ombra esterna */
-        0 18px 35px
-        rgba(45,60,45,.25),
+        0 22px 45px
+        rgba(45, 50, 38, .35),
 
         /* piega superiore */
-        inset 0 12px 18px
-        rgba(80,75,55,.10),
+        inset 0 15px 22px
+        rgba(65, 60, 45, .18),
 
-        /* piega laterale */
-        inset 10px 0 16px
-        rgba(80,75,55,.06),
+        /* piega laterale sinistra */
+        inset 12px 0 20px
+        rgba(65, 60, 45, .12),
 
-        /* luce centrale */
+        /* piega laterale destra */
+        inset -10px 0 18px
+        rgba(65, 60, 45, .10),
+
+        /* luce della carta */
         inset -5px -5px 15px
-        rgba(255,255,255,.40);
+        rgba(255, 255, 255, .30);
 
 }
 
@@ -382,7 +392,7 @@ body{
 
 .envelope.open .letter::after {
 
-    opacity: .18;
+    opacity: .25;
 
     transition:
         opacity 1.2s ease;
