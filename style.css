@@ -2641,8 +2641,8 @@ to{
         opacity: 1;
 
         width: 88vw;
-        height: 100dvh;
-        min-height: 100dvh;
+        height: 88dvh;
+        min-height: 88dvh;
 
         transform:
             translate(-50%, -50%)
@@ -2673,20 +2673,20 @@ to{
         left: 50%;
 
         width: 88vw;
-        height: 100dvh;
+        height: 88dvh;
         min-height: 100dvh;
 
         margin: 0;
 
         padding:
-            55px 20px 115px;
+            45px 20px 95px;
 
         overflow: hidden;
 
         box-sizing: border-box;
 
         transform:
-            translate(-50%, -40%)
+            translate(-50%, -45%)
             scale(.92);
 
         transform-origin: center center;
