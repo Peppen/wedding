@@ -764,6 +764,32 @@ to{
 
 }
 
+.seal::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: 48% 52% 51% 49%;
+
+    border:
+        3px solid
+        rgba(105, 35, 25, .45);
+
+    box-shadow:
+
+        0 2px 2px
+        rgba(255,180,130,.25),
+
+        0 5px 5px
+        rgba(50,10,5,.3);
+
+    pointer-events: none;
+
+}
+
 
 .seal-inner {
 
@@ -814,8 +840,9 @@ to{
 
     transform:
         translate(-50%, -50%)
-        translateZ(150px)
-        scale(1.5);
+        translateZ(80px)
+        scale(1.5)
+        rotate(15deg);
 
     pointer-events: none;
 
@@ -903,170 +930,6 @@ to{
 }
 
 
-/* =====================================================
-   CERALACCA DORATA
-===================================================== */
-
-.seal{
-
-    position:absolute;
-
-    top:72%;
-
-    left:50%;
-
-    width:82px;
-
-    height:82px;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    z-index:100;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:
-
-        radial-gradient(
-            circle at 35% 30%,
-            #f0d77c 0%,
-            #c89e32 35%,
-            #9d741d 70%,
-            #73500e 100%
-        );
-
-    box-shadow:
-
-        0 8px 18px
-        rgba(80,55,10,.35),
-
-        inset 3px 3px 6px
-        rgba(255,255,255,.35),
-
-        inset -4px -5px 8px
-        rgba(80,45,0,.3);
-
-    transition:
-
-        transform .7s ease,
-        opacity .5s ease;
-
-    animation:
-
-        sealPulse 2.5s infinite;
-
-}
-
-
-/* bordo della ceralacca */
-
-.seal::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:7px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,235,160,.65);
-
-}
-
-
-/* piccolo effetto irregolare */
-
-.seal::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-3px;
-
-    border-radius:50%;
-
-    border:
-        2px solid
-        rgba(170,125,30,.25);
-
-}
-
-
-/* iniziali */
-
-.seal-inner{
-
-    position:relative;
-
-    z-index:2;
-
-    width:58px;
-
-    height:58px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,240,180,.55);
-
-}
-
-
-.seal-inner span{
-
-    font-family:
-        'Playfair Display',
-        serif;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    letter-spacing:2px;
-
-    color:#fff4c7;
-
-}
-
-
-/* =====================================================
-   CLIC SULLA CERALACCA
-===================================================== */
-
-.envelope.open .seal{
-
-    opacity:0;
-
-    transform:
-
-        translate(-50%,-50%)
-        scale(1.5)
-        rotate(15deg);
-
-    pointer-events:none;
-
-}
-
 
 @keyframes sealPulse{
 
@@ -1097,69 +960,6 @@ to{
 }
 
 
-/* =====================================================
-   CERALACCA
-===================================================== */
-
-
-.seal{
-
-
-    position:absolute;
-
-
-    top:50%;
-
-    left:50%;
-
-
-    transform:
-
-    translate(-50%,-50%);
-
-
-    width:90px;
-
-    height:90px;
-
-
-    border-radius:50%;
-
-
-    background:
-
-    radial-gradient(
-        circle at 30% 30%,
-        #b85a42,
-        #6d2118
-    );
-
-
-    color:#f6e9c9;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    font-size:40px;
-
-
-    cursor:pointer;
-
-
-    z-index:50;
-
-
-    animation:waxPulse 2s infinite;
-
-}
-
-
-
 
 @keyframes waxPulse{
 
@@ -1171,25 +971,6 @@ box-shadow:
 0 0 35px rgba(255,230,180,.6);
 
 }
-
-}
-
-
-
-.envelope.open .seal{
-
-
-    opacity:0;
-
-
-    transform:
-
-    translate(-50%,-50%)
-
-    scale(0);
-
-
-    pointer-events:none;
 
 }
 
