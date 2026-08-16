@@ -680,30 +680,28 @@ to{
 
 }
 
-
 /* =====================================================
-   CERALACCA
+   CERALACCA - RILIEVO REALISTICO
 ===================================================== */
 
 .seal {
 
     position: absolute;
 
-    left: 50%;
     top: 50%;
+    left: 50%;
 
-    width: 82px;
-    height: 82px;
+    width: 90px;
+    height: 90px;
 
     transform:
         translate(-50%, -50%)
-        translateZ(150px);
+        translateZ(120px);
+
+    transform-style: preserve-3d;
 
     border-radius: 50%;
 
-    /*
-       SOPRA LETTERA E ANTE
-    */
     z-index: 1000;
 
     isolation: isolate;
@@ -715,36 +713,57 @@ to{
     align-items: center;
     justify-content: center;
 
+    /*
+       SUPERFICIE DELLA CERA
+    */
     background:
+
         radial-gradient(
-            circle at 35% 30%,
-            #f0d77c 0%,
-            #c89e32 35%,
-            #9d741d 70%,
-            #73500e 100%
+            circle at 30% 22%,
+            #f3d87e 0%,
+            #d5b34e 18%,
+            #b58a2d 42%,
+            #8c651d 70%,
+            #624511 100%
         );
 
+    /*
+       QUESTE SONO LE OMBRE CHE CREANO
+       FISICAMENTE IL RILIEVO VISIVO
+    */
     box-shadow:
 
-        0 8px 18px
-        rgba(80,55,10,.35),
+        /* ombra principale sotto */
+        0 14px 18px
+        rgba(40, 28, 8, .45),
 
-        inset 3px 3px 6px
-        rgba(255,255,255,.35),
+        /* spessore della cera */
+        0 6px 0
+        #6f5014,
 
-        inset -4px -5px 8px
-        rgba(80,45,0,.3);
+        /* bordo superiore illuminato */
+        inset 5px 5px 8px
+        rgba(255, 245, 190, .70),
+
+        /* bordo inferiore scavato */
+        inset -7px -8px 10px
+        rgba(70, 45, 5, .60),
+
+        /* luce morbida */
+        0 0 18px
+        rgba(216, 196, 139, .30);
 
     transition:
-
         transform .7s ease,
         opacity .5s ease;
-
     animation:
-        sealPulse 2.5s infinite;
-
+        sealPulse 2.8s ease-in-out infinite;
 }
 
+
+/* =====================================================
+   BORDO ESTERNO RIALZATO
+===================================================== */
 
 .seal::before {
 
@@ -752,17 +771,32 @@ to{
 
     position: absolute;
 
-    inset: 7px;
+    inset: 6px;
 
     border-radius: 50%;
 
     border:
-        1px solid
-        rgba(255,235,160,.65);
+        2px solid
+        rgba(255, 230, 150, .65);
 
-    z-index: 1;
+    box-shadow:
+
+        inset
+        2px 2px 4px
+        rgba(255,255,255,.55),
+
+        inset
+        -3px -4px 6px
+        rgba(70,40,5,.55);
+
+    pointer-events: none;
 
 }
+
+
+/* =====================================================
+   BORDO IRREGOLARE DELLA CERA
+===================================================== */
 
 .seal::after {
 
@@ -772,24 +806,32 @@ to{
 
     inset: -3px;
 
-    border-radius: 48% 52% 51% 49%;
+    border-radius:
+        47%
+        53%
+        51%
+        49%;
 
     border:
         3px solid
-        rgba(105, 35, 25, .45);
+        rgba(100, 70, 15, .45);
 
     box-shadow:
 
-        0 2px 2px
-        rgba(255,180,130,.25),
+        0 3px 2px
+        rgba(255,235,160,.35),
 
-        0 5px 5px
-        rgba(50,10,5,.3);
+        0 7px 8px
+        rgba(50,35,5,.30);
 
     pointer-events: none;
 
 }
 
+
+/* =====================================================
+   PARTE CENTRALE DEL SIGILLO
+===================================================== */
 
 .seal-inner {
 
@@ -797,8 +839,8 @@ to{
 
     z-index: 5;
 
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
 
     display: flex;
 
@@ -807,40 +849,84 @@ to{
 
     border-radius: 50%;
 
+    /*
+       Leggermente scavato
+    */
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,235,160,.30),
+            rgba(125,85,15,.20) 55%,
+            rgba(70,45,5,.35) 100%
+        );
+
     border:
         1px solid
-        rgba(255,240,180,.55);
+        rgba(255,240,180,.65);
+
+    box-shadow:
+
+        inset
+        3px 3px 5px
+        rgba(255,245,190,.45),
+
+        inset
+        -4px -5px 7px
+        rgba(65,40,5,.55);
 
 }
 
 
+/* =====================================================
+   INIZIALI - EFFETTO INCISO
+===================================================== */
+
 .seal-inner span {
+
+    position: relative;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 17px;
+    font-size: 18px;
 
-    font-weight: 600;
+    font-weight: 700;
 
     letter-spacing: 2px;
 
-    color: #fff4c7;
+    color:
+        #f8e7ad;
+
+    /*
+       Doppia ombra = effetto incisione
+    */
+    text-shadow:
+
+        /* bordo scuro interno */
+        2px 2px 2px
+        rgba(70,45,5,.75),
+
+        /* luce sul bordo alto */
+        -1px -1px 1px
+        rgba(255,245,190,.80);
 
 }
 
-
-
-/* ceralacca dopo il click */
+/* =====================================================
+   APERTURA DELLA BUSTA
+===================================================== */
 
 .envelope.open .seal {
 
     opacity: 0;
 
+    animation: none;
+
     transform:
         translate(-50%, -50%)
-        translateZ(80px)
+        translateZ(120px)
         scale(1.5)
         rotate(15deg);
 
@@ -930,50 +1016,56 @@ to{
 }
 
 
+/* =====================================================
+   ANIMAZIONE LEGGERA
+===================================================== */
 
-@keyframes sealPulse{
+@keyframes sealPulse {
 
     0%,
-    100%{
+    100% {
 
         box-shadow:
 
-            0 8px 18px
-            rgba(80,55,10,.35),
+            0 14px 18px
+            rgba(40,28,8,.45),
 
-            0 0 0 rgba(216,196,139,0);
+            0 6px 0
+            #6f5014,
+
+            inset 5px 5px 8px
+            rgba(255,245,190,.70),
+
+            inset -7px -8px 10px
+            rgba(70,45,5,.60),
+
+            0 0 18px
+            rgba(216,196,139,.30);
 
     }
 
-    50%{
+    50% {
 
         box-shadow:
 
-            0 8px 22px
-            rgba(80,55,10,.4),
+            0 16px 22px
+            rgba(40,28,8,.50),
+
+            0 6px 0
+            #6f5014,
+
+            inset 6px 6px 9px
+            rgba(255,245,190,.80),
+
+            inset -8px -9px 11px
+            rgba(70,45,5,.65),
 
             0 0 25px
-            rgba(216,196,139,.45);
+            rgba(216,196,139,.42);
 
     }
 
 }
-
-
-
-@keyframes waxPulse{
-
-
-50%{
-
-box-shadow:
-
-0 0 35px rgba(255,230,180,.6);
-
-}
-
-}
-
 
 
 /* =====================================================
