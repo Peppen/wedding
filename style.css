@@ -352,6 +352,36 @@ body{
 
 }
 
+.envelope.open
+.letter .small {
+
+    animation-delay: .45s;
+
+}
+
+
+.envelope.open
+.letter h1 {
+
+    animation-delay: .60s;
+
+}
+
+
+.envelope.open
+.letter .date {
+
+    animation-delay: .75s;
+
+}
+
+
+.envelope.open
+.letter .place {
+
+    animation-delay: .90s;
+
+}
 
 
 @keyframes textReveal{
@@ -468,8 +498,6 @@ to{
 
     background:transparent;
 
-    border-radius:8px;
-
     opacity:0;
 
     transform:
@@ -481,271 +509,74 @@ to{
 
 }
 
+.envelope-inside {
 
-/* =====================================================
-   CORPO DELLA BUSTA
-===================================================== */
+    position: absolute;
 
-.envelope-body{
+    inset: 0;
 
-    position:absolute;
-
-    inset:0;
-
-    z-index:20;
-
-    overflow:hidden;
-
-    border-radius:8px;
+    border-radius: 8px;
 
     background:
-
-        linear-gradient(
-            145deg,
-            #c4d0bb,
-            #aebaac
-        );
-
-    box-shadow:
-
-        0 30px 70px rgba(40,55,40,.28);
-
-}
-
-
-/* texture molto leggera */
-
-.envelope-body::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.12),
-            transparent 40%,
-            rgba(60,80,60,.06)
-        );
-
-    pointer-events:none;
-
-}
-
-
-/* =====================================================
-   PIEGHE DELLA BUSTA
-===================================================== */
-
-.envelope-fold{
-
-    position:absolute;
-
-    bottom:0;
-
-    width:70%;
-
-    height:75%;
-
-    background:
-
         linear-gradient(
             145deg,
             #aebbab,
-            #b9c6b1
+            #a3b19d
         );
 
-    z-index:2;
+    box-shadow:
+        0 30px 70px rgba(40,55,40,.30);
 
-}
-
-
-.left-fold{
-
-    left:-12%;
-
-    clip-path:
-
-        polygon(
-            0 0,
-            100% 100%,
-            0 100%
-        );
-
-}
-
-
-.right-fold{
-
-    right:-12%;
-
-    clip-path:
-
-        polygon(
-            100% 0,
-            100% 100%,
-            0 100%
-        );
+    z-index: 1;
 
 }
 
 
 /* =====================================================
-   PARTE INFERIORE CENTRALE
+   PARTECIPAZIONE
 ===================================================== */
 
-.envelope-bottom{
+.letter {
 
-    position:absolute;
+    position: absolute;
 
-    left:0;
+    left: 50%;
+    top: 50%;
 
-    bottom:0;
-
-    width:100%;
-
-    height:70%;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #b5c2ad,
-            #aab9a4
-        );
-
-    clip-path:
-
-        polygon(
-            0 100%,
-            50% 18%,
-            100% 100%
-        );
-
-    z-index:5;
-
-    opacity:.95;
-
-}
-
-
-/* =====================================================
-   LEMBO SUPERIORE
-===================================================== */
-
-.envelope-flap{
-
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #cbd5c4,
-            #b5c2ae
-        );
-
-    clip-path:
-
-        polygon(
-            0 0,
-            100% 0,
-            50% 72%
-        );
-
-    transform-origin:50% 0%;
-
-    z-index:40;
-
-    transition:
-
-        transform 1.4s
-        cubic-bezier(.65,0,.35,1);
-
-    filter:
-        drop-shadow(
-            0 8px 12px
-            rgba(50,65,50,.12)
-        );
-
-}
-
-
-/* =====================================================
-   APERTURA DELLA BUSTA
-===================================================== */
-
-.envelope.open .envelope-flap{
+    width: 370px;
+    min-height: 430px;
 
     transform:
-
-        rotateX(180deg);
-
-}
-
-
-/* =====================================================
-   PARTECIPAZIONE INTERNA
-===================================================== */
-
-.letter{
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:370px;
-
-    min-height:430px;
-
-    transform:
-
-        translate(-50%,80px)
+        translate(-50%, 70px)
         scale(.88);
 
     background:
-
         linear-gradient(
             135deg,
             #fbfaf3,
             #f0f1e8
         );
 
-    border-radius:4px;
+    border-radius: 4px;
 
     padding:
-        55px 35px 40px;
+        55px 35px 100px;
 
-    text-align:center;
+    text-align: center;
 
     box-shadow:
+        0 25px 60px rgba(45,60,45,.28);
 
-        0 25px 60px
-        rgba(45,60,45,.25);
+    opacity: 0;
 
-    opacity:0;
-
-    z-index:10;
+    /*
+       IMPORTANTE:
+       la lettera deve stare SOPRA le ante
+    */
+    z-index: 50;
 
     transition:
-
-        transform 1.5s
-        cubic-bezier(.34,1.56,.64,1),
-
+        transform 1.4s cubic-bezier(.34,1.56,.64,1),
         opacity .7s ease;
 
 }
@@ -762,7 +593,7 @@ to{
         translate(-50%,-50%)
         scale(1);
 
-    transition-delay:.35s;
+    transition-delay:.25s;
 
 }
 
@@ -786,6 +617,222 @@ to{
 
 }
 
+/* =====================================================
+   ANTE LATERALI
+===================================================== */
+
+.envelope-side {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #c7d1c1,
+            #aebaab
+        );
+
+    z-index: 60;
+
+    transition:
+        transform 1.5s
+        cubic-bezier(.65,0,.35,1);
+
+    box-shadow:
+        0 8px 18px
+        rgba(50,65,50,.12);
+
+}
+
+
+/* sinistra */
+
+.envelope-left {
+
+    left: 0;
+
+    transform-origin: left center;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+
+}
+
+
+/* destra */
+
+.envelope-right {
+
+    right: 0;
+
+    transform-origin: right center;
+
+    clip-path:
+        polygon(
+            100% 0,
+            0 50%,
+            100% 100%
+        );
+
+}
+
+/* =====================================================
+   APERTURA SINISTRA → DESTRA
+===================================================== */
+
+.envelope.open .envelope-left {
+
+    transform:
+        rotateY(-115deg);
+
+}
+
+
+.envelope.open .envelope-right {
+
+    transform:
+        rotateY(115deg);
+
+}
+
+
+/* =====================================================
+   CERALACCA
+===================================================== */
+
+.seal {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 82px;
+    height: 82px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    z-index: 200;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f0d77c 0%,
+            #c89e32 35%,
+            #9d741d 70%,
+            #73500e 100%
+        );
+
+    box-shadow:
+
+        0 8px 18px
+        rgba(80,55,10,.35),
+
+        inset 3px 3px 6px
+        rgba(255,255,255,.35),
+
+        inset -4px -5px 8px
+        rgba(80,45,0,.3);
+
+    transition:
+        transform .7s ease,
+        opacity .5s ease;
+
+    animation:
+        sealPulse 2.5s infinite;
+
+}
+
+
+.seal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,235,160,.65);
+
+}
+
+
+.seal-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,240,180,.55);
+
+}
+
+
+.seal-inner span {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #fff4c7;
+
+}
+
+
+/* ceralacca dopo il click */
+
+.envelope.open .seal {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.6);
+
+    pointer-events: none;
+
+}
 
 /* =====================================================
    TESTO PARTECIPAZIONE
@@ -1162,54 +1209,90 @@ box-shadow:
 
 
 /* =====================================================
-   PULSANTE ENTRA
+   PULSANTE ENTRA NEL SITO
 ===================================================== */
 
+#enterSite {
 
-#enterSite{
+    position: absolute;
 
+    left: 50%;
+    bottom: 30px;
 
-    position:absolute;
+    transform:
+        translateX(-50%);
 
+    width: 220px;
 
-    left:50%;
+    padding: 15px 25px;
 
+    border-radius: 50px;
 
-    bottom:35px;
+    border:
+        1px solid #596b55;
 
+    background:
+        linear-gradient(
+            135deg,
+            #91A887,
+            #64795D
+        );
 
-    transform:translateX(-50%);
+    color: white;
 
+    font-family:
+        'Poppins',
+        sans-serif;
 
-    width:220px;
+    font-size: 15px;
 
+    cursor: pointer;
 
-    padding:15px 40px;
+    z-index: 500;
 
+    /*
+       IMPORTANTISSIMO
+    */
+    pointer-events: auto;
 
-    border-radius:50px;
+    opacity: 0;
 
+    visibility: hidden;
 
-    border:2px solid #596b55;
-
-
-    background:#71846c;
-
-
-    color:white;
-
-
-    font-size:16px;
-
-
-    cursor:pointer;
-
-
-    z-index:30;
-
+    transition:
+        opacity .6s ease,
+        transform .3s ease;
 
 }
 
+
+/* compare quando la busta è aperta */
+
+.envelope.open #enterSite {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+#enterSite:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #64795D,
+            #435443
+        );
+
+}
 
 
 /* =====================================================
@@ -2684,7 +2767,43 @@ to{
 
 @media(max-width:768px){
 
+.envelope {
 
+        width: 360px;
+        height: 250px;
+
+        transform:
+            scale(.85);
+
+    }
+
+
+    .letter {
+
+        width: 330px;
+
+        min-height: 400px;
+
+        padding:
+            45px 25px 95px;
+
+    }
+
+
+    .seal {
+
+        width: 72px;
+        height: 72px;
+
+    }
+
+
+    .seal-inner {
+
+        width: 51px;
+        height: 51px;
+
+    }
 
     nav{
 
