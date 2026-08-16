@@ -241,8 +241,21 @@ body{
     text-align: center;
 
     box-shadow:
-        0 25px 60px
-        rgba(45,60,45,.28);
+
+        0 25px 55px
+        rgba(35, 40, 30, .34),
+
+        -7px 0 14px
+        rgba(55, 50, 38, .14),
+
+        7px 0 14px
+        rgba(55, 50, 38, .14),
+
+        0 10px 18px
+        rgba(45, 42, 32, .20),
+
+        inset 0 0 6px
+        rgba(80, 70, 50, .06);
 
     opacity: 0;
 
@@ -705,149 +718,6 @@ to{
             0 50%,
             100% 100%
         );
-
-}
-
-/* =====================================================
-   PIEGHE ESTERNE DELLA BUSTA
-   Ombre più marcate sui lembi
-===================================================== */
-
-.envelope-left,
-.envelope-right {
-
-    position: absolute;
-
-    overflow: hidden;
-
-    filter:
-        drop-shadow(
-            0 5px 8px
-            rgba(45, 38, 28, .28)
-        );
-
-}
-
-
-/* =====================================================
-   PIEGA ESTERNA - SINISTRA
-===================================================== */
-
-.envelope-left::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            transparent 42%,
-            rgba(55, 48, 35, .10) 46%,
-            rgba(55, 48, 35, .38) 49%,
-            rgba(255,255,255,.18) 51%,
-            rgba(55, 48, 35, .22) 54%,
-            transparent 59%
-        );
-
-    opacity: .95;
-
-}
-
-
-/* =====================================================
-   PIEGA ESTERNA - DESTRA
-===================================================== */
-
-.envelope-right::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-
-        linear-gradient(
-            45deg,
-            transparent 42%,
-            rgba(55, 48, 35, .10) 46%,
-            rgba(55, 48, 35, .38) 49%,
-            rgba(255,255,255,.18) 51%,
-            rgba(55, 48, 35, .22) 54%,
-            transparent 59%
-        );
-
-    opacity: .95;
-
-}
-
-/* =====================================================
-   OMBRA CENTRALE DELLA PIEGA
-===================================================== */
-
-.envelope-left::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    right: -2px;
-
-    width: 5px;
-    height: 100%;
-
-    background:
-
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(45,38,28,.38),
-            rgba(255,255,255,.18),
-            transparent
-        );
-
-    filter: blur(1px);
-
-    z-index: 5;
-
-}
-
-
-.envelope-right::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -2px;
-
-    width: 5px;
-    height: 100%;
-
-    background:
-
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(45,38,28,.38),
-            rgba(255,255,255,.18),
-            transparent
-        );
-
-    filter: blur(1px);
-
-    z-index: 5;
 
 }
 
