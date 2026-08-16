@@ -2626,7 +2626,7 @@ to{
         width: 100vw;
 
         height: 100dvh;
-        min-height: 100vh;
+        min-height: 100dvh;
 
         transform: scale(.85);
 
@@ -2636,7 +2636,7 @@ to{
 
         transform:
             translate(-50%, -50%)
-            scale(.96);
+            scale(.92);
 
     }
 
@@ -2646,16 +2646,22 @@ to{
         /*
            Quasi tutta la larghezza
         */
-        width: 92vw;
+        width: 88vw;
 
         /*
            TUTTA L'ALTEZZA
         */
-        height: 100dvh;
-        min-height: 100vh;
+        height: 88dvh;
+        min-height: 0;
 
         padding:
-            55px 20px 110px;
+            55px 20px 115px;
+
+        overflow: hidden;
+
+        transform:
+            translate(-50%, 70px)
+            scale(.88);
 
     }
 
@@ -2826,30 +2832,33 @@ to{
 
    .letter h1 {
 
-        font-size: 36px;
+        font-size: 34px;
+        line-height: 1.1;
 
+        margin:
+            18px 0;
     }
 
 
     .small {
 
-        font-size: 13px;
+        font-size: 12px;
 
-        letter-spacing: 4px;
+        letter-spacing: 3px;
 
     }
 
 
     .date {
 
-        font-size: 21px;
+        font-size: 20px;
 
     }
 
 
     .place {
 
-        font-size: 16px;
+        font-size: 15px;
 
     }
 
@@ -2864,24 +2873,56 @@ to{
 
     .seal-inner {
 
-        width: 51px;
-        height: 51px;
+        width: 50px;
+        height: 50px;
 
     }
 
 
     .seal-inner span {
 
-        font-size: 15px;
+        font-size: 14px;
 
     }
 
 
     #enterSite {
 
-        bottom: 35px;
+        left: 50%;
 
-        width: 75%;
+        bottom: 25px;
+
+        width: 78%;
+
+        max-width: 230px;
+
+        padding:
+            13px 18px;
+
+        font-size: 14px;
+
+        line-height: 1.2;
+
+        white-space: nowrap;
+
+        transform:
+            translateX(-50%);
+
+    }
+
+   .envelope.open #enterSite {
+
+        transform:
+            translateX(-50%);
+
+    }
+
+
+    #enterSite:hover {
+
+        transform:
+            translateX(-50%)
+            translateY(-2px);
 
     }
 
