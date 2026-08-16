@@ -537,10 +537,13 @@ to{
         transform 1.5s
         cubic-bezier(.65,0,.35,1);
 
+    overflow: visible;
 }
 
 
-/* SINISTRA */
+/* =========================================
+   ANTA SINISTRA
+========================================= */
 
 .envelope-left {
 
@@ -555,15 +558,18 @@ to{
             0 100%
         );
 
-    filter:
-        drop-shadow(1px 0 0 rgba(67,84,67,.8))
-        drop-shadow(0 1px 0 rgba(67,84,67,.8))
-        drop-shadow(0 -1px 0 rgba(67,84,67,.8));
-
+    background:
+        linear-gradient(
+            145deg,
+            #c7d2c1,
+            #aebaab
+        );
 }
 
 
-/* DESTRA */
+/* =========================================
+   ANTA DESTRA
+========================================= */
 
 .envelope-right {
 
@@ -578,11 +584,60 @@ to{
             100% 100%
         );
 
-    filter:
-        drop-shadow(-1px 0 0 rgba(67,84,67,.8))
-        drop-shadow(0 1px 0 rgba(67,84,67,.8))
-        drop-shadow(0 -1px 0 rgba(67,84,67,.8));
+    background:
+        linear-gradient(
+            145deg,
+            #c7d2c1,
+            #aebaab
+        );
+}
 
+/* =========================================
+   BORDO DELLE ANTE
+========================================= */
+
+.envelope-left::after,
+.envelope-right::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border: 2px solid rgba(67, 84, 67, .80);
+
+    box-shadow:
+        inset 0 0 12px rgba(50,65,50,.15);
+
+}
+
+
+/* bordo anta sinistra */
+
+.envelope-left::after {
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+}
+
+
+/* bordo anta destra */
+
+.envelope-right::after {
+
+    clip-path:
+        polygon(
+            100% 0,
+            0 50%,
+            100% 100%
+        );
 }
 
 
@@ -2533,7 +2588,7 @@ to{
         height: 100dvh;
 
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
 
         overflow: hidden;
@@ -2548,21 +2603,11 @@ to{
 
         width: 100vw;
         height: 100dvh;
-        min-height: 100dvh;
 
         margin: 0;
 
-        /*
-           IMPORTANTE:
-           la busta deve essere visibile
-        */
         opacity: 1;
-
         transform: none;
-
-        /*
-           niente animazione desktop
-        */
         animation: none;
 
         overflow: visible;
@@ -2574,37 +2619,42 @@ to{
 
         position: absolute;
 
-        top: 0;
-        left: 0;
+        inset: 0;
 
         width: 100vw;
         height: 100dvh;
 
         border: none;
+
         z-index: 1;
     }
 
     .envelope.open .letter {
 
-    opacity: 1;
+        opacity: 1;
 
-    z-index: 200;
+        width: 88vw;
+        height: 100dvh;
+        min-height: 100dvh;
 
-    transform:
-        translateX(-50%)
-        translateY(0)
-        scale(.92);
+        transform:
+            translate(-50%, -50%)
+            scale(.92);
 
-    transition:
-        transform 1.4s cubic-bezier(.34,1.56,.64,1),
-        opacity .7s ease;
+        z-index: 200;
 
-    transition-delay: .25s;
+        transition:
+            transform 1.4s cubic-bezier(.34,1.56,.64,1),
+            opacity .7s ease;
 
+        transition-delay: .25s;
     }
 
+
     .envelope-side {
+
         z-index: 100;
+
         height: 100%;
     }
    
@@ -2612,12 +2662,11 @@ to{
 
         position: absolute;
 
-        top: 0;
+        top: 50%;
         left: 50%;
 
         width: 88vw;
         height: 100dvh;
-
         min-height: 100dvh;
 
         margin: 0;
@@ -2627,17 +2676,23 @@ to{
 
         overflow: hidden;
 
+        box-sizing: border-box;
+
         transform:
-            translateX(-50%)
-            translateY(100px)
+            translate(-50%, -40%)
             scale(.92);
 
-        transform-origin: top center;
+        transform-origin: center center;
 
         opacity: 0;
 
-        z-index: 50;
+        z-index: 200;
+
+        transition:
+            transform 1.4s cubic-bezier(.34,1.56,.64,1),
+            opacity .7s ease;
     }
+
 
 
 
