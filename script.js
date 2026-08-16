@@ -6,128 +6,202 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
+
 /* =====================================================
    APERTURA INVITO
 ===================================================== */
 
-
 const seal = document.getElementById("seal");
-
 const envelope = document.getElementById("envelope");
-
 const enterButton = document.getElementById("enterSite");
-
 const intro = document.getElementById("intro");
-
 const website = document.getElementById("website");
 
 
+/* =====================================================
+   NASCONDE IL SITO ALL'INIZIO
+===================================================== */
 
+if (website) {
 
-
-// Nasconde il sito fino all'apertura
-
-if(website){
-
-    website.style.display="none";
+    website.style.display = "none";
 
 }
 
 
-if (seal) {
+/* =====================================================
+   APERTURA DELLA BUSTA
+===================================================== */
+
+if (seal && envelope) {
 
     seal.addEventListener("click", function () {
+
+        /*
+         * Evita che il click venga eseguito
+         * più volte
+         */
+
+        if (envelope.classList.contains("open")) {
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           Effetto particelle della ceralacca
+        --------------------------------------------- */
 
         for (let i = 0; i < 25; i++) {
 
             const p = document.createElement("span");
+
             p.className = "particle";
+
             document.body.appendChild(p);
 
-            const x = Math.random() * 120 - 60;
-            const y = Math.random() * 120 - 60;
 
-            p.style.left = seal.getBoundingClientRect().left + "px";
-            p.style.top = seal.getBoundingClientRect().top + "px";
+            const rect =
+                seal.getBoundingClientRect();
 
-            p.animate([
+
+            const x =
+                Math.random() * 160 - 80;
+
+            const y =
+                Math.random() * 160 - 80;
+
+
+            p.style.left =
+                rect.left + rect.width / 2 + "px";
+
+            p.style.top =
+                rect.top + rect.height / 2 + "px";
+
+
+            p.animate(
+
+                [
+                    {
+                        transform:
+                            "translate(0,0) scale(1)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            `translate(${x}px,${y}px) scale(0)`,
+                        opacity: 0
+                    }
+                ],
+
                 {
-                    transform: "translate(0,0) scale(1)",
-                    opacity: 1
-                },
-                {
-                    transform: `translate(${x}px,${y}px) scale(0)`,
-                    opacity: 0
+                    duration: 900,
+                    easing: "ease-out"
                 }
-            ], {
-                duration: 900
-            });
 
-            setTimeout(() => p.remove(), 900);
+            );
+
+
+            setTimeout(function () {
+
+                p.remove();
+
+            }, 900);
+
         }
+
+
+        /* ---------------------------------------------
+           APRE LA BUSTA
+        --------------------------------------------- */
 
         envelope.classList.add("open");
 
-        setTimeout(function () {
-            enterButton.classList.remove("hidden");
-            enterButton.classList.add("show");
-        }, 1800);
+
+        /*
+         * Il pulsante viene gestito dal CSS:
+         *
+         * .envelope.open #enterSite
+         *
+         * quindi non dobbiamo più aggiungere
+         * classi "show" o "hidden".
+         */
 
     });
 
 }
 
 
+/* =====================================================
+   ENTRA NEL SITO
+===================================================== */
+
+if (enterButton && intro && website) {
+
+    enterButton.addEventListener("click", function (event) {
+
+        /*
+         * Impedisce eventuali comportamenti indesiderati
+         */
+
+        event.preventDefault();
+
+        event.stopPropagation();
 
 
+        /*
+         * Evita doppi click
+         */
+
+        if (enterButton.disabled) {
+            return;
+        }
+
+        enterButton.disabled = true;
 
 
+        /*
+         * Inizia la dissolvenza della copertina
+         */
 
-// Entrata nel sito
-
-
-if(enterButton){
-
-
-
-enterButton.addEventListener("click", function(){
+        intro.classList.add("hide");
 
 
+        /*
+         * Aspetta che termini il fade-out
+         */
 
-    intro.classList.add("hide");
+        setTimeout(function () {
 
+            intro.style.display = "none";
 
-
-    setTimeout(function(){
-
-
-        intro.style.display="none";
-
-
-        website.style.display="block";
+            website.style.display = "block";
 
 
-        window.scrollTo({
+            /*
+             * Torna all'inizio del sito
+             */
 
-            top:0,
-            behavior:"instant"
+            window.scrollTo({
 
-        });
+                top: 0,
 
+                behavior: "instant"
 
-
-    },1000);
-
-
-
-});
+            });
 
 
+            /*
+             * Riabilita il pulsante
+             */
+
+            enterButton.disabled = false;
+
+        }, 1000);
+
+    });
 
 }
-
-
-
 
 
 
