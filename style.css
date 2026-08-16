@@ -148,7 +148,26 @@ body{
         envelopeEntrance 1.8s ease-out forwards;
 }
 
+.envelope::before {
+    content: "";
 
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid rgba(67, 84, 67, .80);
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    box-shadow:
+        0 0 0 1px rgba(216,196,139,.25),
+        inset 0 0 12px rgba(45,60,45,.12);
+
+    transition:
+        opacity .5s ease;
+}
 
 @keyframes envelopeEntrance{
 
@@ -560,9 +579,11 @@ to{
             #aebaab
         );
 
+    border: 2px solid rgba(67, 84, 67, .75);
+
     box-shadow:
-        0 30px 70px
-        rgba(40,55,40,.30);
+        0 30px 70px rgba(40,55,40,.30),
+        inset 0 0 0 1px rgba(255,255,255,.25);
 
     z-index: 1;
 
@@ -682,6 +703,11 @@ to{
        niente bordo arrotondato
     */
 
+    border: 2px solid rgba(67, 84, 67, .75);
+
+    box-shadow:
+        inset 0 0 12px rgba(50,65,50,.15);
+
     z-index: 60;
 
     transform-style: preserve-3d;
@@ -709,6 +735,8 @@ to{
             0 100%
         );
 
+    border-right: 1px solid rgba(255,255,255,.20);
+
 }
 
 
@@ -727,6 +755,8 @@ to{
             0 50%,
             100% 100%
         );
+
+    border-left: 1px solid rgba(255,255,255,.20);
 
 }
 
