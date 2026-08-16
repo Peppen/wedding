@@ -2307,3 +2307,66 @@ to{
 
 
 }
+
+/* =====================================================
+   MESSAGGI RSVP
+===================================================== */
+
+#success {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 20px;
+
+}
+
+
+.success-message {
+
+    color:
+        var(--sage-deep);
+
+    animation:
+        successMessage .6s ease;
+
+}
+
+
+.error-message {
+
+    color:
+        #a34b3c;
+
+    animation:
+        successMessage .6s ease;
+
+}
+
+
+@keyframes successMessage {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
