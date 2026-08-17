@@ -892,7 +892,7 @@ to{
 
     /* NUOVO: immagine del monogramma */
     background-image:
-        url('img/monogram-mk.svg'),
+        url('Logo.svg'),
         radial-gradient(
             circle at 35% 30%,
             rgba(255,235,160,.30),
