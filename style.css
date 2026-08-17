@@ -504,7 +504,7 @@ to{
 }
 
 /* =====================================================
-   ANTE BUSTA
+   ANTE BUSTA - DIVISIONE CENTRALE
 ===================================================== */
 
 .envelope-side {
@@ -523,9 +523,6 @@ to{
             #aebaab
         );
 
-    box-shadow:
-        inset 0 0 12px rgba(50,65,50,.15);
-
     z-index: 60;
 
     transform-style: preserve-3d;
@@ -539,20 +536,10 @@ to{
 
 }
 
+
 /* =====================================================
-   DOPO L'APERTURA LE ANTE VANNO DIETRO LA LETTERA
-===================================================== */
-
-.envelope.open .envelope-side {
-
-    z-index: 10;
-
-}
-
-
-/* =========================================
    ANTA SINISTRA
-========================================= */
+===================================================== */
 
 .envelope-left {
 
@@ -560,25 +547,22 @@ to{
 
     transform-origin: left center;
 
-    clip-path:
-        polygon(
-            0 0,
-            100% 50%,
-            0 100%
-        );
+    /*
+       Nessun triangolo:
+       l'anta è completamente rettangolare
+    */
+    clip-path: none;
 
-    background:
-        linear-gradient(
-            145deg,
-            #c7d2c1,
-            #aebaab
-        );
+    border-right:
+        1px solid
+        rgba(50,65,50,.18);
+
 }
 
 
-/* =========================================
+/* =====================================================
    ANTA DESTRA
-========================================= */
+===================================================== */
 
 .envelope-right {
 
@@ -586,24 +570,21 @@ to{
 
     transform-origin: right center;
 
-    clip-path:
-        polygon(
-            100% 0,
-            0 50%,
-            100% 100%
-        );
+    /*
+       Nessun triangolo
+    */
+    clip-path: none;
 
-    background:
-        linear-gradient(
-            145deg,
-            #c7d2c1,
-            #aebaab
-        );
+    border-left:
+        1px solid
+        rgba(50,65,50,.12);
+
 }
 
-/* =========================================
-   BORDO DELLE ANTE
-========================================= */
+
+/* =====================================================
+   OMBRA DELLA DIVISIONE CENTRALE
+===================================================== */
 
 .envelope-left::after,
 .envelope-right::after {
@@ -612,47 +593,62 @@ to{
 
     position: absolute;
 
-    inset: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 18px;
 
     pointer-events: none;
 
-    box-shadow:
-        inset 0 0 12px rgba(50,65,50,.15);
-
 }
 
 
-/* bordo anta sinistra */
+/* ombra verso sinistra */
 
 .envelope-left::after {
 
-    clip-path:
-        polygon(
-            0 0,
-            100% 50%,
-            0 100%
+    right: -9px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(45,55,43,.18),
+            rgba(45,55,43,.05),
+            transparent
         );
+
 }
 
 
-/* bordo anta destra */
+/* ombra verso destra */
 
 .envelope-right::after {
 
-    clip-path:
-        polygon(
-            100% 0,
-            0 50%,
-            100% 100%
+    left: -9px;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(45,55,43,.18),
+            rgba(45,55,43,.05),
+            transparent
         );
+
 }
 
 
-
-
 /* =====================================================
-   APERTURA SINISTRA → DESTRA
+   APERTURA DELLA BUSTA
 ===================================================== */
+
+.envelope.open .envelope-side {
+
+    z-index: 10;
+
+}
+
 
 .envelope.open .envelope-left {
 
@@ -668,6 +664,18 @@ to{
         rotateY(115deg);
 
 }
+
+
+/* =====================================================
+   DOPO L'APERTURA LE ANTE VANNO DIETRO LA LETTERA
+===================================================== */
+
+.envelope.open .envelope-side {
+
+    z-index: 10;
+
+}
+
 
 /* =====================================================
    CERALACCA - RILIEVO REALISTICO
