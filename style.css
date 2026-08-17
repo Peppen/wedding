@@ -867,9 +867,6 @@ to{
 
     border-radius: 50%;
 
-    /*
-       Leggermente scavato
-    */
     background:
 
         radial-gradient(
@@ -893,43 +890,25 @@ to{
         -4px -5px 7px
         rgba(65,40,5,.55);
 
+    /* NUOVO: immagine del monogramma */
+    background-image:
+        url('img/monogram-mk.svg'),
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,235,160,.30),
+            rgba(125,85,15,.20) 55%,
+            rgba(70,45,5,.35) 100%
+        );
+
+    background-size: 70%, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+
 }
 
-
-/* =====================================================
-   INIZIALI - EFFETTO INCISO
-===================================================== */
-
+/* lo span con le iniziali testuali non serve più */
 .seal-inner span {
-
-    position: relative;
-
-    font-family:
-        'Playfair Display',
-        serif;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    color:
-        #f8e7ad;
-
-    /*
-       Doppia ombra = effetto incisione
-    */
-    text-shadow:
-
-        /* bordo scuro interno */
-        2px 2px 2px
-        rgba(70,45,5,.75),
-
-        /* luce sul bordo alto */
-        -1px -1px 1px
-        rgba(255,245,190,.80);
-
+    display: none;
 }
 
 /* =====================================================
