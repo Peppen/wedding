@@ -656,9 +656,17 @@ to{
 
     z-index: 70;
 
+    /* AGGIUNTO: transizione per la dissolvenza */
+    opacity: 1;
+    transition: opacity 1s ease;
+
 }
 
+.envelope.open .envelope-inside::after {
 
+    opacity: 0;
+
+}
 
 /* =====================================================
    APERTURA DELLA BUSTA
