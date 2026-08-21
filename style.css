@@ -994,11 +994,6 @@ to{
 
 }
 
-/* lo span con le iniziali testuali non serve più */
-.seal-inner span {
-    display: none;
-}
-
 /* =====================================================
    APERTURA DELLA BUSTA
 ===================================================== */
