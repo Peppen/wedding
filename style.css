@@ -727,7 +727,6 @@ to{
 
     transform-style: preserve-3d;
 
-    /* leggermente irregolare, non più un cerchio perfetto ma quasi */
     border-radius:
         49% 51% 50% 50%
         / 50% 49% 51% 50%;
@@ -747,102 +746,75 @@ to{
 
         radial-gradient(
             circle at 30% 22%,
-            #f3d87e 0%,
-            #d5b34e 18%,
-            #b58a2d 42%,
-            #8c651d 70%,
-            #624511 100%
+            #f6dd8c 0%,
+            #dcb85a 20%,
+            #b8902f 45%,
+            #8f6620 72%,
+            #5e3f10 100%
         );
 
     box-shadow:
 
-        0 14px 18px
-        rgba(40, 28, 8, .45),
+        /* ombra proiettata sulla carta */
+        0 16px 22px
+        rgba(35, 24, 6, .48),
 
-        0 6px 0
-        #6f5014,
+        /* spessore/base della cera */
+        0 5px 0
+        rgba(70, 48, 10, .9),
 
-        inset 5px 5px 8px
-        rgba(255, 245, 190, .70),
+        /* bordo naturale in luce, dove la cera è più sottile */
+        inset 0 0 0 1px
+        rgba(255, 235, 175, .18),
 
-        inset -7px -8px 10px
-        rgba(70, 45, 5, .60),
+        /* rilievo superiore */
+        inset 6px 6px 10px
+        rgba(255, 245, 195, .55),
 
-        0 0 18px
-        rgba(216, 196, 139, .30);
+        /* incavo inferiore */
+        inset -8px -9px 14px
+        rgba(60, 38, 5, .65),
+
+        /* alone caldo diffuso */
+        0 0 20px
+        rgba(216, 196, 139, .25);
 
     transition:
         transform .7s ease,
         opacity .5s ease;
+
     animation:
         sealPulse 2.8s ease-in-out infinite;
+
 }
 
-
-/* =====================================================
-   BORDO ESTERNO RIALZATO
-===================================================== */
-
+/* rilievo di colatura: piccola irregolarità sul bordo, non un bordo disegnato */
 .seal::before {
 
     content: "";
 
     position: absolute;
 
-    inset: 6px;
+    inset: 0;
 
-    border-radius: 50%;
+    border-radius: inherit;
 
-    border:
-        2px solid
-        rgba(255, 230, 150, .65);
+    background:
 
-    box-shadow:
-
-        inset
-        2px 2px 4px
-        rgba(255,255,255,.55),
-
-        inset
-        -3px -4px 6px
-        rgba(70,40,5,.55);
+        radial-gradient(
+            ellipse at 65% 78%,
+            rgba(60, 38, 5, .35),
+            transparent 40%
+        );
 
     pointer-events: none;
 
 }
 
-
-/* =====================================================
-   BORDO IRREGOLARE DELLA CERA
-===================================================== */
-
+/* rimosso il secondo strato con bordo irregolare: non serve più */
 .seal::after {
 
-    content: "";
-
-    position: absolute;
-
-    /* offset minimo, quasi impercettibile */
-    inset: -3px;
-
-    /* stessa "famiglia" di forma di .seal, scostamento minimo */
-    border-radius:
-        51% 49% 50% 50%
-        / 49% 51% 50% 50%;
-
-    border:
-        3px solid
-        rgba(100, 70, 15, .45);
-
-    box-shadow:
-
-        0 3px 2px
-        rgba(255,235,160,.35),
-
-        0 7px 8px
-        rgba(50,35,5,.30);
-
-    pointer-events: none;
+    display: none;
 
 }
 
@@ -856,56 +828,41 @@ to{
 
     z-index: 5;
 
-    width: 62px;
-    height: 62px;
+    width: 60px;
+    height: 60px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    border-radius: inherit;
 
     background:
 
         radial-gradient(
-            circle at 35% 30%,
-            rgba(255,235,160,.30),
-            rgba(125,85,15,.20) 55%,
-            rgba(70,45,5,.35) 100%
+            circle at 38% 32%,
+            rgba(255,238,180,.35),
+            rgba(120,80,15,.18) 55%,
+            rgba(60,38,5,.32) 100%
         );
-
-    border:
-        1px solid
-        rgba(255,240,180,.65);
 
     box-shadow:
 
         inset
-        3px 3px 5px
-        rgba(255,245,190,.45),
+        3px 3px 6px
+        rgba(255,245,195,.40),
 
         inset
-        -4px -5px 7px
-        rgba(65,40,5,.55);
+        -5px -6px 9px
+        rgba(55,35,5,.55);
 
 }
 
-.seal-inner::before{
+/* rimosso l'anello tratteggiato: niente più contorni disegnati */
+.seal-inner::before {
 
-    content:"";
-
-    position:absolute;
-
-    inset:6px;
-
-    border-radius:50%;
-
-    border:
-        1px dashed
-        rgba(255,240,190,.55);
-
-    pointer-events:none;
+    display: none;
 
 }
 
