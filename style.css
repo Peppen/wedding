@@ -990,8 +990,7 @@ to{
 
     transform:
         translateX(-6px)
-        rotate(6deg)
-        scaleX(-1);
+        rotate(6deg);
 
 }
 
