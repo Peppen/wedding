@@ -938,7 +938,7 @@ to{
 
 }
 
-.seal-monogram{
+.seal-monogram {
 
     position: relative;
 
@@ -963,18 +963,24 @@ to{
 
     line-height: 1;
 
-    color: rgba(70,45,5,.55);
+    /* MODIFICATO: colore più scuro e opaco, molto più contrastato sullo sfondo dorato */
+    color: rgba(40, 24, 3, .92);
 
     text-shadow:
 
+        /* riflesso chiaro in alto a sinistra, più intenso */
         1px 1px 1px
-        rgba(255,245,195,.55),
+        rgba(255, 245, 200, .85),
 
-        -1px -1px 2px
-        rgba(50,30,5,.65);
+        /* ombra scura sotto, per dare profondità e "incidere" meglio */
+        -1.5px -1.5px 2px
+        rgba(30, 18, 2, .75),
+
+        /* leggero contorno scuro per staccare la lettera dallo sfondo */
+        0 0 3px
+        rgba(30, 18, 2, .5);
 
 }
-
 /* la M a sinistra, leggermente inclinata verso il centro */
 .letter-left{
 
