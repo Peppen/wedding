@@ -726,7 +726,10 @@ to{
 
     transform-style: preserve-3d;
 
-    border-radius: 50%;
+    /* MODIFICATO: non più cerchio perfetto, bordo mosso */
+    border-radius:
+        42% 58% 55% 45%
+        / 48% 44% 56% 52%;
 
     z-index: 1000;
 
@@ -739,9 +742,6 @@ to{
     align-items: center;
     justify-content: center;
 
-    /*
-       SUPERFICIE DELLA CERA
-    */
     background:
 
         radial-gradient(
@@ -753,29 +753,20 @@ to{
             #624511 100%
         );
 
-    /*
-       QUESTE SONO LE OMBRE CHE CREANO
-       FISICAMENTE IL RILIEVO VISIVO
-    */
     box-shadow:
 
-        /* ombra principale sotto */
         0 14px 18px
         rgba(40, 28, 8, .45),
 
-        /* spessore della cera */
         0 6px 0
         #6f5014,
 
-        /* bordo superiore illuminato */
         inset 5px 5px 8px
         rgba(255, 245, 190, .70),
 
-        /* bordo inferiore scavato */
         inset -7px -8px 10px
         rgba(70, 45, 5, .60),
 
-        /* luce morbida */
         0 0 18px
         rgba(216, 196, 139, .30);
 
@@ -830,13 +821,16 @@ to{
 
     position: absolute;
 
-    inset: -3px;
+    /* MODIFICATO: offset non uniforme, il bordo "sborda" di più su un lato */
+    top: -5px;
+    left: -2px;
+    right: -4px;
+    bottom: -6px;
 
+    /* MODIFICATO: forma diversa da quella del sigillo, così non combaciano mai perfettamente */
     border-radius:
-        47%
-        53%
-        51%
-        49%;
+        55% 45% 48% 52%
+        / 40% 55% 45% 60%;
 
     border:
         3px solid
@@ -853,7 +847,6 @@ to{
     pointer-events: none;
 
 }
-
 
 /* =====================================================
    PARTE CENTRALE DEL SIGILLO
