@@ -722,14 +722,15 @@ to{
 
     transform:
         translate(-50%, -50%)
-        translateZ(120px);
+        translateZ(120px)
+        rotate(-4deg);
 
     transform-style: preserve-3d;
 
-    /* MODIFICATO: non più cerchio perfetto, bordo mosso */
+    /* leggermente irregolare, non più un cerchio perfetto ma quasi */
     border-radius:
-        42% 58% 55% 45%
-        / 48% 44% 56% 52%;
+        49% 51% 50% 50%
+        / 50% 49% 51% 50%;
 
     z-index: 1000;
 
@@ -821,16 +822,13 @@ to{
 
     position: absolute;
 
-    /* MODIFICATO: offset non uniforme, il bordo "sborda" di più su un lato */
-    top: -5px;
-    left: -2px;
-    right: -4px;
-    bottom: -6px;
+    /* offset minimo, quasi impercettibile */
+    inset: -3px;
 
-    /* MODIFICATO: forma diversa da quella del sigillo, così non combaciano mai perfettamente */
+    /* stessa "famiglia" di forma di .seal, scostamento minimo */
     border-radius:
-        55% 45% 48% 52%
-        / 40% 55% 45% 60%;
+        51% 49% 50% 50%
+        / 49% 51% 50% 50%;
 
     border:
         3px solid
