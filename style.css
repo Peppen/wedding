@@ -675,14 +675,8 @@ to{
 }
 
 
-/* =====================================================
-   CERALACCA - RILIEVO REALISTICO
-===================================================== */
-
 .seal {
-
     position: absolute;
-
     top: 50%;
     left: 50%;
 
@@ -694,91 +688,40 @@ to{
         translateZ(120px)
         rotate(-4deg);
 
-    transform-style: preserve-3d;
-
-    border-radius:
-        49% 51% 50% 50%
-        / 50% 49% 51% 50%;
-
     z-index: 1000;
-
-    isolation: isolate;
-
     cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-
-        radial-gradient(
-            circle at 30% 22%,
-            #f6dd8c 0%,
-            #dcb85a 20%,
-            #b8902f 45%,
-            #8f6620 72%,
-            #5e3f10 100%
-        );
-
-    box-shadow:
-
-        /* ombra proiettata sulla carta */
-        0 16px 22px
-        rgba(35, 24, 6, .48),
-
-        /* spessore/base della cera */
-        0 5px 0
-        rgba(70, 48, 10, .9),
-
-        /* bordo naturale in luce, dove la cera è più sottile */
-        inset 0 0 0 1px
-        rgba(255, 235, 175, .18),
-
-        /* rilievo superiore */
-        inset 6px 6px 10px
-        rgba(255, 245, 195, .55),
-
-        /* incavo inferiore */
-        inset -8px -9px 14px
-        rgba(60, 38, 5, .65),
-
-        /* alone caldo diffuso */
-        0 0 20px
-        rgba(216, 196, 139, .25);
 
     transition:
         transform .7s ease,
         opacity .5s ease;
-
-    animation:
-        sealPulse 2.8s ease-in-out infinite;
-
 }
 
-/* rilievo di colatura: piccola irregolarità sul bordo, non un bordo disegnato */
-.seal::before {
+.seal-image {
+    width: 100%;
+    height: 100%;
 
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    background:
-
-        radial-gradient(
-            ellipse at 65% 78%,
-            rgba(60, 38, 5, .35),
-            transparent 40%
-        );
+    object-fit: contain;
 
     pointer-events: none;
+    user-select: none;
 
+    filter:
+        drop-shadow(0 8px 5px rgba(30,25,10,.25))
+        drop-shadow(0 15px 15px rgba(30,25,10,.18));
 }
+
+.envelope.open .seal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(120px)
+        scale(1.5)
+        rotate(15deg);
+
+    pointer-events: none;
+}
+
 
 /* rimosso il secondo strato con bordo irregolare: non serve più */
 .seal::after {
@@ -866,47 +809,6 @@ to{
 
 }
 
-.seal::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    background:
-
-        radial-gradient(
-            ellipse at 65% 78%,
-            rgba(60, 38, 5, .35),
-            transparent 40%
-        ),
-
-        /* micro-bolle nella cera */
-        radial-gradient(
-            circle at 22% 62%,
-            rgba(255,240,190,.30) 0%,
-            transparent 3%
-        ),
-
-        radial-gradient(
-            circle at 78% 30%,
-            rgba(50,32,5,.30) 0%,
-            transparent 2.5%
-        ),
-
-        radial-gradient(
-            circle at 68% 68%,
-            rgba(255,240,190,.22) 0%,
-            transparent 2%
-        );
-
-    pointer-events: none;
-
-}
-
 .seal-monogram {
 
     position: relative;
@@ -960,26 +862,6 @@ to{
     transform:
         translateX(-6px)
         rotate(6deg);
-
-}
-
-/* =====================================================
-   APERTURA DELLA BUSTA
-===================================================== */
-
-.envelope.open .seal {
-
-    opacity: 0;
-
-    animation: none;
-
-    transform:
-        translate(-50%, -50%)
-        translateZ(120px)
-        scale(1.5)
-        rotate(15deg);
-
-    pointer-events: none;
 
 }
 
@@ -1038,58 +920,6 @@ to{
 .letter .place{
 
     animation-delay:.95s;
-
-}
-
-
-/* =====================================================
-   ANIMAZIONE LEGGERA
-===================================================== */
-
-@keyframes sealPulse {
-
-    0%,
-    100% {
-
-        box-shadow:
-
-            0 14px 18px
-            rgba(40,28,8,.45),
-
-            0 6px 0
-            #6f5014,
-
-            inset 5px 5px 8px
-            rgba(255,245,190,.70),
-
-            inset -7px -8px 10px
-            rgba(70,45,5,.60),
-
-            0 0 18px
-            rgba(216,196,139,.30);
-
-    }
-
-    50% {
-
-        box-shadow:
-
-            0 16px 22px
-            rgba(40,28,8,.50),
-
-            0 6px 0
-            #6f5014,
-
-            inset 6px 6px 9px
-            rgba(255,245,190,.80),
-
-            inset -8px -9px 11px
-            rgba(70,45,5,.65),
-
-            0 0 25px
-            rgba(216,196,139,.42);
-
-    }
 
 }
 
