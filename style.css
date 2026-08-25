@@ -228,26 +228,6 @@ body{
 
 }
 
-
-.letter > *:not(#enterSite){
-
-    position:relative;
-
-    z-index:20;
-
-}
-
-
-
-
-.envelope.open .letter > *:not(#enterSite){
-
-    animation:
-
-    textReveal .7s forwards;
-
-}
-
 .envelope.open
 .letter .small {
 
@@ -574,17 +554,6 @@ to{
         1px solid
         rgba(50,65,50,.12);
 
-}
-
-
-/* =====================================================
-   OMBRA DELLA DIVISIONE CENTRALE
-===================================================== */
-
-.envelope-left::after,
-.envelope-right::after {
-    display: none;
-    content: none;
 }
 
 
@@ -1069,29 +1038,6 @@ to{
 .letter .place{
 
     animation-delay:.95s;
-
-}
-
-
-@keyframes textReveal{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(25px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-    }
 
 }
 
