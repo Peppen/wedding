@@ -138,6 +138,30 @@ body{
         opacity .5s ease;
 }
 
+/* =====================================================
+   CORNICE PNG INTERNA DELLA BUSTA
+===================================================== */
+
+.envelope-frame {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    pointer-events: none;
+
+    z-index: 15;
+
+    user-select: none;
+}
+
+
 @keyframes envelopeEntrance{
 
 
