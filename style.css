@@ -254,7 +254,6 @@ to{
 ===================================================== */
 
 .wedding-letter {
-
     position: absolute;
 
     top: 50%;
@@ -272,7 +271,6 @@ to{
     z-index: 20;
 
     background:
-
         linear-gradient(
             135deg,
             #fffdf6,
@@ -280,18 +278,16 @@ to{
         );
 
     box-shadow:
-
         0 25px 55px
         rgba(40,45,35,.25);
 
     transition:
-
-        transform 1.5s
-        cubic-bezier(.22,1,.36,1),
-
+        transform 1.5s cubic-bezier(.22,1,.36,1),
         opacity .7s ease;
 
+    overflow: hidden;
 }
+
 
 
 /* =====================================================
@@ -354,7 +350,7 @@ to{
 
     position: absolute;
 
-    inset: 30px;
+    inset: 24px;
 
     display: flex;
 
@@ -368,7 +364,9 @@ to{
 
     color: #435443;
 
+    overflow: hidden;
 }
+
 
 
 .invitation-small {
@@ -379,13 +377,13 @@ to{
 
     text-transform: uppercase;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
-    font-size: 11px;
+    font-size: 10px;
 
     color: #a18448;
 
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 
 }
 
@@ -396,13 +394,13 @@ to{
         'Playfair Display',
         serif;
 
-    font-size: 17px;
+    font-size: 15px;
 
     font-style: italic;
 
     color: #70634d;
 
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 
 }
 
@@ -415,9 +413,9 @@ to{
         'Playfair Display',
         serif;
 
-    font-size: clamp(48px, 7vw, 72px);
+    font-size: clamp(40px, 6vw, 64px);
 
-    line-height: .95;
+    line-height: .9;
 
     font-weight: 400;
 
@@ -451,13 +449,13 @@ to{
 
     align-items: center;
 
-    gap: 12px;
+    gap: 10px;
 
-    margin: 20px 0;
+    margin: 12px 0;
 
     color: #b89a52;
 
-    font-size: 22px;
+    font-size: 19px;
 
 }
 
@@ -466,7 +464,7 @@ to{
 
     display: block;
 
-    width: 55px;
+    width: 45px;
 
     height: 1px;
 
@@ -502,11 +500,11 @@ to{
         'Playfair Display',
         serif;
 
-    font-size: 23px;
+    font-size: 20px;
 
     color: #66573e;
 
-    margin-bottom: 7px;
+    margin-bottom: 4px;
 
 }
 
@@ -517,32 +515,32 @@ to{
         'Poppins',
         sans-serif;
 
-    font-size: 12px;
+    font-size: 10px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 
     color: #687664;
 
     text-transform: uppercase;
 
-    line-height: 1.7;
+    line-height: 1.5;
 
 }
 
 
 .invitation-message {
 
-    max-width: 360px;
+    max-width: 330px;
 
-    margin-top: 20px;
+    margin-top: 10px;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 13px;
+    font-size: 11px;
 
-    line-height: 1.6;
+    line-height: 1.45;
 
     color: #756b59;
 
@@ -877,7 +875,7 @@ to{
     .wedding-envelope {
 
         width: 92vw;
-        height: 72vh;
+        height: min(72vh, 560px);
 
     }
 
@@ -885,38 +883,41 @@ to{
     .wedding-letter {
 
         width: 88%;
-        height: 86%;
+        height: 88%;
 
     }
 
 
     .letter-content {
 
-        inset: 20px;
+        inset: 16px;
 
     }
-
-
+   
+    .letter-border {
+        inset: 9px;
+    }
+   
+    .letter-border::before {
+        inset: 5px;
+    }
+   
     .invitation-small {
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-
+        font-size: 8px;
+        letter-spacing: 2.5px;
+        margin-bottom: 6px;
     }
 
 
     .invitation-text {
-
-        font-size: 14px;
-
+        font-size: 12px;
+        margin-bottom: 5px;
     }
 
 
     .letter-content h1 {
-
-        font-size: 48px;
-
+        font-size: clamp(38px, 12vw, 52px);
+        line-height: .88;
     }
 
 
@@ -928,42 +929,28 @@ to{
 
 
     .invitation-message {
-
-        max-width: 260px;
-
-        font-size: 11px;
-
-        margin-top: 14px;
-
+        max-width: 245px;
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 1.4;
     }
-
 
     .ornament {
-
-        margin: 14px 0;
-
+        margin: 9px 0;
+        font-size: 17px;
     }
-
 
     .ornament span {
-
-        width: 35px;
-
+        width: 30px;
     }
-
 
     .wedding-seal {
-
         width: 72px;
         height: 72px;
-
     }
 
-
     .seal-inner {
-
         font-size: 20px;
-
     }
 
 
