@@ -743,10 +743,9 @@ to{
     position: absolute;
 
     left: 50%;
-    bottom: 24px;
+    bottom: 8px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 500;
 
@@ -760,7 +759,6 @@ to{
     border-radius: 50px;
 
     background:
-
         linear-gradient(
             135deg,
             #91a887,
@@ -784,12 +782,11 @@ to{
     pointer-events: none;
 
     transition:
-
         opacity .8s ease .9s,
         transform .35s ease,
         background .35s ease;
-
 }
+
 
 
 .wedding-envelope.open
@@ -856,7 +853,7 @@ to{
     .wedding-letter {
 
         width: 88%;
-        height: 88%;
+        height: 84%;
 
     }
 
@@ -934,13 +931,39 @@ to{
 
     #enterSite {
 
-        width: 75%;
+    bottom: 8px;
 
-        bottom: 18px;
+    width: 78%;
 
-        font-size: 13px;
+    max-width: 230px;
 
-    }
+    padding: 13px 18px;
+
+    font-size: 14px;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    transform:
+        translateX(-50%);
+   }
+
+   .envelope.open #enterSite {
+
+    transform:
+        translateX(-50%);
+
+   }
+
+
+   #enterSite:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-2px);
+
+   }
 
 }
 
