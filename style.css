@@ -520,7 +520,9 @@ to{
     max-width: 100%;
 
     white-space: normal;
-
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
 }
 
 
@@ -3203,6 +3205,88 @@ to{
     color:
         #756b59;
 
+}
+
+/* Contenuto della partecipazione */
+.wedding-letter .letter-content {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 35px 45px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: visible;
+}
+
+/* Testo introduttivo */
+.wedding-letter .invitation-small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+/* Frase iniziale */
+.wedding-letter .invitation-text {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+
+    max-width: 95%;
+}
+
+/* Nomi */
+.wedding-letter h1 {
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: .95;
+
+    margin: 3px 0;
+}
+
+/* Data */
+.wedding-letter .invitation-date {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+}
+
+/* Luogo */
+.wedding-letter .invitation-place {
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+
+    max-width: 95%;
+}
+
+/* Messaggio finale */
+.wedding-letter .invitation-message {
+    max-width: 90%;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+/* Decorazione centrale */
+.wedding-letter .ornament {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.wedding-letter .ornament span {
+    width: 35px;
 }
 
 /* =====================================================
