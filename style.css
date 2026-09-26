@@ -351,6 +351,49 @@ to{
 
 }
 
+/* =====================================================
+   TESTO SEMPRE DENTRO IL BIGLIETTO
+===================================================== */
+
+.wedding-letter .letter-content > * {
+
+    max-width: 100%;
+
+    flex-shrink: 1;
+
+}
+
+
+.wedding-letter .invitation-small {
+
+    max-width: 100%;
+
+    white-space: normal;
+
+}
+
+
+.wedding-letter .invitation-text {
+
+    max-width: 90%;
+
+}
+
+
+.wedding-letter .invitation-message {
+
+    max-width: 75%;
+
+}
+
+
+.wedding-letter h1 {
+
+    max-width: 100%;
+
+    overflow-wrap: break-word;
+
+}
 
 /* =====================================================
    BORDO INTERNO
@@ -878,6 +921,7 @@ to{
     .letter-content {
 
         inset: 18px;
+        padding: 25px 22px;
 
     }
    
