@@ -740,10 +740,10 @@ to{
 
 #enterSite {
 
-    position: absolute;
+    position: fixed;
 
     left: 50%;
-    bottom: 8px;
+    bottom: 18px;
 
     transform: translateX(-50%);
 
@@ -767,9 +767,7 @@ to{
 
     color: white;
 
-    font-family:
-        'Poppins',
-        sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     font-size: 14px;
 
@@ -786,6 +784,7 @@ to{
         transform .35s ease,
         background .35s ease;
 }
+
 
 .wedding-envelope.open
 #enterSite {
