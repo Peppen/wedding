@@ -541,6 +541,7 @@ body {
     color: var(--sage-dark);
 
     z-index: 10;
+    transform: translateY(-12px);
 
     /*
        Permette al contenuto di adattarsi
@@ -743,7 +744,8 @@ body {
 
 .wedding-letter .invitation-message {
     max-width: 88%;
-
+    margin-top: 5px;
+    margin-bottom: 12px;
     margin: 7px 0 0;
 
     font-family:
@@ -1041,7 +1043,7 @@ body {
     position: fixed;
 
     left: 50%;
-    bottom: 18px;
+    bottom: 10px;
 
     width: 185px;
 
