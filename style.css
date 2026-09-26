@@ -3,13 +3,7 @@
    Tema: Verde Salvia • Oro • Carta Antica
 ===================================================== */
 
-
-/* =====================================================
-   VARIABILI
-===================================================== */
-
 :root {
-
     --sage: #8FA58A;
     --sage-dark: #435443;
     --sage-deep: #324132;
@@ -24,9 +18,7 @@
     --cream: #FBFAF4;
     --brown: #625542;
 
-    --shadow:
-        0 25px 60px rgba(53, 70, 52, .15);
-
+    --shadow: 0 25px 60px rgba(53, 70, 52, .15);
 }
 
 
@@ -45,41 +37,24 @@ html {
 }
 
 body {
-
+    margin: 0;
     font-family: 'Poppins', sans-serif;
-
     overflow-x: hidden;
-
     color: var(--sage-dark);
 
-    background:
-        linear-gradient(
-            135deg,
-            #eef2e8,
-            #d9e3d3
-        );
+    background: linear-gradient(
+        135deg,
+        #eef2e8,
+        #d9e3d3
+    );
 }
 
 
 /* =====================================================
-   ANIMAZIONI GENERALI
+   ANIMAZIONI
 ===================================================== */
 
-@keyframes textReveal {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeUp {
-
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -92,7 +67,6 @@ body {
 }
 
 @keyframes successMessage {
-
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -104,13 +78,97 @@ body {
     }
 }
 
+@keyframes introGlow {
+    0%,
+    100% {
+        transform: scale(.92);
+        opacity: .65;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes envelopeArrival {
+    from {
+        opacity: 0;
+        transform:
+            translateY(80px)
+            scale(.75)
+            rotateX(8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
+}
+
+@keyframes luxurySeal {
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.035);
+        filter: brightness(1.10);
+    }
+}
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-70px)
+            scale(1.3);
+    }
+}
+
+@keyframes whatsappPulse {
+    0% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    70%,
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
 
 /* =====================================================
    APERTURA INVITO
 ===================================================== */
 
 #intro {
-
     position: fixed;
     inset: 0;
 
@@ -121,23 +179,17 @@ body {
     overflow: hidden;
 
     background:
-
-        /* Bagliore centrale */
         radial-gradient(
             ellipse at center,
             rgba(255, 245, 211, .38) 0%,
             rgba(216, 196, 139, .20) 20%,
             transparent 48%
         ),
-
-        /* Luce superiore */
         radial-gradient(
             ellipse at 50% -10%,
             rgba(255, 255, 235, .28),
             transparent 45%
         ),
-
-        /* Verde profondo */
         linear-gradient(
             135deg,
             #b8c5ad 0%,
@@ -147,11 +199,7 @@ body {
         );
 }
 
-
-/* Vignettatura */
-
 #intro::before {
-
     content: "";
 
     position: absolute;
@@ -169,11 +217,7 @@ body {
     z-index: 1;
 }
 
-
-/* Bagliore */
-
 #intro::after {
-
     content: "";
 
     position: absolute;
@@ -195,28 +239,12 @@ body {
 
     pointer-events: none;
 
-    animation:
-        introGlow 5s ease-in-out infinite;
+    animation: introGlow 5s ease-in-out infinite;
 
     z-index: 2;
 }
 
-@keyframes introGlow {
-
-    0%,
-    100% {
-        transform: scale(.92);
-        opacity: .65;
-    }
-
-    50% {
-        transform: scale(1.08);
-        opacity: 1;
-    }
-}
-
 #intro.hide {
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -228,21 +256,19 @@ body {
 ===================================================== */
 
 .wedding-envelope {
-
     position: relative;
 
     width: min(600px, 92vw);
     height: min(440px, 70vh);
 
     perspective: 1600px;
+    isolation: isolate;
 
     --ornament: rgba(231, 211, 158, .82);
 
-    z-index: 20;
-
-    isolation: isolate;
-
     padding-top: 20px;
+
+    z-index: 20;
 
     filter:
         drop-shadow(
@@ -256,14 +282,12 @@ body {
 }
 
 
-/* Cornice esterna */
+/* Cornici */
 
 .wedding-envelope::before {
-
     content: "";
 
     position: absolute;
-
     inset: -35px;
 
     border:
@@ -275,7 +299,6 @@ body {
     pointer-events: none;
 
     box-shadow:
-
         inset 0 0 0 1px
         rgba(255, 249, 224, .08),
 
@@ -283,15 +306,10 @@ body {
         rgba(216, 196, 139, .12);
 }
 
-
-/* Seconda cornice */
-
 .wedding-envelope::after {
-
     content: "";
 
     position: absolute;
-
     inset: -22px;
 
     border:
@@ -303,7 +321,6 @@ body {
     pointer-events: none;
 
     box-shadow:
-
         0 0 0 1px
         rgba(216, 196, 139, .10),
 
@@ -312,36 +329,11 @@ body {
 }
 
 
-@keyframes envelopeArrival {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(80px)
-            scale(.75)
-            rotateX(8deg);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1)
-            rotateX(0);
-    }
-}
-
-
 /* =====================================================
    RETRO BUSTA
 ===================================================== */
 
 .envelope-back {
-
     position: absolute;
     inset: 0;
 
@@ -357,7 +349,6 @@ body {
         );
 
     box-shadow:
-
         0 35px 70px
         rgba(20, 30, 20, .42),
 
@@ -374,23 +365,17 @@ body {
         rgba(255, 255, 255, .06);
 }
 
-
-/* Trama carta */
-
 .envelope-pattern {
-
     position: absolute;
     inset: 0;
 
     opacity: .20;
 
     background-image:
-
         radial-gradient(
             rgba(70, 80, 65, .30) .7px,
             transparent .7px
         ),
-
         linear-gradient(
             90deg,
             transparent 49%,
@@ -404,29 +389,18 @@ body {
 }
 
 
-/* =====================================================
-   ORNAMENTI BUSTA
-===================================================== */
+/* Ornamenti */
 
-#intro .wedding-envelope .envelope-back::before {
-
+#intro .wedding-envelope .envelope-back::before,
+#intro .wedding-envelope .envelope-back::after {
     content: "❦";
 
     position: absolute;
-
-    top: -38px;
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    color: rgba(232, 210, 157, .82);
 
-    color:
-        rgba(232, 210, 157, .85);
-
-    font-family:
-        'Times New Roman',
-        serif;
-
+    font-family: 'Times New Roman', serif;
     font-size: 32px;
 
     text-shadow:
@@ -436,29 +410,16 @@ body {
     z-index: 10;
 }
 
+#intro .wedding-envelope .envelope-back::before {
+    top: -38px;
+    transform: translateX(-50%);
+}
+
 #intro .wedding-envelope .envelope-back::after {
-
-    content: "❦";
-
-    position: absolute;
-
     bottom: -38px;
-    left: 50%;
-
     transform:
         translateX(-50%)
         rotate(180deg);
-
-    color:
-        rgba(232, 210, 157, .75);
-
-    font-family:
-        'Times New Roman',
-        serif;
-
-    font-size: 32px;
-
-    z-index: 10;
 }
 
 
@@ -467,14 +428,18 @@ body {
 ===================================================== */
 
 .wedding-letter {
-
     position: absolute;
 
     top: 50%;
     left: 50%;
 
-    width: 84%;
-    height: 82%;
+    /*
+       La partecipazione viene leggermente aumentata
+       rispetto alla vecchia versione per dare più
+       spazio verticale al contenuto.
+    */
+    width: 88%;
+    height: 88%;
 
     transform:
         translate(-50%, 35%)
@@ -482,7 +447,7 @@ body {
 
     opacity: 0;
 
-    z-index: 20;
+    z-index: 100;
 
     background:
         linear-gradient(
@@ -495,38 +460,35 @@ body {
 
     box-shadow:
         0 25px 55px
-        rgba(40,45,35,.25);
+        rgba(40, 45, 35, .25);
 
-    overflow: hidden;
+    /*
+       NON nascondiamo il contenuto:
+       il testo non verrà più tagliato.
+    */
+    overflow: visible;
 
     transition:
-        transform 1.5s cubic-bezier(.22,1,.36,1),
+        transform 1.5s cubic-bezier(.22, 1, .36, 1),
         opacity .7s ease;
 }
 
-/* Biglietto aperto */
-
 .wedding-envelope.open .wedding-letter {
-
     transform:
         translate(-50%, -50%)
         scale(1);
 
     opacity: 1;
-
-    z-index: 100;
 }
 
 
 /* =====================================================
-   BORDO INTERNO
+   BORDO INVITO
 ===================================================== */
 
 .letter-border {
-
     position: absolute;
-
-    inset: 14px;
+    inset: 12px;
 
     border:
         1px solid
@@ -538,12 +500,10 @@ body {
 }
 
 .letter-border::before {
-
     content: "";
 
     position: absolute;
-
-    inset: 6px;
+    inset: 5px;
 
     border:
         1px solid
@@ -552,166 +512,166 @@ body {
 
 
 /* =====================================================
-   CONTENUTO PARTECIPAZIONE
+   CONTENUTO INVITO
 ===================================================== */
 
 .wedding-letter .letter-content {
+    position: relative;
 
-    position: absolute;
     width: 100%;
-    height: 100%;
-    inset: 0;
+    min-height: 100%;
 
-    padding: 35px 45px;
+    /*
+       Spazio interno più equilibrato.
+       Non usiamo più justify-content:center
+       con margini troppo grandi.
+    */
+    padding:
+        30px
+        38px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
 
     color: var(--sage-dark);
 
-    overflow: hidden;
-
     z-index: 10;
+
+    /*
+       Permette al contenuto di adattarsi
+       senza essere tagliato.
+    */
+    overflow: visible;
 }
 
 
+/* Tutti gli elementi restano dentro il foglio */
+
 .wedding-letter .letter-content > * {
-
+    width: auto;
     max-width: 100%;
-
     flex-shrink: 1;
 }
 
 
-/* Testo piccolo */
+/* =====================================================
+   TESTO SUPERIORE
+===================================================== */
 
 .wedding-letter .invitation-small {
+    margin: 0 0 6px;
 
-    margin: 0 0 8px;
+    font-family: 'Poppins', sans-serif;
 
-    max-width: 100%;
-
-    font-family:
-        'Poppins',
-        sans-serif;
-
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 500;
 
-    letter-spacing: 3px;
-
-    line-height: 1.4;
+    letter-spacing: 2.5px;
+    line-height: 1.3;
 
     text-transform: uppercase;
 
-    color:
-        #a18448;
+    color: #a18448;
 }
 
 
-/* Frase iniziale */
+/* =====================================================
+   FRASE
+===================================================== */
 
 .wedding-letter .invitation-text {
-
     max-width: 90%;
 
-    margin: 0 0 8px;
+    margin: 0 0 5px;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 15px;
-
+    font-size: 14px;
     font-style: italic;
 
-    line-height: 1.4;
+    line-height: 1.3;
 
-    color:
-        #70634d;
+    color: #70634d;
 }
 
 
-/* Nomi */
+/* =====================================================
+   NOMI
+===================================================== */
 
 .wedding-letter h1 {
-
     width: 100%;
-
     max-width: 100%;
 
-    margin: 3px 0;
+    margin: 2px 0;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size:
-        clamp(38px, 6vw, 62px);
+    /*
+       Ridotto leggermente per evitare che
+       i nomi occupino tutta l'altezza.
+    */
+    font-size: clamp(34px, 5.5vw, 56px);
 
     font-weight: 400;
 
-    line-height: .95;
+    line-height: .9;
 
-    color:
-        #435443;
+    color: #435443;
 
     overflow-wrap: break-word;
+    word-break: normal;
 }
 
-
 .wedding-letter h1 span {
-
     display: block;
 
-    margin-top: 5px;
+    margin-top: 4px;
 
-    font-size: .45em;
+    font-size: .42em;
 
-    line-height: 1.2;
+    line-height: 1.1;
 
     font-style: italic;
 
-    color:
-        #b89a52;
+    color: #b89a52;
 }
 
 
-.wedding-letter .ornament {
+/* =====================================================
+   ORNAMENTO
+===================================================== */
 
+.wedding-letter .ornament {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    gap: 10px;
+    gap: 8px;
 
-    margin: 10px 0;
+    margin: 7px 0;
 
-    color:
-        #b89a52;
+    color: #b89a52;
 
-    font-size: 18px;
+    font-size: 16px;
 
     flex-shrink: 0;
 }
 
-
 .wedding-letter .ornament span {
-
     display: block;
 
-    width: 35px;
-
+    width: 30px;
     height: 1px;
 
     background:
@@ -722,9 +682,7 @@ body {
         );
 }
 
-
 .wedding-letter .ornament span:last-child {
-
     background:
         linear-gradient(
             90deg,
@@ -739,20 +697,17 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-date {
-
-    margin:
-        5px 0 4px;
+    margin: 3px 0;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 20px;
+    font-size: 18px;
 
-    line-height: 1.2;
+    line-height: 1.15;
 
-    color:
-        #66573e;
+    color: #66573e;
 }
 
 
@@ -761,8 +716,7 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-place {
-
-    max-width: 90%;
+    max-width: 92%;
 
     margin: 0;
 
@@ -770,18 +724,16 @@ body {
         'Poppins',
         sans-serif;
 
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 400;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1.3px;
 
-    line-height: 1.5;
+    line-height: 1.35;
 
     text-transform: uppercase;
 
-    color:
-        #687664;
+    color: #687664;
 }
 
 
@@ -790,32 +742,28 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-message {
+    max-width: 88%;
 
-    max-width: 85%;
-
-    margin:
-        10px 0 0;
+    margin: 7px 0 0;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    line-height: 1.45;
+    line-height: 1.3;
 
-    color:
-        #756b59;
+    color: #756b59;
 }
+
 
 /* =====================================================
    ANTE BUSTA
 ===================================================== */
 
 .envelope-flap {
-
     position: absolute;
-
     top: 0;
 
     width: 50%;
@@ -831,7 +779,6 @@ body {
         );
 
     backface-visibility: hidden;
-
     transform-style: preserve-3d;
 
     transition:
@@ -840,9 +787,7 @@ body {
         opacity .5s ease;
 }
 
-
 .envelope-flap-left {
-
     left: 0;
 
     transform-origin: left center;
@@ -852,9 +797,7 @@ body {
         rgba(60, 75, 58, .18);
 }
 
-
 .envelope-flap-right {
-
     right: 0;
 
     transform-origin: right center;
@@ -864,18 +807,12 @@ body {
         rgba(60, 75, 58, .18);
 }
 
-
 .wedding-envelope.open .envelope-flap-left {
-
-    transform:
-        rotateY(-115deg);
+    transform: rotateY(-115deg);
 }
 
-
 .wedding-envelope.open .envelope-flap-right {
-
-    transform:
-        rotateY(115deg);
+    transform: rotateY(115deg);
 }
 
 
@@ -884,7 +821,6 @@ body {
 ===================================================== */
 
 .wedding-seal {
-
     position: absolute;
 
     top: 50%;
@@ -916,7 +852,6 @@ body {
         rgba(224, 184, 133, .55);
 
     box-shadow:
-
         0 8px 12px
         rgba(40, 25, 20, .30),
 
@@ -947,15 +882,10 @@ body {
         opacity .5s ease;
 }
 
-
-/* Bordo */
-
 .wedding-seal::before {
-
     content: "";
 
     position: absolute;
-
     inset: 7px;
 
     border-radius: 50%;
@@ -969,11 +899,7 @@ body {
         rgba(255, 220, 170, .15);
 }
 
-
-/* Riflesso */
-
 .wedding-seal::after {
-
     content: "";
 
     position: absolute;
@@ -996,9 +922,7 @@ body {
     pointer-events: none;
 }
 
-
 .seal-inner {
-
     position: absolute;
     inset: 0;
 
@@ -1018,7 +942,6 @@ body {
     font-size: 27px;
 
     text-shadow:
-
         1px 1px 2px
         rgba(40, 10, 10, .65),
 
@@ -1026,41 +949,12 @@ body {
         rgba(255, 220, 170, .15);
 }
 
-
 .seal-inner span {
-
     font-size: 14px;
     font-style: italic;
 }
 
-
-@keyframes luxurySeal {
-
-    0%,
-    100% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-
-        filter: brightness(1);
-    }
-
-    50% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.035);
-
-        filter: brightness(1.10);
-    }
-}
-
-
-/* Sigillo dopo apertura */
-
 .wedding-envelope.open .wedding-seal {
-
     opacity: 0;
 
     transform:
@@ -1073,11 +967,10 @@ body {
 
 
 /* =====================================================
-   PARTICELLE LUMINOSE
+   PARTICELLE
 ===================================================== */
 
 .intro-spark {
-
     position: absolute;
 
     width: 4px;
@@ -1088,12 +981,8 @@ body {
     background: #f1d99b;
 
     box-shadow:
-
-        0 0 6px
-        #f1d99b,
-
-        0 0 14px
-        rgba(241, 217, 155, .75);
+        0 0 6px #f1d99b,
+        0 0 14px rgba(241, 217, 155, .75);
 
     pointer-events: none;
 
@@ -1104,42 +993,11 @@ body {
 }
 
 
-@keyframes sparkleFloat {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translateY(20px)
-            scale(.5);
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: .8;
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translateY(-70px)
-            scale(1.3);
-    }
-}
-
-
 /* =====================================================
    RAMI DECORATIVI
 ===================================================== */
 
 .intro-branch {
-
     position: absolute;
 
     width: 180px;
@@ -1160,33 +1018,26 @@ body {
     z-index: 5;
 }
 
-
 .intro-branch.left {
-
     left: 4vw;
     top: 8vh;
 
-    transform:
-        rotate(-15deg);
+    transform: rotate(-15deg);
 }
 
-
 .intro-branch.right {
-
     right: 4vw;
     bottom: 8vh;
 
-    transform:
-        rotate(165deg);
+    transform: rotate(165deg);
 }
 
 
 /* =====================================================
-   PULSANTE ENTRA NEL SITO
+   PULSANTE ENTRA
 ===================================================== */
 
 #enterSite {
-
     position: fixed;
 
     left: 50%;
@@ -1196,8 +1047,7 @@ body {
 
     padding: 10px 20px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     z-index: 500;
 
@@ -1216,12 +1066,9 @@ body {
 
     color: white;
 
-    font-family:
-        'Poppins',
-        sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     font-size: 12px;
-
     font-weight: 400;
 
     letter-spacing: 1.2px;
@@ -1233,7 +1080,6 @@ body {
     pointer-events: none;
 
     box-shadow:
-
         0 8px 25px
         rgba(35, 50, 34, .25),
 
@@ -1246,16 +1092,14 @@ body {
         background .35s ease;
 }
 
-
 .wedding-envelope.open #enterSite {
-
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-
 #enterSite span {
+    display: inline-block;
 
     margin-left: 8px;
 
@@ -1263,9 +1107,7 @@ body {
         transform .3s ease;
 }
 
-
 #enterSite:hover {
-
     transform:
         translateX(-50%)
         translateY(-3px);
@@ -1278,11 +1120,8 @@ body {
         );
 }
 
-
 #enterSite:hover span {
-
-    transform:
-        translateX(5px);
+    transform: translateX(5px);
 }
 
 
@@ -1291,7 +1130,6 @@ body {
 ===================================================== */
 
 #website {
-
     display: none;
 
     opacity: 1;
@@ -1310,7 +1148,6 @@ body {
 ===================================================== */
 
 nav {
-
     position: relative;
 
     width: 100%;
@@ -1339,9 +1176,7 @@ nav {
     z-index: 1000;
 }
 
-
 .logo {
-
     font-family:
         'Playfair Display',
         serif;
@@ -1351,9 +1186,7 @@ nav {
     color: var(--sage-deep);
 }
 
-
 nav ul {
-
     display: flex;
 
     align-items: center;
@@ -1364,9 +1197,7 @@ nav ul {
     list-style: none;
 }
 
-
 nav a {
-
     position: relative;
 
     display: flex;
@@ -1402,9 +1233,7 @@ nav a {
     transition: .35s ease;
 }
 
-
 nav a::after {
-
     content: "";
 
     position: absolute;
@@ -1420,14 +1249,11 @@ nav a::after {
     transition: .3s;
 }
 
-
 nav a:hover::after {
     width: 100%;
 }
 
-
 nav a:hover {
-
     transform: translateY(-3px);
 
     background:
@@ -1446,7 +1272,6 @@ nav a:hover {
 ===================================================== */
 
 .hero {
-
     position: relative;
 
     overflow: hidden;
@@ -1468,9 +1293,7 @@ nav a:hover {
         );
 }
 
-
 .hero-card {
-
     width: 650px;
     max-width: 95%;
 
@@ -1490,9 +1313,7 @@ nav a:hover {
         rgba(0, 0, 0, .25);
 }
 
-
 .save {
-
     letter-spacing: 8px;
 
     text-transform: uppercase;
@@ -1502,9 +1323,7 @@ nav a:hover {
     font-size: 16px;
 }
 
-
 .hero-card h1 {
-
     margin: 30px 0;
 
     font-family:
@@ -1516,9 +1335,7 @@ nav a:hover {
     color: var(--sage-dark);
 }
 
-
 .hero-card h2 {
-
     font-family:
         'Playfair Display',
         serif;
@@ -1528,9 +1345,7 @@ nav a:hover {
     color: #66573e;
 }
 
-
 .line {
-
     width: 120px;
     height: 2px;
 
@@ -1539,9 +1354,7 @@ nav a:hover {
     background: var(--gold);
 }
 
-
 .button {
-
     display: inline-block;
 
     margin-top: 35px;
@@ -1572,7 +1385,6 @@ nav a:hover {
     transition: .35s;
 }
 
-
 .button:hover {
     transform: translateY(-4px);
 }
@@ -1583,7 +1395,6 @@ nav a:hover {
 ===================================================== */
 
 section:not(.hero) {
-
     position: relative;
 
     width: 90%;
@@ -1616,13 +1427,10 @@ section:not(.hero) {
         fadeUp 1s ease;
 }
 
-
 section:not(.hero)::before {
-
     content: "";
 
     position: absolute;
-
     inset: 14px;
 
     border:
@@ -1634,17 +1442,12 @@ section:not(.hero)::before {
     z-index: 1;
 }
 
-
 section:not(.hero) > * {
-
     position: relative;
-
     z-index: 2;
 }
 
-
 section h2 {
-
     position: relative;
 
     margin-bottom: 60px;
@@ -1664,9 +1467,7 @@ section h2 {
     color: var(--sage-deep);
 }
 
-
 section h2::after {
-
     content: "";
 
     position: absolute;
@@ -1674,8 +1475,7 @@ section h2::after {
     left: 50%;
     bottom: -18px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     width: 110px;
     height: 1px;
@@ -1695,7 +1495,6 @@ section h2::after {
 ===================================================== */
 
 .timer {
-
     display: flex;
 
     justify-content: center;
@@ -1705,9 +1504,7 @@ section h2::after {
     flex-wrap: wrap;
 }
 
-
 .timer div {
-
     width: 140px;
     height: 140px;
 
@@ -1734,9 +1531,7 @@ section h2::after {
         rgba(50, 70, 45, .12);
 }
 
-
 .timer span {
-
     font-family:
         'Playfair Display',
         serif;
@@ -1745,7 +1540,6 @@ section h2::after {
 
     color: var(--sage-deep);
 }
-
 
 .timer p {
     color: #777;
@@ -1757,7 +1551,6 @@ section h2::after {
 ===================================================== */
 
 .cards {
-
     display: flex;
 
     justify-content: center;
@@ -1768,14 +1561,10 @@ section h2::after {
     flex-wrap: wrap;
 }
 
-
 .card {
-
     flex: 1 1 480px;
 
     max-width: 520px;
-
-    min-height: auto;
 
     padding: 45px 35px;
 
@@ -1808,14 +1597,11 @@ section h2::after {
         fadeUp 1s ease;
 }
 
-
 .card:hover {
     transform: translateY(-8px);
 }
 
-
 .card h3 {
-
     margin-bottom: 20px;
 
     font-family:
@@ -1827,9 +1613,7 @@ section h2::after {
     color: var(--sage-deep);
 }
 
-
 .card-icon {
-
     margin-bottom: 25px;
 
     font-size: 48px;
@@ -1837,9 +1621,7 @@ section h2::after {
     color: var(--gold);
 }
 
-
 .card p {
-
     display: flex;
 
     justify-content: center;
@@ -1854,7 +1636,6 @@ section h2::after {
     color: #5f665d;
 }
 
-
 .card i {
     color: var(--gold);
 }
@@ -1865,7 +1646,6 @@ section h2::after {
 ===================================================== */
 
 .rsvp-card {
-
     max-width: 700px;
 
     margin: auto;
@@ -1890,11 +1670,9 @@ section h2::after {
         rgba(0, 0, 0, .1);
 }
 
-
 #rsvpForm input,
 #rsvpForm select,
 #rsvpForm textarea {
-
     width: 100%;
 
     padding: 15px;
@@ -1914,11 +1692,9 @@ section h2::after {
         sans-serif;
 }
 
-
 #rsvpForm input:focus,
 #rsvpForm select:focus,
 #rsvpForm textarea:focus {
-
     outline: none;
 
     border-color: var(--gold);
@@ -1928,23 +1704,17 @@ section h2::after {
         rgba(184, 154, 82, .25);
 }
 
-
 #rsvpForm textarea {
-
     height: 120px;
-
     resize: none;
 }
 
-
 #rsvpForm button {
-
     width: 100%;
 
     padding: 16px;
 
     border: none;
-
     border-radius: 50px;
 
     cursor: pointer;
@@ -1967,11 +1737,8 @@ section h2::after {
     transition: .35s;
 }
 
-
 #rsvpForm button:hover {
-
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
 
     background:
         linear-gradient(
@@ -1987,7 +1754,6 @@ section h2::after {
 ===================================================== */
 
 .gift-box {
-
     max-width: 700px;
 
     margin: auto;
@@ -2013,7 +1779,6 @@ section h2::after {
 ===================================================== */
 
 .map-container {
-
     width: 100%;
 
     margin-top: 25px;
@@ -2031,9 +1796,7 @@ section h2::after {
         rgba(50, 70, 45, .12);
 }
 
-
 .map-container iframe {
-
     display: block;
 
     width: 100%;
@@ -2042,9 +1805,7 @@ section h2::after {
     border: 0;
 }
 
-
 .map-button {
-
     display: inline-flex;
 
     align-items: center;
@@ -2082,11 +1843,8 @@ section h2::after {
     transition: .35s ease;
 }
 
-
 .map-button:hover {
-
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 
     background:
         linear-gradient(
@@ -2100,7 +1858,6 @@ section h2::after {
         rgba(50, 70, 45, .25);
 }
 
-
 .map-button i {
     color: white;
 }
@@ -2111,7 +1868,6 @@ section h2::after {
 ===================================================== */
 
 .whatsapp-button {
-
     position: fixed;
 
     right: 25px;
@@ -2146,20 +1902,15 @@ section h2::after {
         box-shadow .3s ease;
 }
 
-
 .whatsapp-button:hover {
-
-    transform:
-        scale(1.1);
+    transform: scale(1.1);
 
     box-shadow:
         0 12px 30px
         rgba(37, 211, 102, .45);
 }
 
-
 .whatsapp-button::before {
-
     content: "";
 
     position: absolute;
@@ -2178,31 +1929,11 @@ section h2::after {
 }
 
 
-@keyframes whatsappPulse {
-
-    0% {
-
-        transform: scale(1);
-
-        opacity: .8;
-    }
-
-    70%,
-    100% {
-
-        transform: scale(1.35);
-
-        opacity: 0;
-    }
-}
-
-
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer {
-
     padding: 50px;
 
     text-align: center;
@@ -2227,7 +1958,6 @@ footer {
 ===================================================== */
 
 .particle {
-
     position: fixed;
 
     width: 8px;
@@ -2242,9 +1972,7 @@ footer {
     z-index: 99999;
 }
 
-
 .visible {
-
     opacity: 1 !important;
 
     transform:
@@ -2257,7 +1985,6 @@ footer {
 ===================================================== */
 
 #success {
-
     margin-top: 25px;
 
     text-align: center;
@@ -2269,21 +1996,15 @@ footer {
     font-size: 20px;
 }
 
-
 .success-message {
-
-    color:
-        var(--sage-deep);
+    color: var(--sage-deep);
 
     animation:
         successMessage .6s ease;
 }
 
-
 .error-message {
-
-    color:
-        #a34b3c;
+    color: #a34b3c;
 
     animation:
         successMessage .6s ease;
@@ -2296,150 +2017,156 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* Intro */
+    /* -----------------------------
+       INTRO
+    ----------------------------- */
 
     #intro {
-
         width: 100vw;
         height: 100dvh;
 
-        display: flex;
-
         align-items: center;
         justify-content: center;
-
-        overflow: hidden;
     }
 
 
-    /* Busta */
+    /* -----------------------------
+       BUSTA
+    ----------------------------- */
 
     .wedding-envelope {
-
         width: 92vw;
 
-        height:
-            min(72vh, 600px);
+        /*
+           Più altezza disponibile per
+           l'invito su smartphone.
+        */
+        height: min(74vh, 600px);
     }
 
 
-    /* Partecipazione */
+    /* -----------------------------
+       INVITO
+    ----------------------------- */
 
     .wedding-letter {
-
-        width: 88%;
-        height: 84%;
+        width: 90%;
+        height: 88%;
     }
-
 
     .wedding-letter .letter-content {
-
-        padding: 25px 22px;
+        padding:
+            24px
+            22px;
     }
-
 
     .letter-border {
-        inset: 10px;
+        inset: 9px;
     }
 
-
     .letter-border::before {
-        inset: 5px;
+        inset: 4px;
     }
 
 
     .wedding-letter .invitation-small {
+        font-size: 8px;
 
-        font-size: 9px;
-
-        letter-spacing: 3px;
-
-        margin-bottom: 9px;
-    }
-
-
-    .wedding-letter .invitation-text {
-
-        font-size: 14px;
-
-        line-height: 1.4;
-
-        margin-bottom: 8px;
-    }
-
-
-    .wedding-letter h1 {
-
-        font-size:
-            clamp(42px, 12vw, 58px);
-
-        line-height: .9;
-    }
-
-
-    .wedding-letter .invitation-date {
-
-        font-size: 19px;
-
-        margin-top: 5px;
+        letter-spacing: 2px;
 
         margin-bottom: 5px;
     }
 
 
-    .wedding-letter .invitation-place {
+    .wedding-letter .invitation-text {
+        max-width: 94%;
 
-        font-size: 10px;
+        font-size: 12px;
 
-        letter-spacing: 1.5px;
+        line-height: 1.25;
 
-        line-height: 1.5;
+        margin-bottom: 4px;
     }
 
 
-    .wedding-letter .invitation-message {
+    .wedding-letter h1 {
+        font-size:
+            clamp(32px, 11vw, 50px);
 
-        max-width: 270px;
+        line-height: .88;
 
-        margin-top: 10px;
+        margin: 2px 0;
+    }
 
-        font-size: 11px;
 
-        line-height: 1.5;
+    .wedding-letter h1 span {
+        margin-top: 3px;
+
+        font-size: .42em;
     }
 
 
     .wedding-letter .ornament {
+        margin: 6px 0;
 
-        margin: 12px 0;
+        font-size: 16px;
 
-        font-size: 19px;
+        gap: 7px;
     }
-
 
     .wedding-letter .ornament span {
-        width: 35px;
+        width: 26px;
     }
 
 
-    /* Sigillo */
+    .wedding-letter .invitation-date {
+        font-size: 17px;
+
+        margin: 2px 0;
+    }
+
+
+    .wedding-letter .invitation-place {
+        max-width: 94%;
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+        line-height: 1.3;
+    }
+
+
+    .wedding-letter .invitation-message {
+        max-width: 94%;
+
+        margin-top: 6px;
+
+        font-size: 10px;
+
+        line-height: 1.25;
+    }
+
+
+    /* -----------------------------
+       SIGILLO
+    ----------------------------- */
 
     .wedding-seal {
-
         width: 72px;
         height: 72px;
     }
-
 
     .seal-inner {
         font-size: 20px;
     }
 
 
-    /* Pulsante entra */
+    /* -----------------------------
+       PULSANTE
+    ----------------------------- */
 
     #enterSite {
-
         bottom: 25px;
 
         width: 78%;
@@ -2452,31 +2179,20 @@ footer {
         line-height: 1.2;
 
         white-space: nowrap;
-
-        transform:
-            translateX(-50%);
     }
-
-
-    .wedding-envelope.open #enterSite {
-
-        transform:
-            translateX(-50%);
-    }
-
 
     #enterSite:hover {
-
         transform:
             translateX(-50%)
             translateY(-2px);
     }
 
 
-    /* Navbar */
+    /* -----------------------------
+       NAVBAR
+    ----------------------------- */
 
     nav {
-
         height: auto;
 
         padding: 20px;
@@ -2486,51 +2202,43 @@ footer {
         gap: 20px;
     }
 
-
     nav ul {
-
         flex-wrap: wrap;
-
         gap: 10px;
     }
 
-
     nav a {
-
         padding: 9px 16px;
-
         font-size: 12px;
     }
-
 
     .logo {
         font-size: 26px;
     }
 
 
-    /* Hero */
+    /* -----------------------------
+       HERO
+    ----------------------------- */
 
     .hero {
-
         padding: 60px 15px;
     }
 
-
     .hero-card {
-
         padding: 50px 25px;
     }
-
 
     .hero-card h1 {
         font-size: 42px;
     }
 
 
-    /* Sezioni */
+    /* -----------------------------
+       SEZIONI
+    ----------------------------- */
 
     section:not(.hero) {
-
         width: auto;
 
         margin: 40px 15px;
@@ -2538,49 +2246,52 @@ footer {
         padding: 50px 20px;
     }
 
-
     section h2 {
         font-size: 38px;
     }
 
 
-    /* Countdown */
+    /* -----------------------------
+       COUNTDOWN
+    ----------------------------- */
 
     .timer div {
-
         width: 110px;
         height: 110px;
     }
-
 
     .timer span {
         font-size: 32px;
     }
 
 
-    /* Cards */
+    /* -----------------------------
+       CARDS
+    ----------------------------- */
 
     .card {
         width: 100%;
     }
 
 
-    /* Mappe */
+    /* -----------------------------
+       MAPPE
+    ----------------------------- */
 
     .map-container iframe {
         height: 250px;
     }
-
 
     .map-button {
         width: 100%;
     }
 
 
-    /* WhatsApp */
+    /* -----------------------------
+       WHATSAPP
+    ----------------------------- */
 
     .whatsapp-button {
-
         width: 55px;
         height: 55px;
 
@@ -2588,5 +2299,65 @@ footer {
         bottom: 18px;
 
         font-size: 28px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE MOLTO PICCOLO
+   Schermi tipo iPhone SE / dispositivi stretti
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .wedding-envelope {
+        width: 94vw;
+        height: 72vh;
+    }
+
+    .wedding-letter {
+        width: 91%;
+        height: 89%;
+    }
+
+    .wedding-letter .letter-content {
+        padding:
+            20px
+            18px;
+    }
+
+    .wedding-letter h1 {
+        font-size:
+            clamp(29px, 10vw, 43px);
+    }
+
+    .wedding-letter .invitation-text {
+        font-size: 11px;
+    }
+
+    .wedding-letter .invitation-date {
+        font-size: 16px;
+    }
+
+    .wedding-letter .invitation-place {
+        font-size: 7.5px;
+        letter-spacing: .8px;
+    }
+
+    .wedding-letter .invitation-message {
+        font-size: 9px;
+    }
+
+    .wedding-letter .ornament {
+        margin: 5px 0;
+    }
+
+    .wedding-letter .ornament span {
+        width: 22px;
+    }
+
+    .wedding-seal {
+        width: 68px;
+        height: 68px;
     }
 }
