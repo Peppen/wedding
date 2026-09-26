@@ -96,33 +96,39 @@ to{
     position: fixed;
     inset: 0;
 
-    width: 100%;
-    height: 100dvh;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
 
-    z-index: 9999;
-
     background:
+
+        /* bagliore centrale */
         radial-gradient(
-            circle at center,
+            ellipse at center,
+            rgba(255,245,211,.38) 0%,
+            rgba(216,196,139,.20) 20%,
+            transparent 48%
+        ),
+
+        /* luce superiore */
+        radial-gradient(
+            ellipse at 50% -10%,
+            rgba(255,255,235,.28),
+            transparent 45%
+        ),
+
+        /* verde profondo */
+        linear-gradient(
+            135deg,
             #b8c5ad 0%,
-            #8fa087 45%,
-            #5d7058 100%
+            #91a087 30%,
+            #687b63 65%,
+            #3f513d 100%
         );
 
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-
-   --sparkle-color:
-        rgba(245,224,166,.75);
 }
-
 
 #intro::before {
 
@@ -132,15 +138,71 @@ to{
     inset: 0;
 
     background:
+
         radial-gradient(
-            circle at center,
-            transparent 0%,
-            rgba(40,55,38,.20) 100%
+            ellipse at center,
+            transparent 35%,
+            rgba(25,38,25,.12) 65%,
+            rgba(20,30,20,.40) 100%
         );
 
     pointer-events: none;
+
+    z-index: 1;
+
 }
 
+#intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 750px;
+    height: 750px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,236,176,.28) 0%,
+            rgba(216,196,139,.14) 25%,
+            transparent 68%
+        );
+
+    filter: blur(5px);
+
+    animation:
+        luxuryGlow 5s ease-in-out infinite;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+@keyframes luxuryGlow {
+
+    0%,
+    100% {
+
+        transform: scale(.85);
+
+        opacity: .65;
+
+    }
+
+    50% {
+
+        transform: scale(1.12);
+
+        opacity: 1;
+
+    }
+
+}
 
 #intro.hide {
 
@@ -167,6 +229,71 @@ to{
         envelopeArrival 1.4s
         cubic-bezier(.22,1,.36,1)
         forwards;
+    z-index: 20;
+    --ornament:
+        rgba(231,211,158,.82);
+}
+
+/* angoli superiori */
+
+.wedding-envelope .envelope-back::before {
+
+    content: "❦";
+
+    position: absolute;
+
+    top: -62px;
+    left: -45px;
+
+    color:
+        var(--ornament);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
+    font-size: 62px;
+
+    transform:
+        rotate(-45deg);
+
+    opacity: .85;
+
+    text-shadow:
+        0 2px 15px
+        rgba(0,0,0,.15);
+
+    z-index: 400;
+
+}
+
+
+/* angolo opposto */
+
+.wedding-envelope .envelope-back::after {
+
+    content: "❦";
+
+    position: absolute;
+
+    top: -62px;
+    right: -45px;
+
+    color:
+        var(--ornament);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
+    font-size: 62px;
+
+    transform:
+        rotate(45deg);
+
+    opacity: .85;
+
+    z-index: 400;
 
 }
 
@@ -222,13 +349,27 @@ to{
     box-shadow:
 
         0 35px 70px
-        rgba(35,50,34,.35),
+        rgba(20,30,20,.42),
+
+        0 0 0 1px
+        rgba(255,250,225,.22),
+
+        0 0 35px
+        rgba(216,196,139,.12),
 
         inset 0 0 0 1px
-        rgba(255,255,255,.35);
+        rgba(255,255,255,.35),
+
+        inset 0 0 50px
+        rgba(255,255,255,.06);
 
 }
 
+.envelope-back::after {
+
+    pointer-events: none;
+
+}
 
 /* trama carta */
 
@@ -238,16 +379,25 @@ to{
 
     inset: 0;
 
-    opacity: .25;
+    opacity: .20;
 
     background-image:
 
         radial-gradient(
-            rgba(70,80,65,.25) .7px,
+            rgba(70,80,65,.30) .7px,
             transparent .7px
+        ),
+
+        linear-gradient(
+            90deg,
+            transparent 49%,
+            rgba(255,255,255,.05) 50%,
+            transparent 51%
         );
 
-    background-size: 7px 7px;
+    background-size:
+        7px 7px,
+        35px 35px;
 
 }
 
@@ -644,17 +794,24 @@ to{
 
     position: absolute;
 
-    inset: -18px;
+    inset: -35px;
 
     border:
-        1px solid
-        rgba(216,196,139,.45);
 
-    border-radius: 12px;
+        1px solid
+        rgba(231,211,158,.55);
+
+    border-radius: 18px;
 
     pointer-events: none;
 
-    opacity: .8;
+    box-shadow:
+
+        inset 0 0 0 1px
+        rgba(255,249,224,.08),
+
+        0 0 40px
+        rgba(216,196,139,.12);
 
 }
 
@@ -665,13 +822,14 @@ to{
 
     position: absolute;
 
-    inset: -8px;
+    inset: -22px;
 
     border:
-        1px solid
-        rgba(255,248,220,.18);
 
-    border-radius: 8px;
+        1px solid
+        rgba(255,244,205,.22);
+
+    border-radius: 12px;
 
     pointer-events: none;
 
@@ -685,9 +843,27 @@ to{
 #intro .wedding-envelope {
 
     isolation: isolate;
-
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(216,196,139,.10)
+        );
+    padding-top: 20px;
 }
 
+
+#intro .wedding-envelope::after {
+
+    /* manteniamo la cornice tramite box-shadow */
+    box-shadow:
+
+        0 0 0 1px
+        rgba(216,196,139,.10),
+
+        0 0 20px
+        rgba(216,196,139,.08);
+
+}
 
 #intro .wedding-envelope .envelope-back::before {
 
@@ -780,25 +956,53 @@ to{
 
     position: absolute;
 
-    top: 12px;
-    left: 18px;
+    top: 13px;
+    left: 20px;
 
-    width: 22px;
-    height: 10px;
+    width: 30px;
+    height: 14px;
 
     border-radius: 50%;
 
     background:
-        rgba(255,235,210,.25);
+        rgba(255,235,215,.28);
 
-    filter: blur(3px);
+    filter: blur(4px);
 
     transform:
-        rotate(-25deg);
+        rotate(-28deg);
 
     pointer-events: none;
 
 }
+
+@keyframes luxurySeal {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter:
+            brightness(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.035);
+
+        filter:
+            brightness(1.10);
+
+    }
+
+}
+
 
 
 /* =====================================================
@@ -807,68 +1011,49 @@ to{
 
 .wedding-seal {
 
+    width: 100px;
+    height: 100px;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 25%,
+            #d45c4c 0%,
+            #a83d36 25%,
+            #782e2d 58%,
+            #4e1d1d 100%
+        );
+
+    border:
+
+        2px solid
+        rgba(224,184,133,.55);
+
+    box-shadow:
+
+        0 10px 18px
+        rgba(35,15,12,.38),
+
+        0 20px 45px
+        rgba(30,15,10,.28),
+
+        0 0 0 6px
+        rgba(216,196,139,.10),
+
+        0 0 0 10px
+        rgba(216,196,139,.045),
+
+        0 0 35px
+        rgba(216,196,139,.25),
+
+        inset 5px 5px 10px
+        rgba(255,255,255,.18),
+
+        inset -8px -8px 12px
+        rgba(35,5,5,.32);
+
     animation:
-        sealBreath 3.5s ease-in-out infinite;
-
-}
-
-
-@keyframes sealBreath {
-
-    0%,
-    100% {
-
-        filter:
-            brightness(1);
-
-        box-shadow:
-
-            0 8px 12px
-            rgba(40,25,20,.30),
-
-            0 15px 30px
-            rgba(40,25,20,.22),
-
-            0 0 0 5px
-            rgba(216,196,139,.08),
-
-            0 0 20px
-            rgba(216,196,139,.12),
-
-            inset 4px 4px 8px
-            rgba(255,255,255,.15),
-
-            inset -5px -6px 8px
-            rgba(40,10,10,.25);
-
-    }
-
-    50% {
-
-        filter:
-            brightness(1.08);
-
-        box-shadow:
-
-            0 8px 12px
-            rgba(40,25,20,.30),
-
-            0 15px 35px
-            rgba(40,25,20,.22),
-
-            0 0 0 7px
-            rgba(216,196,139,.10),
-
-            0 0 35px
-            rgba(216,196,139,.20),
-
-            inset 4px 4px 8px
-            rgba(255,255,255,.15),
-
-            inset -5px -6px 8px
-            rgba(40,10,10,.25);
-
-    }
+        luxurySeal 3s ease-in-out infinite;
 
 }
 
@@ -880,6 +1065,126 @@ to{
 #intro .wedding-envelope::marker {
 
     display: none;
+
+}
+
+/* =====================================================
+   PARTICELLE LUMINOSE
+===================================================== */
+
+.intro-spark {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        #f1d99b;
+
+    box-shadow:
+
+        0 0 6px
+        #f1d99b,
+
+        0 0 14px
+        rgba(241,217,155,.75);
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation:
+        sparkleFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes sparkleFloat {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(.5);
+
+    }
+
+    30% {
+
+        opacity: 1;
+
+    }
+
+    70% {
+
+        opacity: .8;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-70px)
+            scale(1.3);
+
+    }
+
+}
+
+
+/* =====================================================
+   PICCOLI RAMI DECORATIVI
+===================================================== */
+
+.intro-branch {
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-top:
+        1px solid
+        rgba(231,211,158,.35);
+
+    border-left:
+        1px solid
+        rgba(231,211,158,.35);
+
+    border-radius: 100% 0 0 0;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+}
+
+
+.intro-branch.left {
+
+    left: 4vw;
+    top: 8vh;
+
+    transform:
+        rotate(-15deg);
+
+}
+
+
+.intro-branch.right {
+
+    right: 4vw;
+    bottom: 8vh;
+
+    transform:
+        rotate(165deg);
 
 }
 
@@ -1037,7 +1342,10 @@ to{
 
     border:
         1px solid
-        rgba(255,220,190,.35);
+        rgba(255,224,181,.55);
+    box-shadow:
+        inset 0 0 8px
+        rgba(255,220,170,.15);
 
 }
 
@@ -1055,17 +1363,21 @@ to{
 
     gap: 3px;
 
-    color: #e9cda8;
+    color:
+        #f0d5aa;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 25px;
+    font-size: 27px;
 
     text-shadow:
         1px 1px 2px
-        rgba(40,10,10,.5);
+        rgba(40,10,10,.65),
+
+        0 0 8px
+        rgba(255,220,170,.15);
 
 }
 
