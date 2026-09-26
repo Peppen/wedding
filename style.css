@@ -2296,13 +2296,13 @@ footer {
     ----------------------------- */
 
     .whatsapp-button {
-        width: 55px;
-        height: 55px;
+        width: 45px;
+        height: 45px;
 
-        right: 18px;
-        bottom: 18px;
+        right: 12px;
+        bottom: 12px;
 
-        font-size: 28px;
+        font-size: 23px;
     }
 }
 
