@@ -114,176 +114,6 @@ body{
 }
 
 
-
-/* =====================================================
-   BUSTA
-===================================================== */
-
-.envelope::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-
-    box-shadow:
-        0 0 0 1px rgba(216,196,139,.25),
-        inset 0 0 12px rgba(45,60,45,.12);
-
-    transition:
-        opacity .5s ease;
-}
-
-/* =====================================================
-   CORNICE PNG INTERNA DELLA BUSTA
-===================================================== */
-
-.envelope-frame {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: fill;
-
-    pointer-events: none;
-
-    z-index: 15;
-
-    user-select: none;
-}
-
-
-@keyframes envelopeEntrance{
-
-
-0%{
-
-    opacity:0;
-
-    transform:
-    translateY(150px)
-    scale(.75)
-    rotate(-6deg);
-
-}
-
-
-60%{
-
-    opacity:1;
-
-    transform:
-    translateY(-20px)
-    scale(1.03)
-    rotate(2deg);
-
-}
-
-
-100%{
-
-    opacity:1;
-
-    transform:
-    translateY(0)
-    scale(1)
-    rotate(0);
-
-}
-
-}
-
-/* =====================================================
-   OMBRE DELLA CARTA
-===================================================== */
-
-.envelope:not(.open) .letter {
-
-    box-shadow:
-
-        /* ombra esterna */
-        0 22px 45px
-        rgba(45, 50, 38, .35),
-
-        /* piega superiore */
-        inset 0 15px 22px
-        rgba(65, 60, 45, .18),
-
-        /* piega laterale sinistra */
-        inset 12px 0 20px
-        rgba(65, 60, 45, .12),
-
-        /* piega laterale destra */
-        inset -10px 0 18px
-        rgba(65, 60, 45, .10),
-
-        /* luce della carta */
-        inset -5px -5px 15px
-        rgba(255, 255, 255, .30);
-
-}
-
-/* =====================================================
-   PIEGHE VISIBILI QUANDO LA LETTERA È CHIUSA
-===================================================== */
-
-.envelope:not(.open) .letter::after {
-
-    opacity: .85;
-
-}
-
-
-.envelope.open .letter::after {
-
-    opacity: .25;
-
-    transition:
-        opacity 1.2s ease;
-
-}
-
-.envelope.open
-.letter .small {
-
-    animation-delay: .45s;
-
-}
-
-
-.envelope.open
-.letter h1 {
-
-    animation-delay: .60s;
-
-}
-
-
-.envelope.open
-.letter .date {
-
-    animation-delay: .75s;
-
-}
-
-
-.envelope.open
-.letter .place {
-
-    animation-delay: .90s;
-
-}
-
-
 @keyframes textReveal{
 
 
@@ -380,114 +210,6 @@ to{
 
 }
 
-
-/* =====================================================
-   BUSTA DESKTOP - TUTTA L'ALTEZZA DELLO SCHERMO
-===================================================== */
-
-.envelope {
-
-    position: relative;
-
-    width: 560px;
-    height: 100vh;
-    min-height: 100vh;
-
-    perspective: 1400px;
-
-    overflow: visible;
-
-    background: transparent;
-
-    opacity: 0;
-
-    transform:
-        translateY(120px)
-        scale(.8);
-
-    animation:
-        envelopeEntrance 1.8s ease-out forwards;
-
-}
-
-.envelope-inside {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #c7d2c1,
-            #aebaab
-        );
-
-    box-shadow:
-        0 30px 70px rgba(40,55,40,.30),
-        inset 0 0 0 1px rgba(255,255,255,.25);
-
-    z-index: 1;
-
-}
-
-.letter {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: min(460px, 78vw);
-    height: 88vh;
-    min-height: 0;
-
-    transform:
-        translate(-50%, 70px)
-        scale(.88);
-
-    background:
-        linear-gradient(
-            135deg,
-            #fbfaf3,
-            #f0f1e8
-        );
-
-    border-radius: 4px;
-
-    padding:
-        55px 40px 100px;
-
-    text-align: center;
-
-    box-shadow:
-        0 25px 60px rgba(45,60,45,.28);
-
-    opacity: 0;
-
-    z-index: 50;
-
-    transition:
-        transform 1.4s cubic-bezier(.34,1.56,.64,1),
-        opacity .7s ease;
-}
-
-.envelope.open .letter {
-
-    opacity: 1;
-
-    z-index: 200;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-
-    transition-delay: .25s;
-}
-
 /* bordo interno della partecipazione */
 
 .letter::before{
@@ -508,245 +230,6 @@ to{
 }
 
 /* =====================================================
-   ANTE BUSTA - DIVISIONE CENTRALE
-===================================================== */
-
-.envelope-side {
-
-    position: absolute;
-
-    top: 0;
-
-    width: 50%;
-    height: 100%;
-
-    background: transparent;
-
-    z-index: 60;
-
-    transform-style: preserve-3d;
-
-    backface-visibility: hidden;
-
-    transition:
-        transform 1.5s cubic-bezier(.65,0,.35,1),
-        opacity .8s ease,
-        z-index 0s linear 1.2s;
-
-}
-
-
-/* =====================================================
-   ANTA SINISTRA
-===================================================== */
-
-.envelope-left {
-
-    left: 0;
-
-    transform-origin: left center;
-
-    /*
-       Nessun triangolo:
-       l'anta è completamente rettangolare
-    */
-    clip-path: none;
-
-    border-right:
-        1px solid
-        rgba(50,65,50,.18);
-
-}
-
-
-/* =====================================================
-   ANTA DESTRA
-===================================================== */
-
-.envelope-right {
-
-    right: 0;
-
-    transform-origin: right center;
-
-    /*
-       Nessun triangolo
-    */
-    clip-path: none;
-
-    border-left:
-        1px solid
-        rgba(50,65,50,.12);
-
-}
-
-
-/* ombra verso sinistra */
-
-.envelope-left::after {
-
-    right: -9px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(45,55,43,.18),
-            rgba(45,55,43,.05),
-            transparent
-        );
-
-}
-
-
-/* ombra verso destra */
-
-.envelope-right::after {
-
-    left: -9px;
-
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(45,55,43,.18),
-            rgba(45,55,43,.05),
-            transparent
-        );
-
-}
-
-.envelope-inside::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 50%;
-
-    width: 1px;
-
-    transform: translateX(-50%);
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(45,55,43,.08),
-            rgba(45,55,43,.28) 30%,
-            rgba(45,55,43,.22) 50%,
-            rgba(45,55,43,.28) 70%,
-            rgba(45,55,43,.08)
-        );
-
-    box-shadow:
-        2px 0 5px rgba(45,55,43,.10),
-        -2px 0 5px rgba(255,255,255,.18);
-
-    pointer-events: none;
-
-    z-index: 70;
-
-    /* AGGIUNTO: transizione per la dissolvenza */
-    opacity: 1;
-    transition: opacity 1s ease;
-
-}
-
-.envelope.open .envelope-inside::after {
-
-    opacity: 0;
-
-}
-
-/* =====================================================
-   APERTURA DELLA BUSTA
-===================================================== */
-
-.envelope.open .envelope-side {
-
-    z-index: 10;
-
-}
-
-
-.envelope.open .envelope-left {
-
-    transform:
-        rotateY(-115deg);
-
-}
-
-
-.envelope.open .envelope-right {
-
-    transform:
-        rotateY(115deg);
-
-}
-
-
-/* =====================================================
-   DOPO L'APERTURA LE ANTE VANNO DIETRO LA LETTERA
-===================================================== */
-
-.envelope.open .envelope-side {
-
-    z-index: 10;
-
-}
-
-
-.seal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 90px;
-    height: 90px;
-
-    transform:
-        translate(-50%, -50%)
-        translateZ(120px)
-        rotate(-4deg);
-
-    z-index: 1000;
-    cursor: pointer;
-
-    transition:
-        transform .7s ease,
-        opacity .5s ease;
-}
-
-.seal-image {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    pointer-events: none;
-    user-select: none;
-
-    filter:
-        drop-shadow(0 8px 5px rgba(30,25,10,.25))
-        drop-shadow(0 15px 15px rgba(30,25,10,.18));
-}
-
-.envelope.open .seal {
-    opacity: 0;
-
-    transform:
-        translate(-50%, -50%)
-        translateZ(120px)
-        scale(1.5)
-        rotate(15deg);
-
-    pointer-events: none;
-}
-
-/* =====================================================
    TESTO PARTECIPAZIONE
 ===================================================== */
 
@@ -760,47 +243,6 @@ to{
 
     transform:
         translateY(20px);
-
-}
-
-
-.envelope.open
-.letter > *:not(#enterSite){
-
-    animation:
-        textReveal .7s forwards;
-
-}
-
-
-.envelope.open
-.letter .small{
-
-    animation-delay:.5s;
-
-}
-
-
-.envelope.open
-.letter h1{
-
-    animation-delay:.65s;
-
-}
-
-
-.envelope.open
-.letter .date{
-
-    animation-delay:.8s;
-
-}
-
-
-.envelope.open
-.letter .place{
-
-    animation-delay:.95s;
 
 }
 
@@ -853,6 +295,897 @@ to{
 
 }
 
+/* =====================================================
+   APERTURA INVITO MATRIMONIO
+===================================================== */
+
+#intro {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    z-index: 9999;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #b8c5ad 0%,
+            #8fa087 45%,
+            #5d7058 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+#intro::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(40,55,38,.20) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+#intro.hide {
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BUSTA
+===================================================== */
+
+.wedding-envelope {
+
+    position: relative;
+
+    width: min(600px, 92vw);
+    height: min(440px, 70vh);
+
+    perspective: 1600px;
+
+    animation:
+        envelopeArrival 1.4s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+}
+
+
+@keyframes envelopeArrival {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            scale(.75)
+            rotateX(8deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   RETRO BUSTA
+===================================================== */
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d7dfd0,
+            #aebca7
+        );
+
+    box-shadow:
+
+        0 35px 70px
+        rgba(35,50,34,.35),
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.35);
+
+}
+
+
+/* trama carta */
+
+.envelope-pattern {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .25;
+
+    background-image:
+
+        radial-gradient(
+            rgba(70,80,65,.25) .7px,
+            transparent .7px
+        );
+
+    background-size: 7px 7px;
+
+}
+
+
+/* =====================================================
+   PARTECIPAZIONE
+===================================================== */
+
+.wedding-letter {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 84%;
+    height: 82%;
+
+    transform:
+        translate(-50%, 35%)
+        scale(.88);
+
+    opacity: 0;
+
+    z-index: 20;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fffdf6,
+            #f4f0e4
+        );
+
+    box-shadow:
+
+        0 25px 55px
+        rgba(40,45,35,.25);
+
+    transition:
+
+        transform 1.5s
+        cubic-bezier(.22,1,.36,1),
+
+        opacity .7s ease;
+
+}
+
+
+/* =====================================================
+   PARTECIPAZIONE APERTA
+===================================================== */
+
+.wedding-envelope.open
+.wedding-letter {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    opacity: 1;
+
+    z-index: 100;
+
+}
+
+
+/* =====================================================
+   BORDO INTERNO
+===================================================== */
+
+.letter-border {
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+
+        1px solid
+        rgba(184,154,82,.55);
+
+}
+
+
+.letter-border::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 6px;
+
+    border:
+
+        1px solid
+        rgba(184,154,82,.20);
+
+}
+
+
+/* =====================================================
+   CONTENUTO PARTECIPAZIONE
+===================================================== */
+
+.letter-content {
+
+    position: absolute;
+
+    inset: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #435443;
+
+}
+
+
+.invitation-small {
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    color: #a18448;
+
+    margin-bottom: 14px;
+
+}
+
+
+.invitation-text {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    color: #70634d;
+
+    margin-bottom: 15px;
+
+}
+
+
+.letter-content h1 {
+
+    margin: 0;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: clamp(48px, 7vw, 72px);
+
+    line-height: .95;
+
+    font-weight: 400;
+
+    color: #435443;
+
+}
+
+
+.letter-content h1 span {
+
+    display: block;
+
+    font-size: .45em;
+
+    line-height: 1.4;
+
+    color: #b89a52;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   ORNAMENTO
+===================================================== */
+
+.ornament {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+    color: #b89a52;
+
+    font-size: 22px;
+
+}
+
+
+.ornament span {
+
+    display: block;
+
+    width: 55px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b89a52
+        );
+
+}
+
+
+.ornament span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            #b89a52,
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+.invitation-date {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 23px;
+
+    color: #66573e;
+
+    margin-bottom: 7px;
+
+}
+
+
+.invitation-place {
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #687664;
+
+    text-transform: uppercase;
+
+    line-height: 1.7;
+
+}
+
+
+.invitation-message {
+
+    max-width: 360px;
+
+    margin-top: 20px;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #756b59;
+
+}
+
+
+/* =====================================================
+   ANTE BUSTA
+===================================================== */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    z-index: 80;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #c8d2c2,
+            #9ead97
+        );
+
+    backface-visibility: hidden;
+
+    transform-style: preserve-3d;
+
+    transition:
+
+        transform 1.45s
+        cubic-bezier(.65,0,.35,1),
+
+        opacity .5s ease;
+
+}
+
+
+.envelope-flap-left {
+
+    left: 0;
+
+    transform-origin: left center;
+
+    border-right:
+        1px solid
+        rgba(60,75,58,.18);
+
+}
+
+
+.envelope-flap-right {
+
+    right: 0;
+
+    transform-origin: right center;
+
+    border-left:
+        1px solid
+        rgba(60,75,58,.18);
+
+}
+
+
+/* apertura */
+
+.wedding-envelope.open
+.envelope-flap-left {
+
+    transform:
+        rotateY(-115deg);
+
+}
+
+
+.wedding-envelope.open
+.envelope-flap-right {
+
+    transform:
+        rotateY(115deg);
+
+}
+
+
+/* =====================================================
+   SIGILLO CERALACCA
+===================================================== */
+
+.wedding-seal {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 92px;
+    height: 92px;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 300;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #a9473d,
+            #782e2d 60%,
+            #522020
+        );
+
+    box-shadow:
+
+        0 8px 12px
+        rgba(40,25,20,.30),
+
+        0 15px 30px
+        rgba(40,25,20,.22),
+
+        inset 4px 4px 8px
+        rgba(255,255,255,.15),
+
+        inset -5px -6px 8px
+        rgba(40,10,10,.25);
+
+    transition:
+
+        transform .8s
+        cubic-bezier(.22,1,.36,1),
+
+        opacity .5s ease;
+
+}
+
+
+/* bordo ceralacca */
+
+.wedding-seal::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,220,190,.35);
+
+}
+
+
+.seal-inner {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    color: #e9cda8;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 25px;
+
+    text-shadow:
+        1px 1px 2px
+        rgba(40,10,10,.5);
+
+}
+
+
+.seal-inner span {
+
+    font-size: 14px;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   ANIMAZIONE SIGILLO
+===================================================== */
+
+.wedding-envelope.open
+.wedding-seal {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.7)
+        rotate(20deg);
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   PULSANTE
+===================================================== */
+
+#enterSite {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 500;
+
+    width: 210px;
+
+    padding: 13px 25px;
+
+    border: 1px solid
+        rgba(184,154,82,.5);
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #91a887,
+            #64795d
+        );
+
+    color: white;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+
+        opacity .8s ease .9s,
+        transform .35s ease,
+        background .35s ease;
+
+}
+
+
+.wedding-envelope.open
+#enterSite {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+#enterSite span {
+
+    margin-left: 8px;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+#enterSite:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #64795d,
+            #435443
+        );
+
+}
+
+
+#enterSite:hover span {
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px) {
+
+    .wedding-envelope {
+
+        width: 92vw;
+        height: 72vh;
+
+    }
+
+
+    .wedding-letter {
+
+        width: 88%;
+        height: 86%;
+
+    }
+
+
+    .letter-content {
+
+        inset: 20px;
+
+    }
+
+
+    .invitation-small {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .invitation-text {
+
+        font-size: 14px;
+
+    }
+
+
+    .letter-content h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .invitation-date {
+
+        font-size: 19px;
+
+    }
+
+
+    .invitation-message {
+
+        max-width: 260px;
+
+        font-size: 11px;
+
+        margin-top: 14px;
+
+    }
+
+
+    .ornament {
+
+        margin: 14px 0;
+
+    }
+
+
+    .ornament span {
+
+        width: 35px;
+
+    }
+
+
+    .wedding-seal {
+
+        width: 72px;
+        height: 72px;
+
+    }
+
+
+    .seal-inner {
+
+        font-size: 20px;
+
+    }
+
+
+    #enterSite {
+
+        width: 75%;
+
+        bottom: 18px;
+
+        font-size: 13px;
+
+    }
+
+}
 
 /* compare quando la busta è aperta */
 
@@ -879,44 +1212,6 @@ to{
             #64795D,
             #435443
         );
-
-}
-
-
-/* =====================================================
-   OMBRA BUSTA
-===================================================== */
-
-
-.envelope::after{
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    bottom:-40px;
-
-
-    left:50%;
-
-
-    width:350px;
-
-
-    height:40px;
-
-
-    background:rgba(0,0,0,.25);
-
-
-    filter:blur(25px);
-
-
-    transform:translateX(-50%);
-
 
 }
 
