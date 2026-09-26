@@ -743,7 +743,9 @@ to{
     position: absolute;
 
     left: 50%;
-    bottom: 8px;
+
+    /* il pulsante viene messo sotto la lettera */
+    bottom: 0;
 
     transform: translateX(-50%);
 
@@ -767,9 +769,7 @@ to{
 
     color: white;
 
-    font-family:
-        'Poppins',
-        sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     font-size: 14px;
 
@@ -786,6 +786,7 @@ to{
         transform .35s ease,
         background .35s ease;
 }
+
 
 
 
