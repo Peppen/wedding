@@ -306,12 +306,10 @@ to{
 
     position: absolute;
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    padding: 45px 50px;
+    top: 35px;
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
 
     display: flex;
 
@@ -328,7 +326,7 @@ to{
     /* Il testo rimane sempre dentro il biglietto */
     overflow: hidden;
 
-    z-index: 3;
+    z-index: 10;
 }
 
 
@@ -388,11 +386,11 @@ to{
 
 
 .wedding-letter h1 {
-
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: .95;
     max-width: 100%;
-
     overflow-wrap: break-word;
-
 }
 
 /* =====================================================
@@ -2436,6 +2434,22 @@ to{
 
 }
 
+.wedding-letter .invitation-small,
+.wedding-letter .invitation-text,
+.wedding-letter h1,
+.wedding-letter .ornament,
+.wedding-letter .invitation-date,
+.wedding-letter .invitation-place,
+.wedding-letter .invitation-message {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 100%;
+
+    flex-shrink: 1;
+}
 
 
 
