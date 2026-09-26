@@ -118,6 +118,9 @@ to{
     transition:
         opacity 1s ease,
         visibility 1s ease;
+
+   --sparkle-color:
+        rgba(245,224,166,.75);
 }
 
 
@@ -579,6 +582,306 @@ to{
 
 }
 
+/* =====================================================
+   DECORAZIONE APERTURA MATRIMONIO
+   Verde Salvia • Oro • Botanico
+===================================================== */
+
+/* Bagliore elegante dietro la busta */
+
+#intro::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,245,205,.22) 0%,
+            rgba(216,196,139,.10) 35%,
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    pointer-events: none;
+
+    animation:
+        introGlow 5s ease-in-out infinite;
+
+}
+
+
+@keyframes introGlow {
+
+    0%,
+    100% {
+        transform: scale(.92);
+        opacity: .65;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   CORNICE DORATA INTORNO ALLA BUSTA
+===================================================== */
+
+.wedding-envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -18px;
+
+    border:
+        1px solid
+        rgba(216,196,139,.45);
+
+    border-radius: 12px;
+
+    pointer-events: none;
+
+    opacity: .8;
+
+}
+
+
+.wedding-envelope::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    border:
+        1px solid
+        rgba(255,248,220,.18);
+
+    border-radius: 8px;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   PICCOLI ORNAMENTI DORATI AGLI ANGOLI
+===================================================== */
+
+#intro .wedding-envelope {
+
+    isolation: isolate;
+
+}
+
+
+#intro .wedding-envelope .envelope-back::before {
+
+    content: "❦";
+
+    position: absolute;
+
+    top: -38px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(232,210,157,.85);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
+    font-size: 32px;
+
+    text-shadow:
+        0 2px 12px
+        rgba(40,55,38,.25);
+
+    z-index: 10;
+
+}
+
+
+#intro .wedding-envelope .envelope-back::after {
+
+    content: "❦";
+
+    position: absolute;
+
+    bottom: -38px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(180deg);
+
+    color:
+        rgba(232,210,157,.75);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
+    font-size: 32px;
+
+    z-index: 10;
+
+}
+
+#intro .wedding-seal {
+
+    box-shadow:
+
+        0 8px 12px
+        rgba(40,25,20,.30),
+
+        0 15px 30px
+        rgba(40,25,20,.22),
+
+        0 0 0 5px
+        rgba(216,196,139,.08),
+
+        0 0 25px
+        rgba(216,196,139,.15),
+
+        inset 4px 4px 8px
+        rgba(255,255,255,.15),
+
+        inset -5px -6px 8px
+        rgba(40,10,10,.25);
+
+}
+
+
+/* =====================================================
+   PICCOLO BAGLIORE SULLA CERALACCA
+===================================================== */
+
+.wedding-seal::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 12px;
+    left: 18px;
+
+    width: 22px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,235,210,.25);
+
+    filter: blur(3px);
+
+    transform:
+        rotate(-25deg);
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   ANIMAZIONE DELLA CERALACCA
+===================================================== */
+
+.wedding-seal {
+
+    animation:
+        sealBreath 3.5s ease-in-out infinite;
+
+}
+
+
+@keyframes sealBreath {
+
+    0%,
+    100% {
+
+        filter:
+            brightness(1);
+
+        box-shadow:
+
+            0 8px 12px
+            rgba(40,25,20,.30),
+
+            0 15px 30px
+            rgba(40,25,20,.22),
+
+            0 0 0 5px
+            rgba(216,196,139,.08),
+
+            0 0 20px
+            rgba(216,196,139,.12),
+
+            inset 4px 4px 8px
+            rgba(255,255,255,.15),
+
+            inset -5px -6px 8px
+            rgba(40,10,10,.25);
+
+    }
+
+    50% {
+
+        filter:
+            brightness(1.08);
+
+        box-shadow:
+
+            0 8px 12px
+            rgba(40,25,20,.30),
+
+            0 15px 35px
+            rgba(40,25,20,.22),
+
+            0 0 0 7px
+            rgba(216,196,139,.10),
+
+            0 0 35px
+            rgba(216,196,139,.20),
+
+            inset 4px 4px 8px
+            rgba(255,255,255,.15),
+
+            inset -5px -6px 8px
+            rgba(40,10,10,.25);
+
+    }
+
+}
+
+
+/* =====================================================
+   TESTO SOPRA LA CERALACCA
+===================================================== */
+
+#intro .wedding-envelope::marker {
+
+    display: none;
+
+}
 
 
 /* =====================================================
