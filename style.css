@@ -2037,13 +2037,13 @@ footer {
     ----------------------------- */
 
     .wedding-envelope {
-        width: 92vw;
+        width: 88vw;
 
         /*
            Più altezza disponibile per
            l'invito su smartphone.
         */
-        height: min(74vh, 600px);
+        height: min(68vh, 550px);
     }
 
 
@@ -2052,18 +2052,17 @@ footer {
     ----------------------------- */
 
     .wedding-letter {
-        width: 90%;
-        height: 88%;
+        width: 84%;
+        height: 82%;
     }
 
     .wedding-letter .letter-content {
-        padding:
-            24px
-            22px;
+        padding: 20px 18px;
+        transform: translateY(-10px);
     }
 
     .letter-border {
-        inset: 9px;
+        inset: 8px;
     }
 
     .letter-border::before {
@@ -2072,28 +2071,28 @@ footer {
 
 
     .wedding-letter .invitation-small {
-        font-size: 8px;
+        font-size: 7px;
 
-        letter-spacing: 2px;
+        letter-spacing: 1.7px;
 
-        margin-bottom: 5px;
+        margin-bottom: 4px;
     }
 
 
     .wedding-letter .invitation-text {
         max-width: 94%;
 
-        font-size: 12px;
+        font-size: 10.5px;
 
-        line-height: 1.25;
+        line-height: 1.2;
 
-        margin-bottom: 4px;
+        margin-bottom: 3px;
     }
 
 
     .wedding-letter h1 {
         font-size:
-            clamp(32px, 11vw, 50px);
+            clamp(28px, 9vw, 44px);
 
         line-height: .88;
 
@@ -2104,25 +2103,25 @@ footer {
     .wedding-letter h1 span {
         margin-top: 3px;
 
-        font-size: .42em;
+        font-size: .40em;
     }
 
 
     .wedding-letter .ornament {
-        margin: 6px 0;
+        margin: 5px 0;
 
-        font-size: 16px;
+        font-size: 14px;
 
-        gap: 7px;
+        gap: 6px;
     }
 
     .wedding-letter .ornament span {
-        width: 26px;
+        width: 22px;
     }
 
 
     .wedding-letter .invitation-date {
-        font-size: 17px;
+        font-size: 15px;
 
         margin: 2px 0;
     }
@@ -2131,22 +2130,22 @@ footer {
     .wedding-letter .invitation-place {
         max-width: 94%;
 
-        font-size: 8px;
+        font-size: 7px;
 
-        letter-spacing: 1px;
+        letter-spacing: .8px;
 
-        line-height: 1.3;
+        line-height: 1.25;
     }
 
 
     .wedding-letter .invitation-message {
         max-width: 94%;
 
-        margin-top: 6px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 9px;
 
-        font-size: 10px;
-
-        line-height: 1.25;
+        line-height: 1.2;
     }
 
 
@@ -2155,28 +2154,31 @@ footer {
     ----------------------------- */
 
     .wedding-seal {
-        width: 72px;
-        height: 72px;
+        width: 68px;
+        height: 68px;
     }
 
     .seal-inner {
-        font-size: 20px;
+        font-size: 19px;
     }
-
+    
+    .seal-inner span {
+        font-size: 11px;
+    }
 
     /* -----------------------------
        PULSANTE
     ----------------------------- */
 
     #enterSite {
-        bottom: 25px;
+        bottom: 20px;
 
-        width: 78%;
-        max-width: 230px;
+        width: 155px;
+        letter-spacing: .9px;
 
-        padding: 13px 18px;
+        padding: 9px 14px;
 
-        font-size: 14px;
+        font-size: 11px;
 
         line-height: 1.2;
 
