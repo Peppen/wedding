@@ -3,6 +3,11 @@
    Tema: Verde Salvia • Oro • Carta Antica
 ===================================================== */
 
+
+/* =====================================================
+   VARIABILI
+===================================================== */
+
 :root {
     --sage: #8FA58A;
     --sage-dark: #435443;
@@ -18,7 +23,8 @@
     --cream: #FBFAF4;
     --brown: #625542;
 
-    --shadow: 0 25px 60px rgba(53, 70, 52, .15);
+    --shadow:
+        0 25px 60px rgba(53, 70, 52, .15);
 }
 
 
@@ -37,16 +43,16 @@ html {
 }
 
 body {
-    margin: 0;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     color: var(--sage-dark);
 
-    background: linear-gradient(
-        135deg,
-        #eef2e8,
-        #d9e3d3
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #eef2e8,
+            #d9e3d3
+        );
 }
 
 
@@ -115,6 +121,7 @@ body {
         transform:
             translate(-50%, -50%)
             scale(1);
+
         filter: brightness(1);
     }
 
@@ -122,6 +129,7 @@ body {
         transform:
             translate(-50%, -50%)
             scale(1.035);
+
         filter: brightness(1.10);
     }
 }
@@ -185,11 +193,13 @@ body {
             rgba(216, 196, 139, .20) 20%,
             transparent 48%
         ),
+
         radial-gradient(
             ellipse at 50% -10%,
             rgba(255, 255, 235, .28),
             transparent 45%
         ),
+
         linear-gradient(
             135deg,
             #b8c5ad 0%,
@@ -239,7 +249,8 @@ body {
 
     pointer-events: none;
 
-    animation: introGlow 5s ease-in-out infinite;
+    animation:
+        introGlow 5s ease-in-out infinite;
 
     z-index: 2;
 }
@@ -262,13 +273,13 @@ body {
     height: min(440px, 70vh);
 
     perspective: 1600px;
-    isolation: isolate;
 
     --ornament: rgba(231, 211, 158, .82);
 
-    padding-top: 20px;
-
     z-index: 20;
+    isolation: isolate;
+
+    padding-top: 20px;
 
     filter:
         drop-shadow(
@@ -280,9 +291,6 @@ body {
         cubic-bezier(.22, 1, .36, 1)
         forwards;
 }
-
-
-/* Cornici */
 
 .wedding-envelope::before {
     content: "";
@@ -376,6 +384,7 @@ body {
             rgba(70, 80, 65, .30) .7px,
             transparent .7px
         ),
+
         linear-gradient(
             90deg,
             transparent 49%,
@@ -389,18 +398,27 @@ body {
 }
 
 
-/* Ornamenti */
+/* =====================================================
+   ORNAMENTI BUSTA
+===================================================== */
 
-#intro .wedding-envelope .envelope-back::before,
-#intro .wedding-envelope .envelope-back::after {
+#intro .wedding-envelope .envelope-back::before {
     content: "❦";
 
     position: absolute;
+
+    top: -38px;
     left: 50%;
 
-    color: rgba(232, 210, 157, .82);
+    transform: translateX(-50%);
 
-    font-family: 'Times New Roman', serif;
+    color:
+        rgba(232, 210, 157, .85);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
     font-size: 32px;
 
     text-shadow:
@@ -410,16 +428,28 @@ body {
     z-index: 10;
 }
 
-#intro .wedding-envelope .envelope-back::before {
-    top: -38px;
-    transform: translateX(-50%);
-}
-
 #intro .wedding-envelope .envelope-back::after {
+    content: "❦";
+
+    position: absolute;
+
     bottom: -38px;
+    left: 50%;
+
     transform:
         translateX(-50%)
         rotate(180deg);
+
+    color:
+        rgba(232, 210, 157, .75);
+
+    font-family:
+        'Times New Roman',
+        serif;
+
+    font-size: 32px;
+
+    z-index: 10;
 }
 
 
@@ -433,13 +463,8 @@ body {
     top: 50%;
     left: 50%;
 
-    /*
-       La partecipazione viene leggermente aumentata
-       rispetto alla vecchia versione per dare più
-       spazio verticale al contenuto.
-    */
-    width: 88%;
-    height: 88%;
+    width: 84%;
+    height: 82%;
 
     transform:
         translate(-50%, 35%)
@@ -447,7 +472,7 @@ body {
 
     opacity: 0;
 
-    z-index: 100;
+    z-index: 20;
 
     background:
         linear-gradient(
@@ -462,14 +487,10 @@ body {
         0 25px 55px
         rgba(40, 45, 35, .25);
 
-    /*
-       NON nascondiamo il contenuto:
-       il testo non verrà più tagliato.
-    */
-    overflow: visible;
+    overflow: hidden;
 
     transition:
-        transform 1.5s cubic-bezier(.22, 1, .36, 1),
+        transform 1.5s cubic-bezier(.22,1,.36,1),
         opacity .7s ease;
 }
 
@@ -479,16 +500,18 @@ body {
         scale(1);
 
     opacity: 1;
+
+    z-index: 100;
 }
 
 
 /* =====================================================
-   BORDO INVITO
+   BORDO INTERNO
 ===================================================== */
 
 .letter-border {
     position: absolute;
-    inset: 12px;
+    inset: 14px;
 
     border:
         1px solid
@@ -503,7 +526,7 @@ body {
     content: "";
 
     position: absolute;
-    inset: 5px;
+    inset: 6px;
 
     border:
         1px solid
@@ -512,76 +535,75 @@ body {
 
 
 /* =====================================================
-   CONTENUTO INVITO
+   CONTENUTO PARTECIPAZIONE
+   Spostato leggermente verso l'alto per evitare
+   la sovrapposizione con "Scopri l'invito"
 ===================================================== */
 
 .wedding-letter .letter-content {
-    position: relative;
+    position: absolute;
+
+    inset: 0;
 
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 
-    /*
-       Spazio interno più equilibrato.
-       Non usiamo più justify-content:center
-       con margini troppo grandi.
-    */
     padding:
-        30px
-        38px;
+        25px 45px 65px;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
+
+    justify-content: flex-start;
 
     text-align: center;
 
     color: var(--sage-dark);
 
-    z-index: 10;
+    overflow: hidden;
 
-    /*
-       Permette al contenuto di adattarsi
-       senza essere tagliato.
-    */
-    overflow: visible;
+    z-index: 10;
 }
 
-
-/* Tutti gli elementi restano dentro il foglio */
-
 .wedding-letter .letter-content > * {
-    width: auto;
     max-width: 100%;
     flex-shrink: 1;
 }
 
 
 /* =====================================================
-   TESTO SUPERIORE
+   TESTO PICCOLO
 ===================================================== */
 
 .wedding-letter .invitation-small {
     margin: 0 0 6px;
 
-    font-family: 'Poppins', sans-serif;
+    max-width: 100%;
 
-    font-size: 9px;
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 10px;
+
     font-weight: 500;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 3px;
+
     line-height: 1.3;
 
     text-transform: uppercase;
 
-    color: #a18448;
+    color:
+        #a18448;
 }
 
 
 /* =====================================================
-   FRASE
+   FRASE INIZIALE
 ===================================================== */
 
 .wedding-letter .invitation-text {
@@ -594,11 +616,13 @@ body {
         serif;
 
     font-size: 14px;
+
     font-style: italic;
 
     line-height: 1.3;
 
-    color: #70634d;
+    color:
+        #70634d;
 }
 
 
@@ -608,6 +632,7 @@ body {
 
 .wedding-letter h1 {
     width: 100%;
+
     max-width: 100%;
 
     margin: 2px 0;
@@ -616,20 +641,17 @@ body {
         'Playfair Display',
         serif;
 
-    /*
-       Ridotto leggermente per evitare che
-       i nomi occupino tutta l'altezza.
-    */
-    font-size: clamp(34px, 5.5vw, 56px);
+    font-size:
+        clamp(38px, 6vw, 62px);
 
     font-weight: 400;
 
-    line-height: .9;
+    line-height: .88;
 
-    color: #435443;
+    color:
+        #435443;
 
     overflow-wrap: break-word;
-    word-break: normal;
 }
 
 .wedding-letter h1 span {
@@ -637,13 +659,14 @@ body {
 
     margin-top: 4px;
 
-    font-size: .42em;
+    font-size: .45em;
 
     line-height: 1.1;
 
     font-style: italic;
 
-    color: #b89a52;
+    color:
+        #b89a52;
 }
 
 
@@ -657,13 +680,14 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    gap: 10px;
 
     margin: 7px 0;
 
-    color: #b89a52;
+    color:
+        #b89a52;
 
-    font-size: 16px;
+    font-size: 18px;
 
     flex-shrink: 0;
 }
@@ -671,7 +695,7 @@ body {
 .wedding-letter .ornament span {
     display: block;
 
-    width: 30px;
+    width: 35px;
     height: 1px;
 
     background:
@@ -697,17 +721,19 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-date {
-    margin: 3px 0;
+    margin:
+        3px 0 3px;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 18px;
+    font-size: 20px;
 
     line-height: 1.15;
 
-    color: #66573e;
+    color:
+        #66573e;
 }
 
 
@@ -716,7 +742,7 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-place {
-    max-width: 92%;
+    max-width: 90%;
 
     margin: 0;
 
@@ -724,16 +750,18 @@ body {
         'Poppins',
         sans-serif;
 
-    font-size: 9px;
+    font-size: 10px;
+
     font-weight: 400;
 
-    letter-spacing: 1.3px;
+    letter-spacing: 1.5px;
 
     line-height: 1.35;
 
     text-transform: uppercase;
 
-    color: #687664;
+    color:
+        #687664;
 }
 
 
@@ -742,19 +770,21 @@ body {
 ===================================================== */
 
 .wedding-letter .invitation-message {
-    max-width: 88%;
+    max-width: 85%;
 
-    margin: 7px 0 0;
+    margin:
+        7px 0 0;
 
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    line-height: 1.3;
+    line-height: 1.35;
 
-    color: #756b59;
+    color:
+        #756b59;
 }
 
 
@@ -764,6 +794,7 @@ body {
 
 .envelope-flap {
     position: absolute;
+
     top: 0;
 
     width: 50%;
@@ -779,6 +810,7 @@ body {
         );
 
     backface-visibility: hidden;
+
     transform-style: preserve-3d;
 
     transition:
@@ -808,11 +840,13 @@ body {
 }
 
 .wedding-envelope.open .envelope-flap-left {
-    transform: rotateY(-115deg);
+    transform:
+        rotateY(-115deg);
 }
 
 .wedding-envelope.open .envelope-flap-right {
-    transform: rotateY(115deg);
+    transform:
+        rotateY(115deg);
 }
 
 
@@ -967,7 +1001,7 @@ body {
 
 
 /* =====================================================
-   PARTICELLE
+   PARTICELLE LUMINOSE
 ===================================================== */
 
 .intro-spark {
@@ -1022,19 +1056,21 @@ body {
     left: 4vw;
     top: 8vh;
 
-    transform: rotate(-15deg);
+    transform:
+        rotate(-15deg);
 }
 
 .intro-branch.right {
     right: 4vw;
     bottom: 8vh;
 
-    transform: rotate(165deg);
+    transform:
+        rotate(165deg);
 }
 
 
 /* =====================================================
-   PULSANTE ENTRA
+   PULSANTE ENTRA NEL SITO
 ===================================================== */
 
 #enterSite {
@@ -1047,7 +1083,8 @@ body {
 
     padding: 10px 20px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     z-index: 500;
 
@@ -1066,9 +1103,12 @@ body {
 
     color: white;
 
-    font-family: 'Poppins', sans-serif;
+    font-family:
+        'Poppins',
+        sans-serif;
 
     font-size: 12px;
+
     font-weight: 400;
 
     letter-spacing: 1.2px;
@@ -1099,8 +1139,6 @@ body {
 }
 
 #enterSite span {
-    display: inline-block;
-
     margin-left: 8px;
 
     transition:
@@ -1121,7 +1159,8 @@ body {
 }
 
 #enterSite:hover span {
-    transform: translateX(5px);
+    transform:
+        translateX(5px);
 }
 
 
@@ -1131,7 +1170,6 @@ body {
 
 #website {
     display: none;
-
     opacity: 1;
 
     background:
@@ -1475,7 +1513,8 @@ section h2::after {
     left: 50%;
     bottom: -18px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 110px;
     height: 1px;
@@ -1715,6 +1754,7 @@ section h2::after {
     padding: 16px;
 
     border: none;
+
     border-radius: 50px;
 
     cursor: pointer;
@@ -1738,7 +1778,8 @@ section h2::after {
 }
 
 #rsvpForm button:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     background:
         linear-gradient(
@@ -1844,7 +1885,8 @@ section h2::after {
 }
 
 .map-button:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     background:
         linear-gradient(
@@ -1903,7 +1945,8 @@ section h2::after {
 }
 
 .whatsapp-button:hover {
-    transform: scale(1.1);
+    transform:
+        scale(1.1);
 
     box-shadow:
         0 12px 30px
@@ -1997,14 +2040,16 @@ footer {
 }
 
 .success-message {
-    color: var(--sage-deep);
+    color:
+        var(--sage-deep);
 
     animation:
         successMessage .6s ease;
 }
 
 .error-message {
-    color: #a34b3c;
+    color:
+        #a34b3c;
 
     animation:
         successMessage .6s ease;
@@ -2017,157 +2062,147 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* -----------------------------
-       INTRO
-    ----------------------------- */
+    /* Intro */
 
     #intro {
         width: 100vw;
         height: 100dvh;
 
+        display: flex;
+
         align-items: center;
         justify-content: center;
+
+        overflow: hidden;
     }
 
 
-    /* -----------------------------
-       BUSTA
-    ----------------------------- */
+    /* Busta */
 
     .wedding-envelope {
         width: 92vw;
 
-        /*
-           Più altezza disponibile per
-           l'invito su smartphone.
-        */
-        height: min(74vh, 600px);
+        height:
+            min(72vh, 600px);
     }
 
 
-    /* -----------------------------
-       INVITO
-    ----------------------------- */
+    /* Partecipazione */
 
     .wedding-letter {
-        width: 90%;
-        height: 88%;
+        width: 88%;
+        height: 84%;
     }
+
+
+    /*
+       Su mobile aumentiamo lo spazio sotto
+       e spostiamo il contenuto verso l'alto.
+    */
 
     .wedding-letter .letter-content {
         padding:
-            24px
-            22px;
+            20px 22px 65px;
+
+        justify-content: flex-start;
     }
 
+
     .letter-border {
-        inset: 9px;
+        inset: 10px;
     }
 
     .letter-border::before {
-        inset: 4px;
+        inset: 5px;
     }
 
 
     .wedding-letter .invitation-small {
-        font-size: 8px;
+        font-size: 9px;
 
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .wedding-letter .invitation-text {
+        font-size: 13px;
+
+        line-height: 1.3;
 
         margin-bottom: 5px;
     }
 
 
-    .wedding-letter .invitation-text {
-        max-width: 94%;
-
-        font-size: 12px;
-
-        line-height: 1.25;
-
-        margin-bottom: 4px;
-    }
-
-
     .wedding-letter h1 {
         font-size:
-            clamp(32px, 11vw, 50px);
+            clamp(42px, 12vw, 58px);
 
-        line-height: .88;
+        line-height: .85;
 
         margin: 2px 0;
-    }
-
-
-    .wedding-letter h1 span {
-        margin-top: 3px;
-
-        font-size: .42em;
-    }
-
-
-    .wedding-letter .ornament {
-        margin: 6px 0;
-
-        font-size: 16px;
-
-        gap: 7px;
-    }
-
-    .wedding-letter .ornament span {
-        width: 26px;
     }
 
 
     .wedding-letter .invitation-date {
-        font-size: 17px;
+        font-size: 19px;
 
-        margin: 2px 0;
+        margin-top: 3px;
+
+        margin-bottom: 3px;
     }
 
 
     .wedding-letter .invitation-place {
-        max-width: 94%;
+        font-size: 9px;
 
-        font-size: 8px;
+        letter-spacing: 1.4px;
 
-        letter-spacing: 1px;
-
-        line-height: 1.3;
+        line-height: 1.4;
     }
 
 
     .wedding-letter .invitation-message {
-        max-width: 94%;
+        max-width: 270px;
 
-        margin-top: 6px;
+        margin-top: 7px;
 
-        font-size: 10px;
+        font-size: 11px;
 
-        line-height: 1.25;
+        line-height: 1.4;
     }
 
 
-    /* -----------------------------
-       SIGILLO
-    ----------------------------- */
+    .wedding-letter .ornament {
+        margin: 8px 0;
+
+        font-size: 18px;
+    }
+
+
+    .wedding-letter .ornament span {
+        width: 35px;
+    }
+
+
+    /* Sigillo */
 
     .wedding-seal {
         width: 72px;
         height: 72px;
     }
 
+
     .seal-inner {
         font-size: 20px;
     }
 
 
-    /* -----------------------------
-       PULSANTE
-    ----------------------------- */
+    /* Pulsante entra */
 
     #enterSite {
-        bottom: 25px;
+        bottom: 18px;
 
         width: 78%;
         max-width: 230px;
@@ -2179,7 +2214,17 @@ footer {
         line-height: 1.2;
 
         white-space: nowrap;
+
+        transform:
+            translateX(-50%);
     }
+
+
+    .wedding-envelope.open #enterSite {
+        transform:
+            translateX(-50%);
+    }
+
 
     #enterSite:hover {
         transform:
@@ -2188,9 +2233,7 @@ footer {
     }
 
 
-    /* -----------------------------
-       NAVBAR
-    ----------------------------- */
+    /* Navbar */
 
     nav {
         height: auto;
@@ -2202,41 +2245,44 @@ footer {
         gap: 20px;
     }
 
+
     nav ul {
         flex-wrap: wrap;
+
         gap: 10px;
     }
 
+
     nav a {
         padding: 9px 16px;
+
         font-size: 12px;
     }
+
 
     .logo {
         font-size: 26px;
     }
 
 
-    /* -----------------------------
-       HERO
-    ----------------------------- */
+    /* Hero */
 
     .hero {
         padding: 60px 15px;
     }
 
+
     .hero-card {
         padding: 50px 25px;
     }
+
 
     .hero-card h1 {
         font-size: 42px;
     }
 
 
-    /* -----------------------------
-       SEZIONI
-    ----------------------------- */
+    /* Sezioni */
 
     section:not(.hero) {
         width: auto;
@@ -2246,50 +2292,45 @@ footer {
         padding: 50px 20px;
     }
 
+
     section h2 {
         font-size: 38px;
     }
 
 
-    /* -----------------------------
-       COUNTDOWN
-    ----------------------------- */
+    /* Countdown */
 
     .timer div {
         width: 110px;
         height: 110px;
     }
 
+
     .timer span {
         font-size: 32px;
     }
 
 
-    /* -----------------------------
-       CARDS
-    ----------------------------- */
+    /* Cards */
 
     .card {
         width: 100%;
     }
 
 
-    /* -----------------------------
-       MAPPE
-    ----------------------------- */
+    /* Mappe */
 
     .map-container iframe {
         height: 250px;
     }
+
 
     .map-button {
         width: 100%;
     }
 
 
-    /* -----------------------------
-       WHATSAPP
-    ----------------------------- */
+    /* WhatsApp */
 
     .whatsapp-button {
         width: 55px;
@@ -2299,65 +2340,5 @@ footer {
         bottom: 18px;
 
         font-size: 28px;
-    }
-}
-
-
-/* =====================================================
-   MOBILE MOLTO PICCOLO
-   Schermi tipo iPhone SE / dispositivi stretti
-===================================================== */
-
-@media (max-width: 390px) {
-
-    .wedding-envelope {
-        width: 94vw;
-        height: 72vh;
-    }
-
-    .wedding-letter {
-        width: 91%;
-        height: 89%;
-    }
-
-    .wedding-letter .letter-content {
-        padding:
-            20px
-            18px;
-    }
-
-    .wedding-letter h1 {
-        font-size:
-            clamp(29px, 10vw, 43px);
-    }
-
-    .wedding-letter .invitation-text {
-        font-size: 11px;
-    }
-
-    .wedding-letter .invitation-date {
-        font-size: 16px;
-    }
-
-    .wedding-letter .invitation-place {
-        font-size: 7.5px;
-        letter-spacing: .8px;
-    }
-
-    .wedding-letter .invitation-message {
-        font-size: 9px;
-    }
-
-    .wedding-letter .ornament {
-        margin: 5px 0;
-    }
-
-    .wedding-letter .ornament span {
-        width: 22px;
-    }
-
-    .wedding-seal {
-        width: 68px;
-        height: 68px;
     }
 }
