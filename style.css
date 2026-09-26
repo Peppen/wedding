@@ -252,7 +252,12 @@ to{
 /* =====================================================
    PARTECIPAZIONE
 ===================================================== */
+/* =====================================================
+   PARTECIPAZIONE - NASCOSTA FINO ALL'APERTURA
+===================================================== */
+
 .wedding-letter {
+
     position: absolute;
 
     top: 50%;
@@ -261,11 +266,13 @@ to{
     width: 84%;
     height: 82%;
 
+    /* Prima dell'apertura resta nascosta
+       e sotto la busta */
     transform:
         translate(-50%, 35%)
         scale(.88);
 
-    opacity: 1;
+    opacity: 0;
 
     z-index: 20;
 
@@ -284,16 +291,27 @@ to{
         transform 1.5s cubic-bezier(.22,1,.36,1),
         opacity .7s ease;
 
-    overflow: visible;
+    /* Il contenuto non può uscire dal biglietto */
+    overflow: hidden;
 }
 
 
+
+
+/* =====================================================
+   CONTENUTO DEL BIGLIETTO
+===================================================== */
 
 .letter-content {
 
     position: absolute;
 
-    inset: 24px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 45px 50px;
 
     display: flex;
 
@@ -307,8 +325,10 @@ to{
 
     color: #435443;
 
-    /* niente overflow hidden */
-    overflow: visible;
+    /* Il testo rimane sempre dentro il biglietto */
+    overflow: hidden;
+
+    z-index: 3;
 }
 
 
