@@ -391,86 +391,161 @@ observer.observe(element);
 
 });
 
-
-
-
-
-
-
-
-
 /* =====================================================
    RSVP GOOGLE SHEETS
 ===================================================== */
 
+const form = document.getElementById("rsvpForm");
+
+const successMessage = document.getElementById("success");
 
 
-const form =
-document.getElementById("rsvpForm");
+/*
+ * URL DEL TUO GOOGLE APPS SCRIPT
+ *
+ * INCOLLA QUI IL TUO URL /exec
+ */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/INSERISCI_QUI_IL_TUO_ID/exec";
 
 
+if (form) {
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
 
 
-
-if(form){
-
-
-
-form.addEventListener(
-"submit",
-function(e){
+        const button =
+            form.querySelector("button");
 
 
+        /*
+         * Evita doppi invii
+         */
 
-e.preventDefault();
+        button.disabled = true;
 
-
-
-const button =
-form.querySelector("button");
-
-
-
-button.innerHTML =
-"Invio...";
+        button.innerHTML = "Invio...";
 
 
+        /*
+         * Recupera i dati del form
+         */
 
-button.disabled=true;
-
-
-
-
-// Qui inserire in futuro Google Script URL
-
-
-setTimeout(function(){
+        const formData =
+            new FormData(form);
 
 
+        const data = {
 
-button.innerHTML =
-"Confermato ❤️";
+            nome:
+                formData.get("nome"),
+
+            email:
+                formData.get("email"),
+
+            presenza:
+                formData.get("presenza"),
+
+            ospiti:
+                formData.get("ospiti"),
+
+            allergie:
+                formData.get("allergie"),
+
+            messaggio:
+                formData.get("messaggio")
+
+        };
 
 
+        try {
 
-form.reset();
+            /*
+             * Invio a Google Apps Script
+             */
+
+            const response =
+                await fetch(
+                    GOOGLE_SCRIPT_URL,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(data)
+                    }
+                );
 
 
-
-},1500);
-
-
+            const result =
+                await response.json();
 
 
-});
+            /*
+             * Controlla la risposta
+             */
+
+            if (result.result === "success") {
+
+                successMessage.innerHTML =
+                    "Grazie ❤️ La tua conferma è stata inviata!";
 
 
+                successMessage.style.color =
+                    "#8b6f47";
+
+
+                form.reset();
+
+
+                button.innerHTML =
+                    "Confermato ❤️";
+
+
+            } else {
+
+                throw new Error(
+                    result.message ||
+                    "Errore durante l'invio"
+                );
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "Errore RSVP:",
+                error
+            );
+
+
+            successMessage.innerHTML =
+                "Si è verificato un errore. Riprova tra poco.";
+
+
+            successMessage.style.color =
+                "#b33a3a";
+
+
+            button.innerHTML =
+                "Riprova";
+
+
+            button.disabled = false;
+
+        }
+
+    });
 
 }
-
-
-
-
 
 
 
