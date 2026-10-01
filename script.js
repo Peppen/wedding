@@ -407,7 +407,7 @@ const successMessage = document.getElementById("success");
  */
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/INSERISCI_QUI_IL_TUO_ID/exec";
+"https://script.google.com/macros/s/AKfycbyLvAW5GBx5UlmbMNK2o94CkSwe6i4_a9tf0dHLiuvU-GzzGneZFioA0gtbsglXj9CI/exec";
 
 
 if (form) {
