@@ -2,8 +2,6 @@
    WEDDING WEBSITE SCRIPT
 ===================================================== */
 
-
-
 document.addEventListener("DOMContentLoaded", function(){
 
 
