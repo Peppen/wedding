@@ -1,23 +1,30 @@
-const SHEET_NAME = "Tabella Invitati";
+const SPREADSHEET_ID = "INSERISCI_QUI_ID_DEL_FOGLIO";
+const SHEET_NAME = "Invitati";
 
 function doPost(e) {
 
   try {
 
-    const sheet = SpreadsheetApp
-      .getActiveSpreadsheet()
-      .getSheetByName(SHEET_NAME);
+    const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+
+    const sheet = spreadsheet.getSheetByName(SHEET_NAME);
+
+    if (!sheet) {
+      throw new Error(
+        'Il foglio "' + SHEET_NAME + '" non è stato trovato.'
+      );
+    }
 
     const data = JSON.parse(e.postData.contents);
 
     sheet.appendRow([
       new Date(),
-      data.nome,
-      data.email,
-      data.presenza,
-      data.ospiti,
-      data.allergie,
-      data.messaggio
+      data.nome || "",
+      data.email || "",
+      data.presenza || "",
+      data.ospiti || "",
+      data.allergie || "",
+      data.messaggio || ""
     ]);
 
     return ContentService
@@ -26,7 +33,7 @@ function doPost(e) {
       }))
       .setMimeType(ContentService.MimeType.JSON);
 
-  } catch(err) {
+  } catch (err) {
 
     return ContentService
       .createTextOutput(JSON.stringify({
@@ -35,5 +42,4 @@ function doPost(e) {
       }))
       .setMimeType(ContentService.MimeType.JSON);
   }
-
 }
