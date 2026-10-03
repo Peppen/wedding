@@ -405,7 +405,7 @@ const successMessage = document.getElementById("success");
  */
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbyLvAW5GBx5UlmbMNK2o94CkSwe6i4_a9tf0dHLiuvU-GzzGneZFioA0gtbsglXj9CI/exec";
+"https://script.google.com/macros/s/AKfycbzq2h-vvUXjklZBHbKjoE4K3d_DNocXbrpDhpgAPnkmSoJmaeNmUnT0BjgW4QjbL7Hy/exec";
 
 
 if (form) {
